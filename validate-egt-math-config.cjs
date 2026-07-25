@@ -1,0 +1,22 @@
+const crypto=require('crypto');
+const fs=require('fs');
+const path=require('path');
+const {highConfidenceChecks,simulateMathConfiguration}=require('./egt-math-validator.cjs');
+
+const gameKey=process.argv[2],target=Number(process.argv[3]),spins=Number(process.argv[4]||100000);
+if(!gameKey||!Number.isFinite(target))throw new Error('usage: node validate-egt-math-config.cjs <gameKey> <targetRtp> [spins]');
+const profile=JSON.parse(fs.readFileSync(path.join(__dirname,'data','egt-profiles',`${gameKey}.json`),'utf8'));
+const artifact=JSON.parse(fs.readFileSync(path.join(__dirname,'data','egt-math-configs',`${gameKey}.json`),'utf8'));
+const record=artifact.configurations?.[target]||artifact.configurations?.[String(target)];
+if(!record?.config)throw new Error(`${gameKey} has no ${target}% configuration`);
+const config=structuredClone(record.config);
+config.evaluation||=(config.family==='ways'||config.family==='ways-coin'||config.family==='ways-cascade'||config.family==='buy-bonus-ways')?'ways':'paylines';
+const factor=Number(artifact.factor||profile.settings?.factor||profile.settings?.factors?.[0]||profile.settings?.lines||1);
+const simulation=simulateMathConfiguration({config,profile,factor,spins});
+const checks=highConfidenceChecks(simulation);
+const complete=artifact.artifactType==='complete-game'&&config.featureMathComplete===true&&config.runtimeProtocolReady===true&&Number.isFinite(record.math?.totalRtp);
+const body={schemaVersion:1,generatedAt:new Date().toISOString(),gameKey,targetRtp:target,configurationVersionHash:config.versionHash||null,artifactType:artifact.artifactType||null,certifiable:complete&&checks.passed,certificationGates:{completeFeatureMath:config.featureMathComplete===true,runtimeProtocolReady:config.runtimeProtocolReady===true,totalRtpPresent:Number.isFinite(record.math?.totalRtp),statisticalChecksPassed:checks.passed},simulation,checks};
+const report={...body,reportSha256:crypto.createHash('sha256').update(JSON.stringify(body)).digest('hex')};
+const directory=path.join(__dirname,'data','egt-math-reports');fs.mkdirSync(directory,{recursive:true});
+const output=path.join(directory,`${gameKey}-${target}.json`);fs.writeFileSync(output,`${JSON.stringify(report,null,2)}\n`);
+process.stdout.write(`${output}\ncertifiable=${report.certifiable} checks=${checks.passed} theoreticalRtp=${(simulation.theoreticalRtp*100).toFixed(6)}% simulatedRtp=${(simulation.simulatedRtp*100).toFixed(6)}%\n`);

@@ -1,0 +1,1931 @@
+{
+  "schemaVersion": 2,
+  "gameKey": "FSFBLSlot",
+  "generatedAt": "2026-07-24T12:20:57.978Z",
+  "captureCount": 1,
+  "capturedClientVersion": "9650",
+  "settings": {
+    "languages": [
+      "BG",
+      "EN"
+    ],
+    "gamble": {
+      "doubleUp": {
+        "maxBetLimit": 35,
+        "maxGambleAttempts": 5,
+        "maxGambleAmount": 75000
+      }
+    },
+    "jurisdiction": {
+      "metric": "both",
+      "country": "Bulgaria",
+      "lobbyHome": "fullScreen",
+      "openLobby": true,
+      "statsType": "inGame",
+      "gsHideInfo": false,
+      "lobbyStyle": "simple",
+      "restrictions": [],
+      "defaultMetric": "currency",
+      "newPopupsStyle": true,
+      "minimumSpinTime": 0,
+      "enableHyperSpins": true,
+      "lobbyDefenceCode": true,
+      "gsFinalCollection": false,
+      "hidePlayerHistory": false,
+      "enableLobbyDeposit": false,
+      "autoplayRestrictions": {
+        "extend": false,
+        "autoPlays": [
+          10,
+          20,
+          50,
+          100
+        ],
+        "mandatory": [],
+        "winLimits": 200,
+        "lossLimits": 80,
+        "maxLossAmount": false,
+        "singleWinLimit": 100,
+        "confirmationModal": false,
+        "infinityByDefault": false
+      },
+      "rouletteFavoriteMenu": true,
+      "maxProbabilityDisplay": false,
+      "endGameOnWalletTimeout": true
+    },
+    "denominations": [
+      1,
+      2,
+      5,
+      10
+    ],
+    "reconnectInterval": 10000,
+    "paytable": {
+      "0": {
+        "coef": [
+          10,
+          20,
+          100
+        ],
+        "multiplier": 1
+      },
+      "1": {
+        "coef": [
+          10,
+          20,
+          100
+        ],
+        "multiplier": 1
+      },
+      "2": {
+        "coef": [
+          10,
+          20,
+          100
+        ],
+        "multiplier": 1
+      },
+      "3": {
+        "coef": [
+          20,
+          40,
+          200
+        ],
+        "multiplier": 1
+      },
+      "4": {
+        "coef": [
+          20,
+          40,
+          200
+        ],
+        "multiplier": 1
+      },
+      "5": {
+        "coef": [
+          20,
+          80,
+          400
+        ],
+        "multiplier": 1
+      },
+      "6": {
+        "coef": [
+          40,
+          160,
+          1000
+        ],
+        "multiplier": 1
+      },
+      "7": {
+        "coef": [
+          5,
+          20,
+          100
+        ],
+        "multiplier": 1
+      }
+    },
+    "reels": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    ],
+    "linesOptions": [
+      40
+    ],
+    "bets": [
+      1,
+      2,
+      3,
+      5,
+      10
+    ],
+    "factors": [
+      50
+    ],
+    "denomination": 1,
+    "bet": 1,
+    "coinFeature": 20,
+    "initialGameMode": "NORMAL_MODE",
+    "gameModes": [
+      {
+        "gameMode": "NORMAL_MODE",
+        "factor": 50,
+        "lines": 40,
+        "supportCampaign": true,
+        "isBuyBonus": false,
+        "betIndices": [],
+        "denominationIndices": []
+      }
+    ],
+    "bellLink": {
+      "bonusCoinFeature": 50,
+      "mini": 1000,
+      "minor": 5000
+    },
+    "feature": [
+      "SG_JACKPOT",
+      "GAMBLE"
+    ],
+    "fakeReels": [
+      [
+        6,
+        6,
+        6,
+        6,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        8,
+        2,
+        2,
+        2,
+        2,
+        5,
+        5,
+        5,
+        5,
+        1,
+        1,
+        1,
+        1,
+        4,
+        4,
+        4,
+        4,
+        7,
+        3,
+        3,
+        3,
+        3,
+        8,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        5,
+        5,
+        5,
+        5,
+        1,
+        1,
+        1,
+        1,
+        8,
+        5,
+        5,
+        5,
+        5
+      ],
+      [
+        6,
+        6,
+        6,
+        6,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1,
+        5,
+        5,
+        5,
+        5,
+        8,
+        1,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        7,
+        0,
+        0,
+        0,
+        0,
+        8,
+        5,
+        5,
+        5,
+        5,
+        4,
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        8,
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        6,
+        6,
+        6,
+        6,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        5,
+        5,
+        5,
+        5,
+        8,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        7,
+        4,
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2,
+        5,
+        5,
+        5,
+        5,
+        8,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        8,
+        3,
+        3,
+        3,
+        3
+      ],
+      [
+        6,
+        6,
+        6,
+        6,
+        2,
+        2,
+        2,
+        2,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5,
+        5,
+        5,
+        2,
+        2,
+        2,
+        2,
+        8,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1,
+        5,
+        5,
+        5,
+        5,
+        7,
+        0,
+        0,
+        0,
+        0,
+        5,
+        5,
+        5,
+        5,
+        8,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        2,
+        2,
+        2,
+        5,
+        5,
+        5,
+        5,
+        8,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        6,
+        6,
+        6,
+        6,
+        1,
+        1,
+        1,
+        1,
+        4,
+        4,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2,
+        5,
+        5,
+        5,
+        5,
+        8,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3,
+        3,
+        7,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        8,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        4,
+        4,
+        4,
+        4,
+        5,
+        5,
+        5,
+        5,
+        8,
+        2,
+        2,
+        2,
+        2
+      ]
+    ],
+    "gameVersion": "1.0.0",
+    "factor": 50,
+    "lines": 40,
+    "clientSettings": {
+      "configuredRtp": "9650",
+      "branding": "",
+      "gameUI": "Turtle",
+      "enableVipUi": false
+    }
+  },
+  "loadGameShape": {
+    "game": {
+      "state": {
+        "limitOverflow": false,
+        "gambles": 0
+      }
+    },
+    "state": "idle",
+    "context": {},
+    "jackpotStats": [
+      {
+        "jackpotName": "Bell Link",
+        "miniGameKey": "",
+        "baseDenomination": 1,
+        "levelStats": [
+          {
+            "levelId": 1,
+            "currentValue": 7053904,
+            "totalWins": 32,
+            "lastWinValue": 27700414,
+            "lastWinPlayerName": "1101",
+            "lastWinDate": "2026-07-24T06:25:48.315122+03:00",
+            "maxWinValue": 36611826,
+            "maxWinPlayerName": "1101",
+            "maxWinDate": "2026-07-22T03:15:11.836+03:00",
+            "limit": 0
+          },
+          {
+            "levelId": 2,
+            "currentValue": 1239059,
+            "totalWins": 518,
+            "lastWinValue": 166508,
+            "lastWinPlayerName": "1101",
+            "lastWinDate": "2026-07-24T06:34:06.448474+03:00",
+            "maxWinValue": 4711917,
+            "maxWinPlayerName": "1101",
+            "maxWinDate": "2026-07-21T18:18:30.892+03:00",
+            "limit": 0
+          },
+          {
+            "levelId": 11,
+            "currentValue": 1250000,
+            "totalWins": 1,
+            "lastWinValue": 1250000,
+            "lastWinPlayerName": "1101",
+            "lastWinDate": "2026-07-23T01:09:52.328404+03:00",
+            "maxWinValue": 1250000,
+            "maxWinPlayerName": "1101",
+            "maxWinDate": "2026-07-23T01:09:52.328+03:00",
+            "limit": 0
+          },
+          {
+            "levelId": 12,
+            "currentValue": 100000,
+            "totalWins": 11,
+            "lastWinValue": 100000,
+            "lastWinPlayerName": "1101",
+            "lastWinDate": "2026-07-24T02:45:02.292784+03:00",
+            "maxWinValue": 100000,
+            "maxWinPlayerName": "1101",
+            "maxWinDate": "2026-07-22T05:02:37.481+03:00",
+            "limit": 0
+          }
+        ]
+      }
+    ]
+  },
+  "eventFamilies": {
+    "jpstats": [
+      {
+        "event": "jpstats",
+        "context": {},
+        "jackpotStats": [
+          {
+            "jackpotName": "Bell Link",
+            "miniGameKey": "",
+            "baseDenomination": 1,
+            "levelStats": [
+              {
+                "levelId": 1,
+                "currentValue": 7059458,
+                "totalWins": 32,
+                "lastWinValue": 27700414,
+                "lastWinPlayerName": "1101",
+                "lastWinDate": "2026-07-24T06:25:48.315122+03:00",
+                "maxWinValue": 36611826,
+                "maxWinPlayerName": "1101",
+                "maxWinDate": "2026-07-22T03:15:11.836+03:00",
+                "limit": 0
+              },
+              {
+                "levelId": 2,
+                "currentValue": 1244613,
+                "totalWins": 518,
+                "lastWinValue": 166508,
+                "lastWinPlayerName": "1101",
+                "lastWinDate": "2026-07-24T06:34:06.448474+03:00",
+                "maxWinValue": 4711917,
+                "maxWinPlayerName": "1101",
+                "maxWinDate": "2026-07-21T18:18:30.892+03:00",
+                "limit": 0
+              },
+              {
+                "levelId": 11,
+                "currentValue": 1250000,
+                "totalWins": 1,
+                "lastWinValue": 1250000,
+                "lastWinPlayerName": "1101",
+                "lastWinDate": "2026-07-23T01:09:52.328404+03:00",
+                "maxWinValue": 1250000,
+                "maxWinPlayerName": "1101",
+                "maxWinDate": "2026-07-23T01:09:52.328+03:00",
+                "limit": 0
+              },
+              {
+                "levelId": 12,
+                "currentValue": 100000,
+                "totalWins": 11,
+                "lastWinValue": 100000,
+                "lastWinPlayerName": "1101",
+                "lastWinDate": "2026-07-24T02:45:02.292784+03:00",
+                "maxWinValue": 100000,
+                "maxWinPlayerName": "1101",
+                "maxWinDate": "2026-07-22T05:02:37.481+03:00",
+                "limit": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "bet": [
+      {
+        "event": "bet",
+        "game": {
+          "state": {
+            "matchId": "880663484033930304",
+            "bet": {
+              "level": 10,
+              "factor": 50,
+              "denomination": 10,
+              "lines": 40,
+              "gameMode": "NORMAL_MODE"
+            },
+            "totalWin": "0",
+            "totalWinAmount": "0",
+            "limitOverflow": false,
+            "gambles": 0,
+            "prizes": []
+          },
+          "result": {
+            "spins": [
+              {
+                "entries": [],
+                "mutations": [],
+                "totalWinAmount": "0",
+                "reels": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    3,
+                    3
+                  ],
+                  [
+                    4,
+                    4,
+                    7,
+                    2,
+                    2,
+                    2
+                  ],
+                  [
+                    1,
+                    3,
+                    3,
+                    3,
+                    600,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    1,
+                    1,
+                    1
+                  ],
+                  [
+                    0,
+                    7,
+                    1,
+                    101,
+                    1,
+                    1
+                  ]
+                ],
+                "type": "SPIN",
+                "bonuses": [],
+                "totalWin": 0
+              }
+            ],
+            "lastWinAmount": "0",
+            "lastWin": "0"
+          }
+        },
+        "state": "idle",
+        "context": {}
+      },
+      {
+        "event": "bet",
+        "game": {
+          "state": {
+            "matchId": "880663555098022976",
+            "bet": {
+              "level": 10,
+              "factor": 50,
+              "denomination": 10,
+              "lines": 40,
+              "gameMode": "NORMAL_MODE"
+            },
+            "totalWin": "2000",
+            "totalWinAmount": "20000",
+            "limitOverflow": false,
+            "gambles": 2,
+            "gambleHistory": [],
+            "prizes": []
+          },
+          "result": {
+            "spins": [
+              {
+                "entries": [
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      2,
+                      1,
+                      2,
+                      2,
+                      2
+                    ],
+                    "coef": 10,
+                    "line": 1,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      3,
+                      1,
+                      3,
+                      2,
+                      3
+                    ],
+                    "coef": 10,
+                    "line": 3,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      1,
+                      1,
+                      2,
+                      2,
+                      3
+                    ],
+                    "coef": 10,
+                    "line": 4,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      3,
+                      1,
+                      3,
+                      2,
+                      2
+                    ],
+                    "coef": 10,
+                    "line": 7,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      2,
+                      1,
+                      3,
+                      2,
+                      3
+                    ],
+                    "coef": 10,
+                    "line": 8,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      3,
+                      1,
+                      2,
+                      2,
+                      1
+                    ],
+                    "coef": 10,
+                    "line": 11,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      2,
+                      1,
+                      3,
+                      2,
+                      2
+                    ],
+                    "coef": 10,
+                    "line": 12,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      3,
+                      1,
+                      2,
+                      2,
+                      3
+                    ],
+                    "coef": 10,
+                    "line": 15,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      1,
+                      1,
+                      2,
+                      2,
+                      1
+                    ],
+                    "coef": 10,
+                    "line": 16,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      3,
+                      1,
+                      2,
+                      2,
+                      2
+                    ],
+                    "coef": 10,
+                    "line": 19,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      2,
+                      1,
+                      2,
+                      2,
+                      1
+                    ],
+                    "coef": 10,
+                    "line": 21,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      3,
+                      1,
+                      2,
+                      2,
+                      1
+                    ],
+                    "coef": 10,
+                    "line": 23,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      1,
+                      1,
+                      2,
+                      2,
+                      2
+                    ],
+                    "coef": 10,
+                    "line": 24,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      3,
+                      1,
+                      3,
+                      2,
+                      2
+                    ],
+                    "coef": 10,
+                    "line": 27,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      2,
+                      1,
+                      2,
+                      2,
+                      3
+                    ],
+                    "coef": 10,
+                    "line": 28,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      3,
+                      1,
+                      3,
+                      2,
+                      3
+                    ],
+                    "coef": 10,
+                    "line": 31,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      2,
+                      1,
+                      3,
+                      2,
+                      3
+                    ],
+                    "coef": 10,
+                    "line": 32,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      3,
+                      1,
+                      2,
+                      2,
+                      2
+                    ],
+                    "coef": 10,
+                    "line": 35,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      2,
+                      1,
+                      3,
+                      2,
+                      2
+                    ],
+                    "coef": 10,
+                    "line": 36,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  },
+                  {
+                    "mode": "line",
+                    "symbol": 2,
+                    "winAmount": "1000",
+                    "cells": [
+                      0,
+                      3,
+                      1,
+                      2,
+                      2,
+                      1
+                    ],
+                    "coef": 10,
+                    "line": 39,
+                    "multiplier": 1,
+                    "occurs": 3,
+                    "win": 100
+                  }
+                ],
+                "mutations": [],
+                "totalWinAmount": "20000",
+                "reels": [
+                  [
+                    4,
+                    4,
+                    2,
+                    2,
+                    2,
+                    2
+                  ],
+                  [
+                    4,
+                    4,
+                    7,
+                    2,
+                    2,
+                    2
+                  ],
+                  [
+                    5,
+                    5,
+                    2,
+                    2,
+                    2,
+                    2
+                  ],
+                  [
+                    0,
+                    300,
+                    0,
+                    0,
+                    4,
+                    4
+                  ],
+                  [
+                    2,
+                    2,
+                    6,
+                    6,
+                    6,
+                    6
+                  ]
+                ],
+                "type": "SPIN",
+                "bonuses": [],
+                "totalWin": 2000
+              }
+            ],
+            "lastWinAmount": "0",
+            "lastWin": "0"
+          }
+        },
+        "state": "win",
+        "context": {}
+      },
+      {
+        "event": "bet",
+        "game": {
+          "state": {
+            "matchId": "880663614686499904",
+            "bet": {
+              "level": 10,
+              "factor": 50,
+              "denomination": 10,
+              "lines": 40,
+              "gameMode": "NORMAL_MODE"
+            },
+            "totalWin": "0",
+            "totalWinAmount": "0",
+            "limitOverflow": false,
+            "gambles": 0,
+            "prizes": []
+          },
+          "result": {
+            "spins": [
+              {
+                "entries": [],
+                "mutations": [],
+                "totalWinAmount": "0",
+                "reels": [
+                  [
+                    2,
+                    2,
+                    2,
+                    5,
+                    5,
+                    5
+                  ],
+                  [
+                    0,
+                    5,
+                    5,
+                    5,
+                    5,
+                    4
+                  ],
+                  [
+                    2,
+                    2,
+                    2,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    4,
+                    4,
+                    4,
+                    4,
+                    2
+                  ],
+                  [
+                    3,
+                    3,
+                    3,
+                    7,
+                    0,
+                    0
+                  ]
+                ],
+                "type": "SPIN",
+                "bonuses": [],
+                "totalWin": 0
+              }
+            ],
+            "lastWinAmount": "20000",
+            "lastWin": "2000"
+          }
+        },
+        "state": "idle",
+        "context": {}
+      }
+    ]
+  },
+  "outcomes": [
+    {
+      "state": "idle",
+      "totalWin": 0,
+      "sourceBet": {
+        "level": 10,
+        "denomination": 10,
+        "lines": 40,
+        "factor": 50,
+        "gameMode": "NORMAL_MODE"
+      },
+      "sourceStake": 5000,
+      "game": {
+        "state": {
+          "matchId": "880663484033930304",
+          "bet": {
+            "level": 10,
+            "factor": 50,
+            "denomination": 10,
+            "lines": 40,
+            "gameMode": "NORMAL_MODE"
+          },
+          "totalWin": "0",
+          "totalWinAmount": "0",
+          "limitOverflow": false,
+          "gambles": 0,
+          "prizes": []
+        },
+        "result": {
+          "spins": [
+            {
+              "entries": [],
+              "mutations": [],
+              "totalWinAmount": "0",
+              "reels": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4,
+                  7,
+                  2,
+                  2,
+                  2
+                ],
+                [
+                  1,
+                  3,
+                  3,
+                  3,
+                  600,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  7,
+                  1,
+                  101,
+                  1,
+                  1
+                ]
+              ],
+              "type": "SPIN",
+              "bonuses": [],
+              "totalWin": 0
+            }
+          ],
+          "lastWinAmount": "0",
+          "lastWin": "0"
+        }
+      },
+      "context": {},
+      "tags": [
+        "idle",
+        "SPIN"
+      ]
+    },
+    {
+      "state": "win",
+      "totalWin": 20000,
+      "sourceBet": {
+        "level": 10,
+        "denomination": 10,
+        "lines": 40,
+        "factor": 50,
+        "gameMode": "NORMAL_MODE"
+      },
+      "sourceStake": 5000,
+      "game": {
+        "state": {
+          "matchId": "880663555098022976",
+          "bet": {
+            "level": 10,
+            "factor": 50,
+            "denomination": 10,
+            "lines": 40,
+            "gameMode": "NORMAL_MODE"
+          },
+          "totalWin": "2000",
+          "totalWinAmount": "20000",
+          "limitOverflow": false,
+          "gambles": 2,
+          "gambleHistory": [],
+          "prizes": []
+        },
+        "result": {
+          "spins": [
+            {
+              "entries": [
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    2,
+                    1,
+                    2,
+                    2,
+                    2
+                  ],
+                  "coef": 10,
+                  "line": 1,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    3,
+                    1,
+                    3,
+                    2,
+                    3
+                  ],
+                  "coef": 10,
+                  "line": 3,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    1,
+                    1,
+                    2,
+                    2,
+                    3
+                  ],
+                  "coef": 10,
+                  "line": 4,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    3,
+                    1,
+                    3,
+                    2,
+                    2
+                  ],
+                  "coef": 10,
+                  "line": 7,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    2,
+                    1,
+                    3,
+                    2,
+                    3
+                  ],
+                  "coef": 10,
+                  "line": 8,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    3,
+                    1,
+                    2,
+                    2,
+                    1
+                  ],
+                  "coef": 10,
+                  "line": 11,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    2,
+                    1,
+                    3,
+                    2,
+                    2
+                  ],
+                  "coef": 10,
+                  "line": 12,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    3,
+                    1,
+                    2,
+                    2,
+                    3
+                  ],
+                  "coef": 10,
+                  "line": 15,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    1,
+                    1,
+                    2,
+                    2,
+                    1
+                  ],
+                  "coef": 10,
+                  "line": 16,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    3,
+                    1,
+                    2,
+                    2,
+                    2
+                  ],
+                  "coef": 10,
+                  "line": 19,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    2,
+                    1,
+                    2,
+                    2,
+                    1
+                  ],
+                  "coef": 10,
+                  "line": 21,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    3,
+                    1,
+                    2,
+                    2,
+                    1
+                  ],
+                  "coef": 10,
+                  "line": 23,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    1,
+                    1,
+                    2,
+                    2,
+                    2
+                  ],
+                  "coef": 10,
+                  "line": 24,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    3,
+                    1,
+                    3,
+                    2,
+                    2
+                  ],
+                  "coef": 10,
+                  "line": 27,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    2,
+                    1,
+                    2,
+                    2,
+                    3
+                  ],
+                  "coef": 10,
+                  "line": 28,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    3,
+                    1,
+                    3,
+                    2,
+                    3
+                  ],
+                  "coef": 10,
+                  "line": 31,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    2,
+                    1,
+                    3,
+                    2,
+                    3
+                  ],
+                  "coef": 10,
+                  "line": 32,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    3,
+                    1,
+                    2,
+                    2,
+                    2
+                  ],
+                  "coef": 10,
+                  "line": 35,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    2,
+                    1,
+                    3,
+                    2,
+                    2
+                  ],
+                  "coef": 10,
+                  "line": 36,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                },
+                {
+                  "mode": "line",
+                  "symbol": 2,
+                  "winAmount": "1000",
+                  "cells": [
+                    0,
+                    3,
+                    1,
+                    2,
+                    2,
+                    1
+                  ],
+                  "coef": 10,
+                  "line": 39,
+                  "multiplier": 1,
+                  "occurs": 3,
+                  "win": 100
+                }
+              ],
+              "mutations": [],
+              "totalWinAmount": "20000",
+              "reels": [
+                [
+                  4,
+                  4,
+                  2,
+                  2,
+                  2,
+                  2
+                ],
+                [
+                  4,
+                  4,
+                  7,
+                  2,
+                  2,
+                  2
+                ],
+                [
+                  5,
+                  5,
+                  2,
+                  2,
+                  2,
+                  2
+                ],
+                [
+                  0,
+                  300,
+                  0,
+                  0,
+                  4,
+                  4
+                ],
+                [
+                  2,
+                  2,
+                  6,
+                  6,
+                  6,
+                  6
+                ]
+              ],
+              "type": "SPIN",
+              "bonuses": [],
+              "totalWin": 2000
+            }
+          ],
+          "lastWinAmount": "0",
+          "lastWin": "0"
+        }
+      },
+      "context": {},
+      "tags": [
+        "win",
+        "SPIN"
+      ]
+    },
+    {
+      "state": "idle",
+      "totalWin": 0,
+      "sourceBet": {
+        "level": 10,
+        "denomination": 10,
+        "lines": 40,
+        "factor": 50,
+        "gameMode": "NORMAL_MODE"
+      },
+      "sourceStake": 5000,
+      "game": {
+        "state": {
+          "matchId": "880663614686499904",
+          "bet": {
+            "level": 10,
+            "factor": 50,
+            "denomination": 10,
+            "lines": 40,
+            "gameMode": "NORMAL_MODE"
+          },
+          "totalWin": "0",
+          "totalWinAmount": "0",
+          "limitOverflow": false,
+          "gambles": 0,
+          "prizes": []
+        },
+        "result": {
+          "spins": [
+            {
+              "entries": [],
+              "mutations": [],
+              "totalWinAmount": "0",
+              "reels": [
+                [
+                  2,
+                  2,
+                  2,
+                  5,
+                  5,
+                  5
+                ],
+                [
+                  0,
+                  5,
+                  5,
+                  5,
+                  5,
+                  4
+                ],
+                [
+                  2,
+                  2,
+                  2,
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  4,
+                  4,
+                  4,
+                  4,
+                  2
+                ],
+                [
+                  3,
+                  3,
+                  3,
+                  7,
+                  0,
+                  0
+                ]
+              ],
+              "type": "SPIN",
+              "bonuses": [],
+              "totalWin": 0
+            }
+          ],
+          "lastWinAmount": "20000",
+          "lastWin": "2000"
+        }
+      },
+      "context": {},
+      "tags": [
+        "idle",
+        "SPIN"
+      ]
+    }
+  ],
+  "coverage": {
+    "events": {
+      "jpstats": 1,
+      "bet": 3
+    },
+    "states": [
+      "idle",
+      "win"
+    ],
+    "tags": [
+      "idle",
+      "SPIN",
+      "win"
+    ],
+    "outcomeSource": "captured",
+    "reconnectConnections": 0
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "generatedAt": "2026-07-24T13:16:56.019Z",
+  "baseTitles": 133,
+  "baseOperational": 133,
+  "featureResults": [
+    {
+      "gameKey": "ALGKLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "ARSlot",
+      "state": "freespin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "BCBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "BDBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "BLBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "BORJWSlot",
+      "state": "freespin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "BSBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "FBHBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "FDHBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "FHBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "FHEBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "FLKBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "FRLKEBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "FSCBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "FSFBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "FSHBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "FSHSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "FZWBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "GAGKLSlot",
+      "state": "freespin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "GAGKLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "HFTTSlot",
+      "state": "freespin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "ODJWSlot",
+      "state": "freespin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "OGGKLSlot",
+      "state": "freespin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "OGGKLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "RORGKLSlot",
+      "state": "freespin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "RORGKLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "SACBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "SXSFSSlot",
+      "state": "freespin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "TSFBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "TSHBLSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    },
+    {
+      "gameKey": "TSHSlot",
+      "state": "holdspin",
+      "bets": 1,
+      "errors": []
+    }
+  ],
+  "reconnectResults": [
+    {
+      "gameKey": "TSHSASlot",
+      "connections": 2,
+      "restored": true,
+      "state": "win",
+      "errors": []
+    },
+    {
+      "gameKey": "ARSlot",
+      "connections": 2,
+      "restored": true,
+      "state": "freespin",
+      "errors": []
+    }
+  ]
+}

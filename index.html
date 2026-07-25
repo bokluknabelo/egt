@@ -1,0 +1,3019 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>EGT Account Arcade</title>
+    <style>
+      :root {
+        --bg: #08090d;
+        --panel: #12141b;
+        --panel2: #181a23;
+        --line: #2b2e39;
+        --muted: #9297a8;
+        --text: #f6f7fa;
+        --red: #ed1745;
+        --green: #38d894;
+        --gold: #ffc857;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 90% 0, #381020, transparent 32rem),
+          radial-gradient(circle at 0 55%, #102a38, transparent 30rem),
+          var(--bg);
+        font:
+          14px/1.5 Inter,
+          system-ui,
+          sans-serif;
+      }
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      .hidden,
+      [hidden] {
+        display: none !important;
+      }
+      .auth {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+      }
+      .authCard {
+        width: min(440px, 100%);
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: #11131bcc;
+        box-shadow: 0 30px 90px #000a;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 19px;
+        font-weight: 850;
+      }
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 43px;
+        height: 43px;
+        border-radius: 13px;
+        background: linear-gradient(145deg, #ff4567, #a70022);
+        box-shadow: 0 10px 30px #ed174555;
+      }
+      .mark:after {
+        content: "◆";
+        font-size: 17px;
+      }
+      .auth h1 {
+        margin: 30px 0 7px;
+        font-size: 38px;
+        line-height: 1;
+        letter-spacing: -0.045em;
+      }
+      .auth p {
+        margin: 0 0 22px;
+        color: var(--muted);
+      }
+      label {
+        display: block;
+        margin: 13px 0 6px;
+        color: #c6cad4;
+        font-size: 11px;
+        font-weight: 750;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 11px 12px;
+        color: white;
+        background: #0b0c11;
+        border: 1px solid #30333e;
+        border-radius: 11px;
+        outline: none;
+      }
+      input:focus,
+      select:focus {
+        border-color: #ed3154;
+        box-shadow: 0 0 0 3px #ed315422;
+      }
+      .primary,
+      .soft,
+      .danger {
+        padding: 10px 13px;
+        border: 0;
+        border-radius: 10px;
+        color: white;
+        font-weight: 750;
+      }
+      .primary {
+        width: 100%;
+        margin-top: 18px;
+        background: linear-gradient(135deg, #fa3158, #c30730);
+      }
+      .soft {
+        background: #242731;
+        border: 1px solid #353946;
+      }
+      .danger {
+        background: #38151d;
+        border: 1px solid #73263a;
+        color: #ff8399;
+      }
+      .message {
+        min-height: 20px;
+        margin-top: 11px;
+        color: #ff7c94;
+        font-size: 12px;
+      }
+      .shell {
+        width: min(1550px, 100%);
+        margin: auto;
+        padding: 22px clamp(14px, 3vw, 40px) 40px;
+      }
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 22px;
+      }
+      .account {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .accountText {
+        text-align: right;
+      }
+      .accountText strong,
+      .accountText small {
+        display: block;
+      }
+      .accountText small {
+        color: var(--muted);
+      }
+      .workspace {
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
+        gap: 18px;
+      }
+      .side {
+        position: sticky;
+        top: 18px;
+        padding: 17px;
+        border: 1px solid var(--line);
+        border-radius: 19px;
+        background: #11131acc;
+        height: max-content;
+      }
+      .balanceCard {
+        margin: 16px 0;
+        padding: 18px;
+        border-radius: 16px;
+        background: linear-gradient(145deg, #2a1520, #151721);
+        border: 1px solid #3b2a33;
+      }
+      .balanceCard small {
+        color: #b7bbc7;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 10px;
+      }
+      .balance {
+        display: block;
+        margin-top: 5px;
+        font-size: 33px;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+      }
+      .sideActions {
+        display: grid;
+        gap: 8px;
+      }
+      .sideActions button {
+        width: 100%;
+      }
+      .main {
+        min-width: 0;
+      }
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(32px, 5vw, 60px);
+        line-height: 1;
+        letter-spacing: -0.05em;
+      }
+      .hero p {
+        margin: 8px 0 0;
+        color: var(--muted);
+      }
+      .search {
+        width: min(330px, 100%);
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(300px, 430px) minmax(0, 1fr);
+        gap: 18px;
+        align-items: start;
+      }
+      .library {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        max-height: 720px;
+        overflow: auto;
+      }
+      .game {
+        position: relative;
+        min-height: 124px;
+        padding: 16px;
+        text-align: left;
+        color: white;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        background: linear-gradient(145deg, var(--tone), #111218 72%);
+      }
+      .game:after {
+        content: "";
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        right: -30px;
+        top: -35px;
+        border-radius: 50%;
+        background: var(--accent);
+        filter: blur(9px);
+        opacity: 0.28;
+      }
+      .game.active {
+        border-color: var(--accent);
+        box-shadow: inset 0 0 0 1px var(--accent);
+      }
+      .game small,
+      .game strong {
+        position: relative;
+        z-index: 1;
+        display: block;
+      }
+      .game small {
+        margin-bottom: 26px;
+        color: #b8bdca;
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .player {
+        position: sticky;
+        top: 18px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: #0d0f14;
+        box-shadow: 0 25px 75px #0009;
+      }
+      .playerbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 13px 15px;
+        border-bottom: 1px solid var(--line);
+      }
+      .now small,
+      .now strong {
+        display: block;
+      }
+      .now small {
+        color: var(--muted);
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .stage {
+        position: relative;
+        min-height: 410px;
+        aspect-ratio: 16/9;
+      }
+      .stage iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      .placeholder {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        color: var(--muted);
+      }
+      .adminOverlay {
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        padding: 20px;
+        background: #05060bd9;
+        overflow: auto;
+      }
+      .adminPanel {
+        width: min(1050px, 100%);
+        margin: auto;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: #11131a;
+        box-shadow: 0 30px 100px #000;
+      }
+      .adminHead {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--line);
+      }
+      .adminGrid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        padding: 16px;
+      }
+      .box {
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 15px;
+        background: #0d0f14;
+      }
+      .box h3 {
+        margin: 0 0 12px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+      .member {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 110px 110px;
+        gap: 8px;
+        align-items: end;
+        padding: 10px 0;
+        border-bottom: 1px solid #242731;
+      }
+      .member:last-child {
+        border: 0;
+      }
+      .member strong,
+      .member small {
+        display: block;
+      }
+      .member small {
+        color: var(--muted);
+      }
+      .audit {
+        max-height: 270px;
+        overflow: auto;
+      }
+      .event {
+        padding: 8px 0;
+        border-bottom: 1px solid #242731;
+        font-size: 12px;
+      }
+      .event small {
+        display: block;
+        color: var(--muted);
+      }
+      .warning {
+        color: #ffb2c0;
+        font-size: 11px;
+      }
+      .adminMsg {
+        padding: 0 18px 16px;
+        color: #ff8298;
+      }
+      .emptyState {
+        padding: 60px 20px;
+        text-align: center;
+        color: var(--muted);
+      }
+      @media (max-width: 1050px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .player {
+          position: static;
+        }
+        .library {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          max-height: 450px;
+        }
+      }
+      @media (max-width: 760px) {
+        .workspace {
+          grid-template-columns: 1fr;
+        }
+        .side {
+          position: static;
+        }
+        .adminGrid {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          align-items: start;
+          flex-direction: column;
+        }
+        .library {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .stage {
+          min-height: 320px;
+        }
+        .accountText {
+          display: none;
+        }
+      }
+      @media (max-width: 480px) {
+        .member {
+          grid-template-columns: 1fr 1fr;
+        }
+        .member > div:first-child {
+          grid-column: 1/-1;
+        }
+        .row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <style>
+      .categories {
+        display: flex;
+        gap: 7px;
+        overflow: auto;
+        margin: 0 0 15px;
+        padding-bottom: 2px;
+      }
+      .category {
+        width: auto;
+        padding: 7px 11px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: #c8ccd7;
+        background: #171922;
+        white-space: nowrap;
+      }
+      .category.active {
+        color: white;
+        border-color: #ed3154;
+        background: #35131d;
+      }
+      .setting {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        padding: 9px 0;
+        border-bottom: 1px solid #242731;
+      }
+      .setting input {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--red);
+      }
+      .setting select,
+      .setting input[type="number"] {
+        width: 130px;
+      }
+      .systemAudit {
+        max-height: 260px;
+        overflow: auto;
+      }
+      .confirmOverlay {
+        position: fixed;
+        inset: 0;
+        z-index: 40;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background: #05060be8;
+      }
+      .confirmCard {
+        width: min(420px, 100%);
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: #11131a;
+        box-shadow: 0 30px 100px #000;
+      }
+      .confirmCard h2 {
+        margin: 0 0 7px;
+      }
+      .confirmCard p {
+        margin: 0 0 15px;
+        color: var(--muted);
+      }
+      .confirmActions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+        margin-top: 14px;
+      }
+      .confirmActions .primary {
+        margin: 0;
+      }
+      .confirmError {
+        min-height: 20px;
+        margin-top: 9px;
+        color: #ff8298;
+        font-size: 12px;
+      }
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .library {
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        max-height: none;
+      }
+      .familySection {
+        grid-column: 1 / -1;
+        min-width: 0;
+        padding: 12px;
+        border: 1px solid #806a24;
+        border-radius: 10px;
+        background: #020a04b8;
+      }
+      .familyHead {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 0 0 10px;
+        padding: 0 2px 9px;
+        border-bottom: 1px solid #806a2466;
+      }
+      .familyHead strong {
+        color: #ffe364;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+      .familyHead span {
+        color: #aeb8ae;
+        font-size: 12px;
+      }
+      .familyGames {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: 12px;
+      }
+      .player {
+        display: none;
+      }
+      .languageSelect {
+        width: auto;
+        min-width: 72px;
+        padding: 8px;
+      }
+      .ledgerTools {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 9px;
+      }
+      .ledgerTools .soft {
+        width: auto;
+        text-decoration: none;
+      }
+      .ledger {
+        max-height: 330px;
+        overflow: auto;
+      }
+      .transaction {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 5px;
+        padding: 9px 0;
+        border-bottom: 1px solid #242731;
+      }
+      .transaction small {
+        display: block;
+        color: var(--muted);
+      }
+      .transaction .positive {
+        color: #55dfa0;
+      }
+      .transaction .negative {
+        color: #ff8298;
+      }
+      .monitorGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .metric {
+        padding: 9px;
+        border-radius: 9px;
+        background: #171922;
+      }
+      .metric strong,
+      .metric small {
+        display: block;
+      }
+      .metric small {
+        color: var(--muted);
+      }
+      .monitorErrors {
+        max-height: 180px;
+        overflow: auto;
+      }
+      .game small,
+      .game strong {
+        z-index: 2;
+        text-shadow: 0 2px 7px #000;
+      }
+      .gameIcon {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+      }
+      .game.hasIcon:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(180deg, #05060a42, #05060ad9);
+      }
+    </style>
+    <style id="cabinet-theme">
+      :root {
+        --bg: #020603;
+        --panel: #07150b;
+        --panel2: #0b2010;
+        --line: #927018;
+        --muted: #b9c7b9;
+        --text: #fff;
+        --red: #ed173b;
+        --green: #51bf00;
+        --gold: #ffd83d;
+      }
+      body {
+        background: radial-gradient(
+          circle at 50% 22%,
+          #124c1b 0,
+          #08230d 28rem,
+          #020603 62rem
+        );
+        font-family:
+          Arial Black,
+          Inter,
+          system-ui,
+          sans-serif;
+      }
+      body:before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.14;
+        background:
+          repeating-linear-gradient(90deg, transparent 0 10px, #3fff3212 11px),
+          linear-gradient(180deg, #000 0 7rem, transparent 16rem);
+      }
+      .shell {
+        width: min(1480px, 100%);
+        padding: 0 clamp(10px, 2.5vw, 34px) 110px;
+      }
+      .top {
+        min-height: 82px;
+        margin: 0;
+        padding: 15px 4px;
+        border-bottom: 2px solid #a78116;
+        background: #020402e8;
+      }
+      .logo {
+        font-size: clamp(18px, 2.4vw, 30px);
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        text-shadow:
+          0 2px #6e0000,
+          0 0 16px #ffd83d66;
+      }
+      .mark {
+        width: 54px;
+        height: 54px;
+        border: 2px solid #ffe36e;
+        border-radius: 50%;
+        color: #351b00;
+        background: radial-gradient(
+          circle at 35% 30%,
+          #fff4a3,
+          #ffc400 42%,
+          #b34900 78%
+        );
+        box-shadow: 0 0 22px #ffd43188;
+      }
+      .mark:after {
+        content: "◆";
+        font-size: 22px;
+      }
+      .cabinetMarquee {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 14px 0 18px;
+      }
+      .jackpotTile {
+        min-width: 0;
+        padding: 8px 12px;
+        border: 2px solid var(--jackpot);
+        border-radius: 8px;
+        background: #030704;
+        box-shadow:
+          inset 0 0 18px color-mix(in srgb, var(--jackpot) 24%, transparent),
+          0 0 10px #000;
+        color: white;
+        text-align: center;
+      }
+      .jackpotTile span,
+      .jackpotTile strong {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .jackpotTile span {
+        color: var(--jackpot);
+        font-size: clamp(12px, 2vw, 22px);
+        line-height: 1;
+        text-shadow: 0 2px #000;
+      }
+      .jackpotTile strong {
+        margin-top: 5px;
+        font:
+          800 clamp(10px, 1.2vw, 15px) / 1.1 Inter,
+          sans-serif;
+        letter-spacing: 0.08em;
+      }
+      .workspace {
+        grid-template-columns: 270px minmax(0, 1fr);
+        gap: 18px;
+      }
+      .side {
+        top: 12px;
+        border: 2px solid #a97f17;
+        border-radius: 8px;
+        background: linear-gradient(180deg, #102d14, #061208);
+        box-shadow:
+          inset 0 0 30px #0008,
+          0 10px 28px #0008;
+      }
+      label {
+        color: #f4db79;
+      }
+      .side label {
+        text-align: center;
+      }
+      .side select {
+        border-color: #7a641f;
+        background: #020603;
+      }
+      .balanceCard {
+        margin: 16px -8px 0;
+        padding: 18px 10px;
+        text-align: center;
+        border: 0;
+        border-top: 2px solid #ae8a1e;
+        border-radius: 0;
+        background: #030703;
+      }
+      .balanceCard small {
+        color: white;
+      }
+      .balance {
+        font-size: clamp(38px, 5vw, 64px);
+        line-height: 1;
+        color: #fff;
+        text-shadow: 0 3px #000;
+      }
+      .balanceCard #balanceCurrency {
+        display: block;
+        color: var(--gold);
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      .hero {
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .hero h1 {
+        color: #f6d841;
+        font-size: clamp(34px, 5vw, 70px);
+        text-transform: uppercase;
+        letter-spacing: -0.035em;
+        text-shadow:
+          0 3px #7e2800,
+          0 0 15px #ffcf2255;
+      }
+      .hero p {
+        color: #e5ece5;
+      }
+      .search {
+        border: 2px solid #9c7b1d;
+        background: #020603;
+        border-radius: 999px;
+      }
+      .categories {
+        gap: 9px;
+        margin-bottom: 16px;
+      }
+      .category {
+        min-width: 82px;
+        padding: 12px 16px;
+        border: 2px solid #4b4e4b;
+        border-radius: 10px;
+        color: #fff;
+        background: linear-gradient(#555, #181a18);
+        box-shadow: inset 0 2px #ffffff33;
+        font-weight: 900;
+      }
+      .category.active {
+        color: #fff;
+        border-color: #9bdb21;
+        background: linear-gradient(#6bc908, #286600);
+        box-shadow:
+          0 0 14px #67d00055,
+          inset 0 2px #d8ff8d;
+      }
+      .library {
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: 12px;
+      }
+      .game {
+        min-height: 190px;
+        padding: 14px;
+        border: 3px solid #c8a529;
+        border-radius: 5px;
+        background: #061108;
+        box-shadow:
+          inset 0 0 0 2px #3d2a00,
+          0 6px 18px #0009;
+        transition:
+          transform 0.16s,
+          border-color 0.16s;
+      }
+      .game:hover,
+      .game:focus-visible {
+        transform: translateY(-3px);
+        border-color: #fff06b;
+      }
+      .game:after {
+        display: none;
+      }
+      .game.hasIcon:before {
+        background: linear-gradient(180deg, #0000 30%, #020603ee 90%);
+      }
+      .game small {
+        margin-bottom: 100px;
+        color: #ffe364;
+      }
+      .game strong {
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+      .gameIcon {
+        object-position: center;
+      }
+      .soft {
+        border: 1px solid #9a7d25;
+        background: linear-gradient(#3c463c, #101510);
+      }
+      .primary {
+        background: linear-gradient(#69d40a, #245d00);
+        border: 1px solid #a9ff43;
+      }
+      .adminPanel,
+      .box,
+      .confirmCard {
+        background: #07140a;
+        border-color: #7d661c;
+      }
+      .adminHead {
+        border-color: #7d661c;
+      }
+      .cabinetDock {
+        display: none;
+      }
+      @media (max-width: 760px) {
+        body {
+          background: linear-gradient(
+            #000 0 92px,
+            #0b3b12 240px,
+            #041107 72%,
+            #000
+          );
+        }
+        .shell {
+          padding: 0 0 92px;
+        }
+        .top {
+          min-height: 92px;
+          padding: 12px 14px;
+        }
+        .top .logo {
+          font-size: 17px;
+        }
+        .top .mark {
+          width: 44px;
+          height: 44px;
+        }
+        .accountText {
+          display: block;
+          max-width: 96px;
+        }
+        .accountText strong {
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .accountText small {
+          display: none;
+        }
+        .languageSelect {
+          display: none;
+        }
+        .account {
+          gap: 6px;
+        }
+        .account .soft {
+          padding: 8px;
+          font-size: 11px;
+        }
+        .cabinetMarquee {
+          grid-template-columns: 1fr 1fr;
+          gap: 6px;
+          padding: 8px;
+        }
+        .jackpotTile {
+          padding: 7px 5px;
+        }
+        .jackpotTile span {
+          font-size: 17px;
+        }
+        .jackpotTile strong {
+          font-size: 9px;
+        }
+        .workspace {
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+        }
+        .side {
+          position: static;
+          order: 1;
+          width: 100%;
+          padding: 10px 12px;
+          border-width: 2px 0;
+          border-radius: 0;
+        }
+        .side > label {
+          margin: 0 0 5px;
+        }
+        .balanceCard {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          align-items: end;
+          margin: 9px 0 0;
+          padding: 10px 5px 2px;
+        }
+        .balanceCard small {
+          text-align: left;
+        }
+        .balance {
+          grid-row: 2;
+          font-size: 42px;
+          text-align: left;
+        }
+        .balanceCard #balanceCurrency {
+          grid-column: 2;
+          grid-row: 2;
+          color: #ffe02c;
+          font-size: 16px;
+          padding-bottom: 5px;
+        }
+        .main {
+          order: 2;
+          width: 100%;
+        }
+        .hero {
+          padding: 12px 10px 6px;
+          margin: 0;
+          display: block;
+        }
+        .hero h1 {
+          font-size: 34px;
+          text-align: center;
+        }
+        .hero p {
+          text-align: center;
+          font:
+            700 10px Inter,
+            sans-serif;
+        }
+        .search {
+          width: 100%;
+          margin-top: 10px;
+        }
+        .categories {
+          padding: 7px 9px 4px;
+          margin: 0;
+        }
+        .category {
+          min-width: 78px;
+          padding: 10px 12px;
+        }
+        .library {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 5px;
+          padding: 6px;
+        }
+        .game {
+          min-height: 205px;
+          border-width: 2px;
+        }
+        .game small {
+          margin-bottom: 120px;
+          font-size: 8px;
+        }
+        .game strong {
+          font-size: 14px;
+        }
+        .emptyState {
+          padding: 30px 15px;
+        }
+        .cabinetDock {
+          position: fixed;
+          z-index: 15;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 78px;
+          display: grid;
+          grid-template-columns: 1fr 1.45fr 1fr;
+          border-top: 2px solid #97761b;
+          background: #020402;
+          box-shadow: 0 -8px 24px #000;
+        }
+        .dockButton {
+          display: grid;
+          place-items: center;
+          border: 0;
+          color: white;
+          background: transparent;
+          font-weight: 900;
+          text-transform: uppercase;
+        }
+        .dockButton span {
+          display: block;
+          font-size: 26px;
+          line-height: 1;
+        }
+        .dockButton small {
+          font-size: 9px;
+        }
+        .dockButton.play {
+          align-self: center;
+          justify-self: center;
+          width: 106px;
+          height: 58px;
+          border: 3px solid #9ddc27;
+          border-radius: 50%;
+          background: radial-gradient(circle, #63c908, #1d5b00 70%);
+          box-shadow: 0 0 17px #64e10088;
+          font-size: 16px;
+        }
+      }
+      @media (min-width: 761px) and (max-width: 1050px) {
+        .workspace {
+          grid-template-columns: 220px minmax(0, 1fr);
+        }
+        .library {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section id="auth" class="auth">
+      <div class="authCard">
+        <div class="logo"><span class="mark"></span>EGT Account Arcade</div>
+        <div id="setupView" hidden>
+          <h1>Own your instance.</h1>
+          <p>
+            Create the first server-verified administrator and bind its initial
+            instance.
+          </p>
+          <form id="setupForm">
+            <label>One-time setup code</label
+            ><input
+              name="setupToken"
+              autocomplete="one-time-code"
+              required
+            /><label>Admin username</label
+            ><input name="username" autocomplete="username" required /><label
+              >Password</label
+            ><input
+              name="password"
+              type="password"
+              minlength="4"
+              autocomplete="new-password"
+              required
+            /><label>Instance name</label
+            ><input name="instanceName" value="Main Arcade" required /><button
+              class="primary"
+            >
+              Create secure instance
+            </button>
+          </form>
+        </div>
+        <div id="loginView" hidden>
+          <h1>Welcome back.</h1>
+          <p>Sign in to access your account-bound instances.</p>
+          <form id="loginForm">
+            <label>Username</label
+            ><input name="username" autocomplete="username" required /><label
+              >Password</label
+            ><input
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            /><button class="primary">Sign in</button>
+          </form>
+        </div>
+        <div id="authMessage" class="message"></div>
+      </div>
+    </section>
+    <main id="app" class="shell" hidden>
+      <header class="top">
+        <div class="logo"><span class="mark"></span>EGT Account Arcade</div>
+        <div class="account">
+          <div class="accountText">
+            <strong id="accountName"></strong><small id="accountRole"></small>
+          </div>
+          <button id="adminButton" class="soft" hidden>Play Config</button>
+          <button id="mainLogout" class="danger">Sign out</button>
+        </div>
+      </header>
+      <section class="workspace">
+        <aside class="side">
+          <label>Active instance</label
+          ><select id="instanceSelect"></select>
+          <div class="balanceCard">
+            <small>Your balance</small
+            ><span id="balance" class="balance">0</span><span>credits</span>
+          </div>
+        </aside>
+        <div class="main">
+          <section class="hero">
+            <div>
+              <h1>Choose your game.</h1>
+              <p id="instanceCaption">Select an instance to start.</p>
+            </div>
+            <input
+              id="search"
+              class="search"
+              placeholder="Search games…"
+              aria-label="Search games"
+            />
+          </section>
+          <div id="noInstance" class="emptyState" hidden>
+            No instance is active for this account. Ask an administrator to
+            assign and activate one.
+          </div>
+          <section id="gameArea" class="layout">
+            <div id="library" class="library"></div>
+            <article class="player">
+              <div class="playerbar">
+                <div class="now">
+                  <small>Now playing</small
+                  ><strong id="currentTitle">Select a game</strong>
+                </div>
+                <a
+                  id="newTab"
+                  class="soft"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  hidden
+                  >Open ↗</a
+                >
+              </div>
+              <div class="stage">
+                <div id="placeholder" class="placeholder">
+                  Select a game from the library.
+                </div>
+                <iframe
+                  id="player"
+                  title="Game player"
+                  allow="autoplay; fullscreen"
+                  allowfullscreen
+                  hidden
+                ></iframe>
+              </div>
+            </article>
+          </section>
+        </div>
+      </section>
+    </main>
+    <section id="adminOverlay" class="adminOverlay" hidden>
+      <div class="adminPanel">
+        <header class="adminHead">
+          <div>
+            <strong>Play Config</strong>
+            <div id="adminInstanceName"></div>
+          </div>
+          <div>
+            <button id="logout" class="danger">Sign out</button>
+            <button id="closeAdmin" class="soft">Close</button>
+          </div>
+        </header>
+        <div class="adminGrid">
+          <div id="rootTools" class="box" hidden>
+            <h3>Create account</h3>
+            <form id="accountForm">
+              <div class="row">
+                <div>
+                  <label>Username</label><input name="username" required />
+                </div>
+              </div>
+              <div class="row">
+                <div>
+                  <label>Role</label
+                  ><select name="role">
+                    <option value="player">Player</option>
+                    <option value="admin">Administrator</option>
+                  </select>
+                </div>
+                <div>
+                  <label>Password</label
+                  ><input
+                    name="password"
+                    type="password"
+                    minlength="4"
+                    required
+                  />
+                </div>
+              </div>
+              <label class="check"
+                ><input name="bindToActiveInstance" type="checkbox" checked />
+                Add user to the active instance</label
+              ><label>Credits to add after creation</label
+              ><input
+                name="credits"
+                type="number"
+                min="0"
+                max="50000"
+                step="1"
+                value="0"
+              />
+              <p class="warning">
+                Optional credits require your administrator password after the
+                account is created.
+              </p>
+              <button class="primary">Create account</button>
+            </form>
+          </div>
+          <div id="instanceCreateBox" class="box">
+            <h3>Create user instance</h3>
+            <form id="instanceForm">
+              <label>Instance name</label><input name="name" required />
+              <div id="ownerField" hidden>
+                <label>Owner admin username</label
+                ><input name="ownerUsername" placeholder="Defaults to you" />
+              </div>
+              <label>Player/member username</label
+              ><input
+                name="memberUsername"
+                placeholder="Optional existing account"
+              />
+              <p class="warning">
+                New member balances begin at 0. Credits can then be added
+                securely with an administrator password.
+              </p>
+              <button class="primary">Create instance</button>
+            </form>
+          </div>
+          <div id="memberBox" class="box">
+            <h3>Add member</h3>
+            <form id="memberForm">
+              <label>Existing account username</label
+              ><input name="username" required /><button class="primary">
+                Bind account to instance
+              </button>
+            </form>
+          </div>
+          <div id="balanceBox" class="box">
+            <h3>Balance controls</h3>
+            <div id="members"></div>
+            <button id="resetBalances" class="danger">
+              Reset all balances to 0
+            </button>
+          </div>
+          <div id="clearBox" class="box">
+            <h3>Clear slate</h3>
+            <p class="warning">
+              Deletes all prior activity for this instance. Balances are
+              unchanged; use the separate reset control when required.
+            </p>
+            <button id="clearSlate" class="danger">
+              Clear instance history
+            </button>
+          </div>
+          <div id="activityBox" class="box">
+            <h3>Recent activity</h3>
+            <div id="audit" class="audit"></div>
+          </div>
+        </div>
+        <div id="adminMessage" class="adminMsg"></div>
+      </div>
+    </section>
+    <section id="passwordConfirm" class="confirmOverlay" hidden>
+      <form id="passwordConfirmForm" class="confirmCard">
+        <h2>Administrator confirmation</h2>
+        <p id="passwordConfirmText"></p>
+        <label for="adminPassword">Your password</label
+        ><input
+          id="adminPassword"
+          name="adminPassword"
+          type="password"
+          autocomplete="current-password"
+          required
+        />
+        <div id="passwordConfirmError" class="confirmError"></div>
+        <div class="confirmActions">
+          <button id="cancelPasswordConfirm" type="button" class="soft">
+            Cancel</button
+          ><button id="submitPasswordConfirm" class="primary">Confirm</button>
+        </div>
+      </form>
+    </section>
+    <script>
+      const games = [
+        // GAME_CATALOG_START
+        ["40 Super Hot Bell Link", "FSHBLSlot", "#ed173b", "#35131b"],
+        ["40 Burning Hot Bell Link", "FBHBLSlot", "#ff6a29", "#382015"],
+        ["100 Burning Power", "OHBPSlot", "#ffad21", "#342711"],
+        ["Stars & Coins Respin", "SACRSlot", "#f4c542", "#322b12"],
+        ["40 Shining Rainbow High RTP", "FRSRBHRSlot", "#b455ff", "#271637"],
+        ["81 Tumble Hot", "EITHSlot", "#ff385f", "#341421"],
+        ["Hermes Fortunes 2000", "HFTTSlot", "#53a6ff", "#13243a"],
+        ["100 Super Roll", "OHSRSlot", "#20c997", "#12312b"],
+        ["100 Super Power", "OHSPSlot", "#f47c3c", "#362016"],
+        ["Olympus Glory", "OGGKLSlot", "#76a7ff", "#182641"],
+        ["20 Burning Power", "TWBPSlot", "#ffd166", "#352a12"],
+        ["Rise of Ra 3", "RORGKLSlot", "#d89b45", "#342615"],
+        ["Glorious Alexander", "GAGKLSlot", "#9c7cff", "#221b3b"],
+        ["20 Super Hot", "TSHSASlot", "#ff4968", "#35141d"],
+        ["40 Super Hot", "FSHSlot", "#ef233c", "#371219"],
+        ["40 Burning Hot", "FBHSlot", "#ff702e", "#3a1e12"],
+        ["50 Hot Burst", "FYHBSlot", "#ff3d71", "#39131f"],
+        ["100 Dazzling Hot", "OHDHSlot", "#ffbd2e", "#372a11"],
+        ["40 Dazzling Hot", "FRDHSlot", "#f0922e", "#382313"],
+        ["40 Clover Hit", "FRCLHSlot", "#35cf87", "#123326"],
+        ["10 Dazzling Hot", "TNDHSlot", "#ffd057", "#382d13"],
+        ["Burning Eye", "BESlot", "#ff493d", "#391513"],
+        ["5 Super Fruits", "FVSFSlot", "#d65cff", "#301538"],
+        ["100 Crown Hot", "OHCHSlot", "#f5c451", "#352a13"],
+        ["10 Super Fruits", "TNSFSlot", "#a66cff", "#28183a"],
+        ["Supreme Cash", "SUCSlot", "#43d6ba", "#12342f"],
+        ["20 Super Fruits Bell Link", "TSFBLSlot", "#ec4d9a", "#361526"],
+        ["100 Super Hot 6 Reels", "OSHSSlot", "#ff5a42", "#391914"],
+        ["20 Hot Burst", "THBSlot", "hsl(188 82% 62%)", "hsl(188 48% 15%)"],
+        [
+          "100 Leprechaun Roll",
+          "OHLRSlot",
+          "hsl(221 82% 62%)",
+          "hsl(221 48% 15%)",
+        ],
+        ["10 Shining Diamond", "TSDSlot", "hsl(85 82% 62%)", "hsl(85 48% 15%)"],
+        [
+          "10 Shining Diamonds High Rtp",
+          "TSDHRSlot",
+          "hsl(115 82% 62%)",
+          "hsl(115 48% 15%)",
+        ],
+        ["10 Shining Roll", "TNSHRSlot", "hsl(31 82% 62%)", "hsl(31 48% 15%)"],
+        ["10 Shiny Hit", "TNSHSlot", "hsl(195 82% 62%)", "hsl(195 48% 15%)"],
+        ["10 Super Power", "TNSPSlot", "hsl(307 82% 62%)", "hsl(307 48% 15%)"],
+        ["10 Super Roll", "ODJWSlot", "hsl(200 82% 62%)", "hsl(200 48% 15%)"],
+        ["100 Burning Clover", "OBCSlot", "hsl(2 82% 62%)", "hsl(2 48% 15%)"],
+        [
+          "100 BURNING HOT CLOVER CHANCE",
+          "OBHSlot",
+          "hsl(117 82% 62%)",
+          "hsl(117 48% 15%)",
+        ],
+        [
+          "100 Burning Roll",
+          "OHBRSlot",
+          "hsl(151 82% 62%)",
+          "hsl(151 48% 15%)",
+        ],
+        ["100 Clover Hit", "OHCLHSlot", "hsl(116 82% 62%)", "hsl(116 48% 15%)"],
+        ["100 Crown Hit", "OHCHTSlot", "hsl(244 82% 62%)", "hsl(244 48% 15%)"],
+        [
+          "100 LUCKY HAT CLOVER CHANCE",
+          "OLHSlot",
+          "hsl(47 82% 62%)",
+          "hsl(47 48% 15%)",
+        ],
+        [
+          "100 Shining Roll",
+          "OHSHRSlot",
+          "hsl(286 82% 62%)",
+          "hsl(286 48% 15%)",
+        ],
+        ["100 Super Fruits", "OSFSlot", "hsl(312 82% 62%)", "hsl(312 48% 15%)"],
+        [
+          "100 SUPER HOT CLOVER CHANCE",
+          "OSHSlot",
+          "hsl(70 82% 62%)",
+          "hsl(70 48% 15%)",
+        ],
+        ["101", "OHJHSlot", "hsl(149 82% 62%)", "hsl(149 48% 15%)"],
+        [
+          "20 Burning Clover",
+          "TBCSlot",
+          "hsl(253 82% 62%)",
+          "hsl(253 48% 15%)",
+        ],
+        [
+          "20 Burning Hot Cash Heat",
+          "TWBHCHSlot",
+          "hsl(204 82% 62%)",
+          "hsl(204 48% 15%)",
+        ],
+        [
+          "20 BURNING HOT CLOVER CHANCE",
+          "TBHSlot",
+          "hsl(8 82% 62%)",
+          "hsl(8 48% 15%)",
+        ],
+        ["20 Burning Roll", "TWBRSlot", "hsl(255 82% 62%)", "hsl(255 48% 15%)"],
+        [
+          "20 Charming Joker",
+          "TCHJSlot",
+          "hsl(223 82% 62%)",
+          "hsl(223 48% 15%)",
+        ],
+        ["20 Clover Hit", "TWCLHSlot", "hsl(202 82% 62%)", "hsl(202 48% 15%)"],
+        ["20 Crown Hot", "TWCHSlot", "hsl(234 82% 62%)", "hsl(234 48% 15%)"],
+        ["20 Dazzling Cash", "TDCSlot", "hsl(311 82% 62%)", "hsl(311 48% 15%)"],
+        [
+          "20 DAZZLING HOT CLOVER CHANCE",
+          "TDHSlot",
+          "hsl(66 82% 62%)",
+          "hsl(66 48% 15%)",
+        ],
+        [
+          "20 Dazzling Roll",
+          "TWDRSlot",
+          "hsl(313 82% 62%)",
+          "hsl(313 48% 15%)",
+        ],
+        ["20 Joker Hit", "TWJHSlot", "hsl(257 82% 62%)", "hsl(257 48% 15%)"],
+        [
+          "20 Leprechaun Hot",
+          "TWLHSlot",
+          "hsl(315 82% 62%)",
+          "hsl(315 48% 15%)",
+        ],
+        [
+          "20 Shining Roll",
+          "TWSHRSlot",
+          "hsl(200 82% 62%)",
+          "hsl(200 48% 15%)",
+        ],
+        ["20 Shiny Hit", "TWSHSlot", "hsl(338 82% 62%)", "hsl(338 48% 15%)"],
+        ["20 Super Hot 2", "TSHSlot", "hsl(321 82% 62%)", "hsl(321 48% 15%)"],
+        [
+          "20 Super Hot Bell Link",
+          "TSHBLSlot",
+          "hsl(199 82% 62%)",
+          "hsl(199 48% 15%)",
+        ],
+        ["20 Super Power", "TWSPSlot", "hsl(90 82% 62%)", "hsl(90 48% 15%)"],
+        ["20 Super Roll", "TWSRSlot", "hsl(208 82% 62%)", "hsl(208 48% 15%)"],
+        ["27 Fruit Ways", "TFWSlot", "hsl(109 82% 62%)", "hsl(109 48% 15%)"],
+        [
+          "30 SPICY FRUITS CLOVER CHANCE",
+          "THSFSlot",
+          "hsl(187 82% 62%)",
+          "hsl(187 48% 15%)",
+        ],
+        ["30 Spinning 7s", "TSSSlot", "hsl(70 82% 62%)", "hsl(70 48% 15%)"],
+        [
+          "40 Burning Clover 6 Reels",
+          "FBCSSlot",
+          "hsl(134 82% 62%)",
+          "hsl(134 48% 15%)",
+        ],
+        [
+          "40 Burning Clover",
+          "FBCSlot",
+          "hsl(219 82% 62%)",
+          "hsl(219 48% 15%)",
+        ],
+        [
+          "40 Burning Hot 6 Reels",
+          "FBHSSlot",
+          "hsl(99 82% 62%)",
+          "hsl(99 48% 15%)",
+        ],
+        [
+          "40 Burning Power",
+          "FRBPSlot",
+          "hsl(320 82% 62%)",
+          "hsl(320 48% 15%)",
+        ],
+        ["40 Burning Roll", "FTBRSlot", "hsl(284 82% 62%)", "hsl(284 48% 15%)"],
+        [
+          "40 CHARMING JOKER CLOVER CHANCE",
+          "FCHJSlot",
+          "hsl(107 82% 62%)",
+          "hsl(107 48% 15%)",
+        ],
+        ["40 Crown Hit", "FRCHTSlot", "hsl(273 82% 62%)", "hsl(273 48% 15%)"],
+        ["40 Crown Hot", "FCHSlot", "hsl(183 82% 62%)", "hsl(183 48% 15%)"],
+        [
+          "40 Dazzling Cash",
+          "FRDCSlot",
+          "hsl(151 82% 62%)",
+          "hsl(151 48% 15%)",
+        ],
+        ["40 Joker Hit", "FRJHSlot", "hsl(80 82% 62%)", "hsl(80 48% 15%)"],
+        ["40 Joker Roll", "FRJRSlot", "hsl(310 82% 62%)", "hsl(310 48% 15%)"],
+        [
+          "40 Leprechaun Hot",
+          "FRLHSlot",
+          "hsl(138 82% 62%)",
+          "hsl(138 48% 15%)",
+        ],
+        [
+          "40 Lucky King Bell Link",
+          "FLKBLSlot",
+          "hsl(133 82% 62%)",
+          "hsl(133 48% 15%)",
+        ],
+        [
+          "40 Lucky King Extreme Bell Link",
+          "FRLKEBLSlot",
+          "hsl(226 82% 62%)",
+          "hsl(226 48% 15%)",
+        ],
+        ["40 Lucky King", "FLKSlot", "hsl(261 82% 62%)", "hsl(261 48% 15%)"],
+        [
+          "40 MEGA CLOVER CHANCE",
+          "FMCSlot",
+          "hsl(358 82% 62%)",
+          "hsl(358 48% 15%)",
+        ],
+        [
+          "40 SHINING CROWN BELL LINK",
+          "FSCBLSlot",
+          "hsl(122 82% 62%)",
+          "hsl(122 48% 15%)",
+        ],
+        [
+          "40 SHINING CROWN CLOVER CHANCE",
+          "FSCSlot",
+          "hsl(188 82% 62%)",
+          "hsl(188 48% 15%)",
+        ],
+        [
+          "40 Shining Rainbow",
+          "FRSRBSlot",
+          "hsl(323 82% 62%)",
+          "hsl(323 48% 15%)",
+        ],
+        [
+          "40 Shining Roll",
+          "FRSHRSlot",
+          "hsl(359 82% 62%)",
+          "hsl(359 48% 15%)",
+        ],
+        ["40 Shiny Hit", "FRSHSlot", "hsl(161 82% 62%)", "hsl(161 48% 15%)"],
+        [
+          "40 Super Fruits 2",
+          "FSFSlot",
+          "hsl(191 82% 62%)",
+          "hsl(191 48% 15%)",
+        ],
+        [
+          "40 Super Fruits Bell Link",
+          "FSFBLSlot",
+          "hsl(241 82% 62%)",
+          "hsl(241 48% 15%)",
+        ],
+        ["40 Super Power", "FRSPSlot", "hsl(273 82% 62%)", "hsl(273 48% 15%)"],
+        ["40 Super Roll", "FRSRSlot", "hsl(31 82% 62%)", "hsl(31 48% 15%)"],
+        [
+          "40 Zodiac Wheel Bell Link",
+          "FZWBLSlot",
+          "hsl(67 82% 62%)",
+          "hsl(67 48% 15%)",
+        ],
+        ["5 Burning Clover", "BCSlot", "hsl(311 82% 62%)", "hsl(311 48% 15%)"],
+        [
+          "5 BURNING HEART CLOVER CHANCE",
+          "FBHRSlot",
+          "hsl(220 82% 62%)",
+          "hsl(220 48% 15%)",
+        ],
+        ["5 Burning Power", "FVBPSlot", "hsl(212 82% 62%)", "hsl(212 48% 15%)"],
+        ["5 Burning Roll", "FBRSlot", "hsl(204 82% 62%)", "hsl(204 48% 15%)"],
+        ["5 Clover Hit", "FVCLHSlot", "hsl(267 82% 62%)", "hsl(267 48% 15%)"],
+        ["5 Crown Hit", "FVCHTSlot", "hsl(139 82% 62%)", "hsl(139 48% 15%)"],
+        ["5 Crown Hot", "FVCHSlot", "hsl(309 82% 62%)", "hsl(309 48% 15%)"],
+        ["5 Dazzling Cash", "FDCSlot", "hsl(277 82% 62%)", "hsl(277 48% 15%)"],
+        [
+          "5 DAZZLING HOT BELL LINK",
+          "FDHBLSlot",
+          "hsl(234 82% 62%)",
+          "hsl(234 48% 15%)",
+        ],
+        [
+          "5 DAZZLING HOT CLOVER CHANCE",
+          "FDHSlot",
+          "hsl(32 82% 62%)",
+          "hsl(32 48% 15%)",
+        ],
+        ["5 Jocker Hit", "FVJHSlot", "hsl(332 82% 62%)", "hsl(332 48% 15%)"],
+        [
+          "5 Leprechaun Roll",
+          "FVLRSlot",
+          "hsl(260 82% 62%)",
+          "hsl(260 48% 15%)",
+        ],
+        ["5 Shining Roll", "FVSHRSlot", "hsl(307 82% 62%)", "hsl(307 48% 15%)"],
+        ["5 Shiny Hit", "FVSHSlot", "hsl(53 82% 62%)", "hsl(53 48% 15%)"],
+        ["5 Super Power", "FVSPSlot", "hsl(165 82% 62%)", "hsl(165 48% 15%)"],
+        ["5 Super Roll", "FVSRSlot", "hsl(283 82% 62%)", "hsl(283 48% 15%)"],
+        ["50 Hot Blast", "FHBSlot", "hsl(154 82% 62%)", "hsl(154 48% 15%)"],
+        [
+          "5x6 Fruity Shots",
+          "FXSFSSlot",
+          "hsl(260 82% 62%)",
+          "hsl(260 48% 15%)",
+        ],
+        [
+          "Burning Hot Extreme",
+          "BHESlot",
+          "hsl(101 82% 62%)",
+          "hsl(101 48% 15%)",
+        ],
+        [
+          "FLAMING HOT BELL LINK",
+          "FHBLSlot",
+          "hsl(302 82% 62%)",
+          "hsl(302 48% 15%)",
+        ],
+        [
+          "FLAMING HOT EXTREME BELL LINK",
+          "FHEBLSlot",
+          "hsl(75 82% 62%)",
+          "hsl(75 48% 15%)",
+        ],
+        [
+          "FLAMING HOT EXTREME CLOVER CHANCE",
+          "FHESlot",
+          "hsl(151 82% 62%)",
+          "hsl(151 48% 15%)",
+        ],
+        [
+          "FLAMING HOT CLOVER CHANCE",
+          "FHSlot",
+          "hsl(80 82% 62%)",
+          "hsl(80 48% 15%)",
+        ],
+        [
+          "Sword And Crown Bell Link",
+          "SACBLSlot",
+          "hsl(283 82% 62%)",
+          "hsl(283 48% 15%)",
+        ],
+        [
+          "THE WILD GRIFFIN CLOVER CHANCE",
+          "TWGSlot",
+          "hsl(198 82% 62%)",
+          "hsl(198 48% 15%)",
+        ],
+        [
+          "7x7 Fruity Shots",
+          "SXSFSSlot",
+          "hsl(217 82% 62%)",
+          "hsl(217 48% 15%)",
+        ],
+        [
+          "81 Tumble Hot High Rtp",
+          "EITHHRSlot",
+          "hsl(296 82% 62%)",
+          "hsl(296 48% 15%)",
+        ],
+        ["9848", "UFSlot", "hsl(313 82% 62%)", "hsl(313 48% 15%)"],
+        [
+          "AMAZONS’ BATTLE CLOVER CHANCE",
+          "ABSlot",
+          "hsl(39 82% 62%)",
+          "hsl(39 48% 15%)",
+        ],
+        ["Ape Of Luck", "ALGKLSlot", "hsl(29 82% 62%)", "hsl(29 48% 15%)"],
+        ["Aztec Rush", "ARSlot", "hsl(175 82% 62%)", "hsl(175 48% 15%)"],
+        [
+          "Black Clover Bell Link",
+          "BCBLSlot",
+          "hsl(1 82% 62%)",
+          "hsl(1 48% 15%)",
+        ],
+        [
+          "Black Diamond Bell Link",
+          "BDBLSlot",
+          "hsl(2 82% 62%)",
+          "hsl(2 48% 15%)",
+        ],
+        [
+          "Black Lounge Bell Link",
+          "BLBLSlot",
+          "hsl(142 82% 62%)",
+          "hsl(142 48% 15%)",
+        ],
+        [
+          "Black Seven Bell Link",
+          "BSBLSlot",
+          "hsl(329 82% 62%)",
+          "hsl(329 48% 15%)",
+        ],
+        [
+          "Book Of Realm Jumboways",
+          "BORJWSlot",
+          "hsl(104 82% 62%)",
+          "hsl(104 48% 15%)",
+        ],
+        [
+          "BOOK OF REALM CLOVER CHANCE",
+          "BORSlot",
+          "hsl(211 82% 62%)",
+          "hsl(211 48% 15%)",
+        ],
+        ["100 Dazzling Cash", "OHDCSlot", "hsl(44 82% 62%)", "hsl(44 48% 15%)"],
+        ["100 Joker Roll", "OHJRSlot", "hsl(16 82% 62%)", "hsl(16 48% 15%)"],
+        ["100 Leprechaun Hot", "OHLHSlot", "hsl(145 82% 62%)", "hsl(145 48% 15%)"],
+        ["First Person Lightning Roulette", "EVOFPLR", "#ffd34e", "#2b2410"],
+        // GAME_CATALOG_END
+      ];
+      const categoryBar = document.createElement("div");
+      categoryBar.id = "categories";
+      categoryBar.className = "categories";
+      document.querySelector(".hero").after(categoryBar);
+      const cabinetMarquee = document.createElement("section");
+      cabinetMarquee.className = "cabinetMarquee";
+      cabinetMarquee.setAttribute("aria-label", "Arcade status");
+      cabinetMarquee.innerHTML =
+        '<div class="jackpotTile" style="--jackpot:#ef334f"><span>GRAND</span><strong>EGT ARCADE</strong></div><div class="jackpotTile" style="--jackpot:#57db43"><span>MAJOR</span><strong>SERVER VERIFIED</strong></div><div class="jackpotTile" style="--jackpot:#36a9ff"><span>MINOR</span><strong>130+ GAMES</strong></div><div class="jackpotTile" style="--jackpot:#d955ff"><span>MINI</span><strong>PLAY ANYTIME</strong></div>';
+      document.querySelector("#app .top").after(cabinetMarquee);
+      const cabinetDock = document.createElement("nav");
+      cabinetDock.className = "cabinetDock";
+      cabinetDock.setAttribute("aria-label", "Arcade navigation");
+      cabinetDock.innerHTML =
+        '<button id="dockHome" class="dockButton" type="button"><span>⌂</span><small>Home</small></button><button id="dockGames" class="dockButton play" type="button">Games</button><button id="dockMenu" class="dockButton" type="button"><span>☰</span><small>Menu</small></button>';
+      document.getElementById("app").append(cabinetDock);
+      document.querySelector(".balanceCard span:last-child").id =
+        "balanceCurrency";
+      document.head.insertAdjacentHTML(
+        "beforeend",
+        "<style>.member{grid-template-columns:minmax(0,1fr) 88px 110px 110px}.memberCurrency{width:88px}@media(max-width:600px){.member{grid-template-columns:1fr 1fr}.member>div:first-child{grid-column:1/-1}}</style>",
+      );
+      const adminInstanceSelect = document.createElement("select");
+      adminInstanceSelect.id = "adminInstanceSelect";
+      adminInstanceSelect.setAttribute("aria-label", "History for instance");
+      document.getElementById("adminInstanceName").after(adminInstanceSelect);
+      const settingsBox = document.createElement("div");
+      settingsBox.id = "settingsBox";
+      settingsBox.className = "box";
+      settingsBox.hidden = true;
+      settingsBox.innerHTML =
+        '<h3>System settings & permissions</h3><label class="setting"><span>Players can launch games</span><input id="settingPlayerLaunch" type="checkbox"></label><label class="setting"><span>Audit game launches</span><input id="settingAuditLaunch" type="checkbox"></label><label class="setting"><span>Admins can create instances</span><input id="settingAdminInstances" type="checkbox"></label><label class="setting"><span>Hide PLAY on bet-size buttons</span><input id="settingHidePlay" type="checkbox"></label><label class="setting"><span>Automatic upstream updates</span><input id="settingAutomaticUpdates" type="checkbox"></label><label class="setting"><span>Update interval (minutes)</span><input id="settingUpdateInterval" type="number" min="5" max="1440"></label><label class="setting"><span>Default language</span><select id="settingDefaultLanguage"><option value="en">English</option><option value="ro">Română</option><option value="bg">Български</option></select></label><button id="saveSettings" class="primary">Save settings</button><button id="openImporter" class="soft" style="width:100%;margin-top:9px" type="button">Open game importer · 8081 ↗</button>';
+      settingsBox
+        .querySelector("h3")
+        .insertAdjacentHTML(
+          "afterend",
+          '<div id="rtpControl"><label>Local-engine RTP (%)</label><input id="settingRtpPercent" type="number" min="0" max="100" step="0.01"><p id="rtpStatus" class="warning"></p><button id="saveRtp" class="primary" type="button">Apply local RTP</button></div>',
+        );
+      const systemAuditBox = document.createElement("div");
+      systemAuditBox.id = "systemAuditBox";
+      systemAuditBox.className = "box";
+      systemAuditBox.hidden = true;
+      systemAuditBox.innerHTML =
+        '<h3>System audit</h3><div id="systemAudit" class="systemAudit"></div>';
+      const ledgerBox = document.createElement("div");
+      ledgerBox.id = "ledgerBox";
+      ledgerBox.className = "box";
+      ledgerBox.innerHTML =
+        '<h3>Full instance history</h3><p class="warning">Opening balance, slot sessions, and every recorded wager/win in immutable chronological history.</p><div class="ledgerTools"><a id="exportLedger" class="soft">Export CSV</a></div><div id="ledger" class="ledger"><div class="emptyState">Loading full history…</div></div>';
+      const monitoringBox = document.createElement("div");
+      monitoringBox.id = "monitoringBox";
+      monitoringBox.className = "box";
+      monitoringBox.hidden = true;
+      monitoringBox.innerHTML =
+        '<h3>System monitoring</h3><div id="monitorMetrics" class="monitorGrid"></div><button id="checkUpdates" class="soft" style="width:100%">Check for updates now</button><div id="updateStatus" class="notice"></div><div id="monitorErrors" class="monitorErrors"></div>';
+      const accessBox = document.createElement("div");
+      accessBox.id = "accessBox";
+      accessBox.className = "box";
+      accessBox.innerHTML =
+        '<h3>Instance access</h3><p class="warning">Assigned users remain active until an administrator explicitly deactivates them.</p><div id="accessMembers"></div><button id="deleteInstance" class="danger" type="button">Delete this instance</button>';
+      const accountManagementBox = document.createElement("div");
+      accountManagementBox.id = "accountManagementBox";
+      accountManagementBox.className = "box";
+      accountManagementBox.hidden = true;
+      accountManagementBox.innerHTML =
+        '<h3>Delete users</h3><p class="warning">Accounts that still own instances cannot be deleted.</p><div id="managedAccounts"></div>';
+      const adminManagementBox = document.createElement("div");
+      adminManagementBox.id = "adminManagementBox";
+      adminManagementBox.className = "box";
+      adminManagementBox.hidden = true;
+      adminManagementBox.innerHTML = '<h3>Delegated administrators</h3><form id="adminCreateForm"><label>Username</label><input name="username" required><label>Password</label><input name="password" type="password" minlength="4" required><div id="newAdminPermissions"></div><button class="primary">Add administrator</button></form><div id="managedAdmins"></div>';
+      document
+        .querySelector(".adminGrid")
+        .append(
+          accessBox,
+          adminManagementBox,
+          accountManagementBox,
+          settingsBox,
+          systemAuditBox,
+          ledgerBox,
+          monitoringBox,
+        );
+      const languageSelect = document.createElement("select");
+      languageSelect.id = "languageSelect";
+      languageSelect.className = "languageSelect";
+      languageSelect.setAttribute("aria-label", "Language");
+      languageSelect.innerHTML =
+        '<option value="en">EN</option><option value="ro">RO</option><option value="bg">BG</option>';
+      document.querySelector(".account").prepend(languageSelect);
+      let state = null,
+        activeInstanceId = "",
+        activeWalletUserId = "",
+        adminInstanceId = "",
+        selectedGame = "",
+        csrf = "",
+        activeCategory = "All",
+        pendingPasswordAction = null,
+        realtime = null,
+        currentLanguage = localStorage.getItem("egt_language") || "en";
+      const el = (id) => document.getElementById(id),
+        escapeHtml = (value) =>
+          String(value ?? "").replace(
+            /[&<>"']/g,
+            (c) =>
+              ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;",
+              })[c],
+          );
+      const formatMoney = (value) =>
+        Number(value || 0).toLocaleString(currentLanguage, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
+      const newOperationId = () => {
+        if (typeof crypto.randomUUID === "function") return crypto.randomUUID();
+        const bytes = new Uint8Array(16);
+        crypto.getRandomValues(bytes);
+        bytes[6] = (bytes[6] & 15) | 64;
+        bytes[8] = (bytes[8] & 63) | 128;
+        const hex = [...bytes]
+          .map((value) => value.toString(16).padStart(2, "0"))
+          .join("");
+        return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
+      };
+      const localeText = {
+        ro: {
+          "Welcome back.": "Bine ai revenit.",
+          "Sign in to access your account-bound instances.":
+            "Autentifică-te pentru a accesa instanțele contului.",
+          Username: "Utilizator",
+          Password: "Parolă",
+          "Sign in": "Autentificare",
+          "Sign out": "Deconectare",
+          "Choose your game.": "Alege jocul.",
+          "Search games…": "Caută jocuri…",
+          "Active instance": "Instanță activă",
+          "Your balance": "Soldul tău",
+          credits: "credite",
+          "Instance administration": "Administrare instanță",
+          Close: "Închide",
+          "Create account": "Creează cont",
+          Role: "Rol",
+          "Temporary password": "Parolă temporară",
+          "Create user instance": "Creează instanță utilizator",
+          "Instance name": "Numele instanței",
+          "Owner admin username": "Administrator proprietar",
+          "Player/member username": "Utilizator/membru",
+          "Create instance at 0": "Creează instanță la 0",
+          "Add member": "Adaugă membru",
+          "Existing account username": "Utilizator existent",
+          "Bind account to instance at 0": "Atașează contul la instanță cu 0",
+          "Balance controls": "Control solduri",
+          "Add credits": "Adaugă credite",
+          "Reset all balances to 0": "Resetează toate soldurile la 0",
+          "Clear slate": "Șterge istoricul",
+          "Recent activity": "Activitate recentă",
+          "System settings & permissions": "Setări și permisiuni sistem",
+          "Players can launch games": "Jucătorii pot porni jocuri",
+          "Audit game launches": "Auditează lansările",
+          "Admins can create instances": "Administratorii pot crea instanțe",
+          "Hide PLAY on bet-size buttons": "Ascunde PLAY pe butoanele de miză",
+          "Automatic upstream updates": "Actualizări automate",
+          "Update interval (minutes)": "Interval actualizare (minute)",
+          "Default language": "Limba implicită",
+          "Save settings": "Salvează setările",
+          "Open game importer · 8081 ↗": "Deschide importatorul · 8081 ↗",
+          "System audit": "Audit sistem",
+          "Transaction ledger": "Registru tranzacții",
+          "Export CSV": "Exportă CSV",
+          "System monitoring": "Monitorizare sistem",
+          "Check for updates now": "Verifică actualizări",
+          All: "Toate",
+          Classic: "Clasice",
+          Featured: "Recomandate",
+          Adventure: "Aventură",
+          "No activity.": "Fără activitate.",
+          "No system changes.": "Fără modificări de sistem.",
+          "Administrator confirmation": "Confirmare administrator",
+          "Your password": "Parola ta",
+          Cancel: "Anulează",
+          Confirm: "Confirmă",
+        },
+        bg: {
+          "Welcome back.": "Добре дошли.",
+          "Sign in to access your account-bound instances.":
+            "Влезте, за да достъпите свързаните инстанции.",
+          Username: "Потребител",
+          Password: "Парола",
+          "Sign in": "Вход",
+          "Sign out": "Изход",
+          "Choose your game.": "Изберете игра.",
+          "Search games…": "Търсене на игри…",
+          "Active instance": "Активна инстанция",
+          "Your balance": "Вашият баланс",
+          credits: "кредити",
+          "Instance administration": "Администрация на инстанция",
+          Close: "Затвори",
+          "Create account": "Създай акаунт",
+          Role: "Роля",
+          "Temporary password": "Временна парола",
+          "Create user instance": "Създай потребителска инстанция",
+          "Instance name": "Име на инстанцията",
+          "Owner admin username": "Администратор собственик",
+          "Player/member username": "Потребител/член",
+          "Create instance at 0": "Създай инстанция с 0",
+          "Add member": "Добави член",
+          "Existing account username": "Съществуващ потребител",
+          "Bind account to instance at 0": "Свържи акаунта с баланс 0",
+          "Balance controls": "Управление на баланси",
+          "Add credits": "Добави кредити",
+          "Reset all balances to 0": "Нулирай всички баланси",
+          "Clear slate": "Изчисти историята",
+          "Recent activity": "Скорошна активност",
+          "System settings & permissions": "Системни настройки и права",
+          "Players can launch games": "Играчите могат да стартират игри",
+          "Audit game launches": "Одит на стартиранията",
+          "Admins can create instances":
+            "Администраторите могат да създават инстанции",
+          "Hide PLAY on bet-size buttons": "Скрий PLAY от бутоните за залог",
+          "Automatic upstream updates": "Автоматични актуализации",
+          "Update interval (minutes)": "Интервал за актуализация (минути)",
+          "Default language": "Език по подразбиране",
+          "Save settings": "Запази настройките",
+          "Open game importer · 8081 ↗": "Отвори импортера · 8081 ↗",
+          "System audit": "Системен одит",
+          "Transaction ledger": "Регистър на транзакциите",
+          "Export CSV": "Експорт CSV",
+          "System monitoring": "Системен мониторинг",
+          "Check for updates now": "Провери за актуализации",
+          All: "Всички",
+          Classic: "Класически",
+          Featured: "Препоръчани",
+          Adventure: "Приключения",
+          "No activity.": "Няма активност.",
+          "No system changes.": "Няма системни промени.",
+          "Administrator confirmation": "Потвърждение от администратор",
+          "Your password": "Вашата парола",
+          Cancel: "Отказ",
+          Confirm: "Потвърди",
+        },
+      };
+      delete localeText.ro["Create instance at 0"];
+      delete localeText.ro["Bind account to instance at 0"];
+      delete localeText.bg["Create instance at 0"];
+      delete localeText.bg["Bind account to instance at 0"];
+      Object.assign(localeText.ro, {
+        "Add user to the active instance":
+          "Adaugă utilizatorul la instanța activă",
+        "Credits to add after creation": "Credite de adăugat după creare",
+        "Create instance": "Creează instanța",
+        "Bind account to instance": "Atașează contul la instanță",
+      });
+      Object.assign(localeText.bg, {
+        "Add user to the active instance":
+          "Добави потребителя към активната инстанция",
+        "Credits to add after creation": "Кредити за добавяне след създаване",
+        "Create instance": "Създай инстанция",
+        "Bind account to instance": "Свържи акаунта с инстанцията",
+      });
+      const originalNodes = new WeakMap(),
+        originalPlaceholders = new WeakMap();
+      function translateText(text) {
+        return currentLanguage === "en"
+          ? text
+          : localeText[currentLanguage]?.[text] || text;
+      }
+      function applyLanguage() {
+        if (!["en", "ro", "bg"].includes(currentLanguage))
+          currentLanguage = "en";
+        document.documentElement.lang = currentLanguage;
+        el("languageSelect").value = currentLanguage;
+        const walker = document.createTreeWalker(
+          document.body,
+          NodeFilter.SHOW_TEXT,
+        );
+        let node;
+        while ((node = walker.nextNode())) {
+          if (!originalNodes.has(node)) originalNodes.set(node, node.nodeValue);
+          const original = originalNodes.get(node),
+            trimmed = original.trim();
+          if (trimmed && localeText.ro[trimmed])
+            node.nodeValue = original.replace(trimmed, translateText(trimmed));
+        }
+        document.querySelectorAll("[placeholder]").forEach((input) => {
+          if (!originalPlaceholders.has(input))
+            originalPlaceholders.set(input, input.placeholder);
+          input.placeholder = translateText(originalPlaceholders.get(input));
+        });
+      }
+      async function request(url, options = {}) {
+        const headers = {
+          "content-type": "application/json",
+          ...(options.headers || {}),
+        };
+        if (csrf && options.method && options.method !== "GET")
+          headers["x-csrf-token"] = csrf;
+        const response = await fetch(url, { ...options, headers });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || "Request failed");
+        return data;
+      }
+      function activeInstance() {
+        return state?.instances.find(
+          (instance) => instance.id === activeInstanceId,
+        );
+      }
+      function activeMember() {
+        return activeInstance()?.members.find(
+          (member) => member.userId === activeWalletUserId,
+        );
+      }
+      function managedInstances() {
+        return state?.managedInstances || [];
+      }
+      function adminInstance() {
+        return (
+          managedInstances().find(
+            (instance) => instance.id === adminInstanceId,
+          ) || managedInstances()[0]
+        );
+      }
+      function walletChoices(data = state) {
+        return (data?.instances || []).flatMap((instance) =>
+          instance.members.map((member) => ({ instance, member })),
+        );
+      }
+      function activeInstanceStorageKey(user = state?.user) {
+        return user?.id ? `egt_active_instance_${user.id}` : "";
+      }
+      function rememberActiveInstance() {
+        const key = activeInstanceStorageKey();
+        if (key && activeInstanceId)
+          localStorage.setItem(
+            key,
+            `${activeInstanceId}|${activeWalletUserId}`,
+          );
+      }
+      function canAdmin(instance) {
+        return (
+          state?.user.root ||
+          (state?.user.role === "admin" &&
+            instance?.ownerUserId === state.user.id)
+        );
+      }
+      function connectRealtime() {
+        if (realtime) return;
+        realtime = new EventSource("/api/events");
+        let timer;
+        const update = () => {
+          clearTimeout(timer);
+          timer = setTimeout(() => refresh().catch(() => {}), 100);
+        };
+        realtime.addEventListener("balance", update);
+        realtime.addEventListener("state", update);
+      }
+      function selectWallet(value, data = state) {
+        const [instanceId, userId] = String(value || "").split("|"),
+          choice =
+            walletChoices(data).find(
+              (item) =>
+                item.instance.id === instanceId &&
+                item.member.userId === userId,
+            ) || walletChoices(data)[0];
+        activeInstanceId = choice?.instance.id || "";
+        activeWalletUserId = choice?.member.userId || "";
+      }
+      async function refresh() {
+        const data = await request("/api/state");
+        state = data;
+        csrf = data.csrf;
+        if (!localStorage.getItem("egt_language"))
+          currentLanguage = data.settings.defaultLanguage || "en";
+        if (
+          !walletChoices(data).some(
+            (item) =>
+              item.instance.id === activeInstanceId &&
+              item.member.userId === activeWalletUserId,
+          )
+        ) {
+          const remembered = localStorage.getItem(
+            activeInstanceStorageKey(data.user),
+          );
+          selectWallet(remembered, data);
+        }
+        rememberActiveInstance();
+        renderApp();
+        connectRealtime();
+      }
+      function catalogGames() {
+        return state?.catalog?.length
+          ? state.catalog
+          : games.map((g) => ({
+              title: g[0],
+              key: g[1],
+              accent: g[2],
+              tone: g[3],
+              category: "Featured",
+              family: "external",
+            }));
+      }
+      const familyLabels = {
+        "classic-lines": "Classic Lines",
+        "classic-lines-coin": "Classic Lines · Coin Feature",
+        "ways-cascade": "Ways · Cascade",
+        "ways-or-cluster": "Ways / Cluster",
+        "buy-bonus-lines": "Buy Bonus · Lines",
+        "buy-bonus-ways": "Buy Bonus · Ways",
+        "bell-link": "Bell Link",
+        "gods-kings-link": "Gods & Kings Link",
+        external: "External Games",
+      };
+      const familyOrder = Object.keys(familyLabels);
+      function familyLabel(family) {
+        return familyLabels[family] || family || "Other";
+      }
+      function renderCategories() {
+        const member = activeMember();
+        el("balance").textContent = formatMoney(member?.balance || 0);
+        el("balanceCurrency").textContent =
+          member?.currency || state?.user?.currency || "RON";
+        const categories = [
+          "All",
+          ...familyOrder.filter((family) =>
+            catalogGames().some((game) => (game.family || "external") === family),
+          ),
+        ];
+        if (!categories.includes(activeCategory)) activeCategory = "All";
+        el("categories").innerHTML = categories
+          .map(
+            (category) =>
+              `<button class="category ${category === activeCategory ? "active" : ""}" data-category="${escapeHtml(category)}">${escapeHtml(category === "All" ? translateText(category) : familyLabel(category))}</button>`,
+          )
+          .join("");
+        document.querySelectorAll(".category").forEach(
+          (button) =>
+            (button.onclick = () => {
+              activeCategory = button.dataset.category;
+              renderCategories();
+              renderGames(el("search").value);
+            }),
+        );
+      }
+      function instanceUsers(instance) {
+        return instance.members
+          .filter((member) => member.userId !== instance.ownerUserId)
+          .map((member) => member.username);
+      }
+      function instanceLabel(instance) {
+        const users = instanceUsers(instance);
+        return users.length
+          ? `${instance.name} · ${users.join(", ")}`
+          : instance.name;
+      }
+      function instanceOptionLabel(instance, member) {
+        return `${instance.name} · ${member.username} (${formatMoney(member.balance)} ${member.currency || "RON"})`;
+      }
+      function renderApp() {
+        el("auth").hidden = true;
+        el("app").hidden = false;
+        el("accountName").textContent = state.user.username;
+        el("accountRole").textContent = state.user.root
+          ? "Root administrator"
+          : state.user.role;
+        el("instanceSelect").innerHTML = walletChoices()
+          .map(
+            ({ instance, member }) =>
+              `<option value="${instance.id}|${member.userId}">${escapeHtml(instanceOptionLabel(instance, member))}</option>`,
+          )
+          .join("");
+        el("instanceSelect").value =
+          `${activeInstanceId}|${activeWalletUserId}`;
+        const instance = activeInstance(),
+          member = activeMember();
+        el("balance").textContent = (member?.balance || 0).toLocaleString(
+          currentLanguage,
+        );
+        el("instanceCaption").textContent =
+          instance && member
+            ? `${instance.name} · ${member.username} · server verified`
+            : "No active instance";
+        el("noInstance").hidden = Boolean(instance && member);
+        el("gameArea").hidden = !instance || !member;
+        el("adminButton").hidden = state.user.role !== "admin";
+        renderCategories();
+        renderGames(el("search").value);
+        if (!el("adminOverlay").hidden) renderAdmin();
+        applyLanguage();
+      }
+      function renderGames(filter = "") {
+        const visible = catalogGames().filter(
+          (game) =>
+            (activeCategory === "All" || (game.family || "external") === activeCategory) &&
+            game.title.toLowerCase().includes(filter.toLowerCase()),
+        );
+        const grouped = Object.groupBy(visible, (game) => game.family || "external");
+        el("library").innerHTML = familyOrder
+          .filter((family) => grouped[family]?.length)
+          .map((family) => {
+            const cards = grouped[family].map(
+              (game, i) =>
+                `<button class="game ${game.icon ? "hasIcon " : ""}${selectedGame === game.key ? "active" : ""}" style="--accent:${game.accent};--tone:${game.tone}" data-key="${game.key}">${game.icon ? `<img class="gameIcon" src="${escapeHtml(game.icon)}" alt="" loading="lazy">` : ""}<small>${String(i + 1).padStart(2, "0")} · ${escapeHtml(familyLabel(family))}</small><strong>${escapeHtml(game.title)}</strong></button>`,
+            ).join("");
+            return `<section class="familySection" data-family="${escapeHtml(family)}"><header class="familyHead"><strong>${escapeHtml(familyLabel(family))}</strong><span>${grouped[family].length} games</span></header><div class="familyGames">${cards}</div></section>`;
+          })
+          .join("");
+        document
+          .querySelectorAll(".game")
+          .forEach(
+            (button) =>
+              (button.onclick = () =>
+                play(
+                  catalogGames().find(
+                    (game) => game.key === button.dataset.key,
+                  ),
+                )),
+          );
+      }
+      async function play(game) {
+        const instance = activeInstance(),
+          member = activeMember();
+        if (!instance || !member || !state.permissions.canLaunchGames) return;
+        selectedGame = game.key;
+        renderGames(el("search").value);
+        try {
+          const launch = await request(`/api/instances/${instance.id}/launch`, {
+            method: "POST",
+            body: JSON.stringify({
+              gameKey: game.key,
+              walletUserId: member.userId,
+            }),
+          });
+          location.assign(
+            launch.externalUrl ||
+              `/game-client/?gameKey=${encodeURIComponent(game.key)}&bridge=${encodeURIComponent(launch.bridge)}`,
+          );
+        } catch (error) {
+          alert(error.message);
+        }
+      }
+      function renderAdmin() {
+        const instance = adminInstance();
+        el("adminInstanceName").textContent = instance
+          ? instanceLabel(instance)
+          : "No managed instance";
+        el("rootTools").hidden = !state.permissions.canManageUsers;
+        const bindToggle = el("accountForm").elements.bindToActiveInstance;
+        bindToggle.disabled = !instance;
+        if (!instance) bindToggle.checked = false;
+        el("accountForm").elements.credits.disabled = !instance;
+        el("accountForm").elements.role.querySelector('option[value="admin"]').hidden = !state.permissions.canManageAdmins;
+        el("ownerField").hidden = !state.user.root;
+        el("instanceCreateBox").hidden = !state.permissions.canManageInstances;
+        el("memberBox").hidden = !instance || !state.permissions.canManageAccess;
+        el("balanceBox").hidden = !instance || !state.permissions.canManageBalances;
+        el("clearBox").hidden = !instance || !state.permissions.canManageInstances;
+        el("activityBox").hidden = !instance;
+        el("accessBox").hidden = !instance || (!state.permissions.canManageAccess && !state.permissions.canDeleteInstances);
+        el("ledgerBox").hidden = !instance || !state.permissions.canViewLedger;
+        el("settingsBox").hidden = !state.permissions.canManageSettings;
+        el("rtpControl").hidden = !state.permissions.canManageRtp;
+        el("systemAuditBox").hidden = !state.user.root;
+        el("monitoringBox").hidden = !state.permissions.canViewMonitoring;
+        el("adminManagementBox").hidden = !state.permissions.canManageAdmins;
+        el("settingPlayerLaunch").checked = state.settings.playerCanLaunchGames;
+        el("settingAuditLaunch").checked = state.settings.auditGameLaunches;
+        el("settingAdminInstances").checked =
+          state.settings.allowAdminInstanceCreation;
+        el("settingHidePlay").checked = state.settings.hidePlayLabels;
+        el("settingAutomaticUpdates").checked = state.settings.automaticUpdates;
+        el("settingUpdateInterval").value =
+          state.settings.updateIntervalMinutes;
+        el("settingDefaultLanguage").value = state.settings.defaultLanguage;
+        el("systemAudit").innerHTML = state.systemAudit?.length
+          ? state.systemAudit
+              .map(
+                (event) =>
+                  `<div class="event"><strong>${escapeHtml(event.type.replaceAll("_", " "))}</strong><small>${escapeHtml(event.actorUsername)} · ${new Date(event.at).toLocaleString(currentLanguage)}</small></div>`,
+              )
+              .join("")
+          : '<div class="emptyState">No system changes.</div>';
+        if (state.permissions.canViewMonitoring) loadMonitoring();
+        if (state.permissions.canManageAdmins) loadAdmins();
+        el("accountManagementBox").hidden = !state.permissions.canManageUsers;
+        if (state.permissions.canManageUsers) {
+          el("managedAccounts").innerHTML = state.accounts
+            .filter((user) => user.role !== "admin")
+            .map(
+              (user) =>
+                `<div class="member"><div><strong>@${escapeHtml(user.username)}</strong><small>${escapeHtml(user.role)}</small></div><button class="danger deleteUser" data-user="${user.id}" data-name="${escapeHtml(user.username)}">Delete</button></div>`,
+            )
+            .join("") || '<div class="emptyState">No deletable users.</div>';
+          document.querySelectorAll(".deleteUser").forEach(
+            (button) =>
+              (button.onclick = () => {
+                if (confirm(`Delete account @${button.dataset.name}? This cannot be undone.`))
+                  request(`/api/accounts/${button.dataset.user}`, { method: "DELETE", body: "{}" })
+                    .then(async () => { await refresh(); el("adminOverlay").hidden = false; adminMessage("Account deleted."); })
+                    .catch((error) => adminMessage(error.message, true));
+              }),
+          );
+        }
+        if (!instance) {
+          applyLanguage();
+          return;
+        }
+        el("exportLedger").href = `/api/instances/${instance.id}/ledger.csv`;
+        el("members").innerHTML = instance.members
+          .map(
+            (member) =>
+              `<div class="member"><div><strong>@${escapeHtml(member.username)}</strong><small>Instance: ${escapeHtml(instance.name)} · ${member.balance.toLocaleString(currentLanguage)} credits</small></div><input type="number" min="50" max="50000" step="1" value="50" data-amount="${member.userId}"><button class="soft addCredits" data-user="${member.userId}">Add credits</button></div>`,
+          )
+          .join("");
+        document
+          .querySelectorAll(".addCredits")
+          .forEach(
+            (button) =>
+              (button.onclick = () => addCredits(button.dataset.user)),
+          );
+        el("audit").innerHTML = instance.activity.length
+          ? instance.activity
+              .map(
+                (event) =>
+                  `<div class="event"><strong>${escapeHtml(event.type.replaceAll("_", " "))}</strong><small>${escapeHtml(event.actorUsername)} · ${new Date(event.at).toLocaleString(currentLanguage)}</small></div>`,
+              )
+              .join("")
+          : '<div class="emptyState">No activity.</div>';
+        loadLedger();
+        applyLanguage();
+      }
+      const renderAdminBase = renderAdmin;
+      renderAdmin = function () {
+        renderAdminBase();
+        const instance = adminInstance();
+        if (!instance) return;
+        const managed = instance.members.filter(
+          (member) => member.userId !== instance.ownerUserId,
+        );
+        el("accessMembers").innerHTML = managed.length
+          ? managed
+              .map(
+                (member) =>
+                  `<div class="member"><div><strong>@${escapeHtml(member.username)}</strong><small>${member.accessActive ? "Active until deactivated" : "Inactive"}${member.lastActiveAt ? ` · last activity ${new Date(member.lastActiveAt).toLocaleString(currentLanguage)}` : ""}</small></div><button class="soft accessToggle" data-user="${member.userId}" data-active="${member.accessActive ? "false" : "true"}">${member.accessActive ? "Deactivate" : "Activate"}</button></div>`,
+              )
+              .join("")
+          : '<div class="emptyState">No assigned users.</div>';
+        document.querySelectorAll(".accessToggle").forEach(
+          (button) =>
+            (button.onclick = async () => {
+              try {
+                await request(
+                  `/api/instances/${instance.id}/members/${button.dataset.user}/access`,
+                  {
+                    method: "POST",
+                    body: JSON.stringify({
+                      active: button.dataset.active === "true",
+                    }),
+                  },
+                );
+                await refresh();
+                el("adminOverlay").hidden = false;
+                adminMessage("Instance access updated.");
+              } catch (error) {
+                adminMessage(error.message, true);
+              }
+            }),
+        );
+        el("accountManagementBox").hidden = !state.permissions.canManageUsers;
+        if (state.permissions.canManageUsers)
+          el("managedAccounts").innerHTML =
+            state.accounts
+              .filter((user) => user.role !== "admin")
+              .map(
+                (user) =>
+                  `<div class="member"><div><strong>@${escapeHtml(user.username)}</strong><small>${escapeHtml(user.role)}</small></div><button class="danger deleteUser" data-user="${user.id}" data-name="${escapeHtml(user.username)}">Delete</button></div>`,
+              )
+              .join("") || '<div class="emptyState">No deletable users.</div>';
+        document.querySelectorAll(".deleteUser").forEach(
+          (button) =>
+            (button.onclick = () => {
+              if (
+                confirm(
+                  `Delete account @${button.dataset.name}? This cannot be undone.`,
+                )
+              )
+                request(`/api/accounts/${button.dataset.user}`, {
+                  method: "DELETE",
+                  body: "{}",
+                })
+                  .then(async () => {
+                    await refresh();
+                    el("adminOverlay").hidden = false;
+                    adminMessage("Account deleted.");
+                  })
+                  .catch((error) => adminMessage(error.message, true));
+            }),
+        );
+        if (!state?.user?.root) return;
+        el("settingRtpPercent").value = Number(
+          state.settings.rtpPercent ?? 100,
+        ).toFixed(2);
+        const localEngine = Boolean(state.settings.localGameEngineActive);
+        el("settingRtpPercent").readOnly = !localEngine;
+        el("saveRtp").disabled = !localEngine;
+        el("rtpStatus").textContent = localEngine
+          ? `Whole-outcome control for: ${(state.settings.localGameKeys || []).join(", ") || "no migrated titles"}. Current epoch: ${formatMoney(state.settings.rtpTotalReturned || 0)} returned from ${formatMoney(state.settings.rtpTotalWagered || 0)} wagered.`
+          : "Custom RTP requires the local game engine.";
+      };
+      async function loadLedger() {
+        const instance = adminInstance();
+        if (!instance) return;
+        instance.members.forEach((member) => {
+          const row = document
+            .querySelector(`.addCredits[data-user="${member.userId}"]`)
+            ?.closest(".member");
+          if (!row) return;
+          row.querySelector("small").textContent =
+            `@${member.username} · Instance: ${instance.name} · ${formatMoney(member.balance)} ${member.currency || "RON"}`;
+          if (row.querySelector(".memberCurrency")) return;
+          const select = document.createElement("select");
+          select.className = "memberCurrency";
+          select.setAttribute("aria-label", `Currency for ${member.username}`);
+          select.innerHTML =
+            "<option>RON</option><option>EUR</option><option>GBP</option>";
+          select.value = member.currency || "RON";
+          select.onchange = async () => {
+            try {
+              await request(
+                `/api/instances/${instance.id}/members/${member.userId}/currency`,
+                {
+                  method: "POST",
+                  body: JSON.stringify({ currency: select.value }),
+                },
+              );
+              await refresh();
+              adminMessage(
+                `${member.username} currency changed to ${select.value}.`,
+              );
+            } catch (error) {
+              select.value = member.currency || "RON";
+              adminMessage(error.message, true);
+            }
+          };
+          row.insertBefore(select, row.querySelector("[data-amount]"));
+        });
+        const selector = el("adminInstanceSelect");
+        selector.innerHTML = managedInstances()
+          .map(
+            (item) =>
+              `<option value="${item.id}">${escapeHtml(item.name)}</option>`,
+          )
+          .join("");
+        selector.value = instance.id;
+        selector.onchange = (event) => {
+          adminInstanceId = event.target.value;
+          renderAdmin();
+        };
+        try {
+          const data = await request(
+            `/api/instances/${instance.id}/ledger?limit=50000`,
+          );
+          el("ledger").innerHTML = data.entries.length
+            ? data.entries
+                .map((entry) => {
+                  const gameKey =
+                    entry.details?.gameKey ||
+                    (entry.reason.startsWith("GAME_")
+                      ? String(entry.reference || "").split(":")[0]
+                      : "");
+                  const game =
+                      gameKey &&
+                      catalogGames().find((item) => item.key === gameKey),
+                    gameName = game?.title || gameKey;
+                  const reason =
+                    entry.reason === "GAME_SESSION_OPENED"
+                      ? "Slot opened"
+                      : entry.reason === "GAME_WAGER"
+                        ? "Spin / wager"
+                        : entry.reason === "GAME_WIN"
+                          ? "Spin / win"
+                          : entry.reason === "ADMIN_CREDIT"
+                            ? "Balance loaded"
+                            : entry.reason.replaceAll("_", " ");
+                  const amount =
+                    entry.reason === "GAME_SESSION_OPENED"
+                      ? `Balance ${formatMoney(entry.balanceAfter)}`
+                      : `${entry.amount >= 0 ? "+" : ""}${formatMoney(entry.amount)}`;
+                  return `<div class="transaction"><div><strong>${escapeHtml(entry.username)} · ${escapeHtml(reason)}${gameName ? ` · ${escapeHtml(gameName)}` : ""}</strong><small>${new Date(entry.createdAt).toLocaleString(currentLanguage)} · balance ${formatMoney(entry.balanceBefore)} → ${formatMoney(entry.balanceAfter)} · operator ${escapeHtml(entry.actorUsername)}</small></div><strong class="${entry.amount > 0 ? "positive" : entry.amount < 0 ? "negative" : ""}">${escapeHtml(amount)}</strong></div>`;
+                })
+                .join("")
+            : '<div class="emptyState">No history for this instance.</div>';
+          applyLanguage();
+        } catch (error) {
+          el("ledger").innerHTML =
+            `<div class="error">${escapeHtml(error.message)}</div>`;
+        }
+      }
+      async function loadMonitoring() {
+        try {
+          const data = await request("/api/admin/monitoring");
+          const mb = Math.round((data.database.bytes / 1048576) * 10) / 10;
+          el("monitorMetrics").innerHTML =
+            `<div class="metric"><strong>${data.runtime.node}</strong><small>Node runtime</small></div><div class="metric"><strong>${mb} MB</strong><small>PostgreSQL database</small></div><div class="metric"><strong>${data.ledgerEntries}</strong><small>Ledger entries</small></div><div class="metric"><strong>${data.runtime.realtimeClients}</strong><small>Realtime clients</small></div>`;
+          el("updateStatus").textContent = data.updateChecks[0]
+            ? `Last update check: ${data.updateChecks[0].status} · ${new Date(data.updateChecks[0].createdAt).toLocaleString(currentLanguage)}`
+            : "No update checks yet.";
+          el("monitorErrors").innerHTML = data.errors.length
+            ? data.errors
+                .map(
+                  (error) =>
+                    `<div class="event"><strong>${escapeHtml(error.level.toUpperCase())} · ${escapeHtml(error.source)}</strong><small>${new Date(error.createdAt).toLocaleString(currentLanguage)} · ${escapeHtml(error.message)}</small></div>`,
+                )
+                .join("")
+            : '<div class="emptyState">No reported errors.</div>';
+        } catch (error) {
+          el("monitorErrors").textContent = error.message;
+        }
+      }
+      const adminPermissionLabels = {manageUsers:"Users",manageInstances:"Instances",manageBalances:"Balances",manageAccess:"Activation",deleteInstances:"Delete instances",viewLedger:"Ledger",manageCatalog:"Game catalog",manageSettings:"System settings",viewMonitoring:"Monitoring"};
+      function permissionChecks(permissions={},prefix="permission") { return Object.entries(adminPermissionLabels).map(([key,label])=>`<label class="check"><input type="checkbox" data-permission="${key}" ${permissions[key]?"checked":""}> ${label}</label>`).join(""); }
+      async function loadAdmins() {
+        try {
+          const data=await request("/api/admins");
+          el("newAdminPermissions").innerHTML=permissionChecks();
+          el("managedAdmins").innerHTML=data.admins.map(admin=>admin.root?`<div class="member"><div><strong>${escapeHtml(admin.username)}</strong><small>Head administrator · RTP authority</small></div></div>`:`<div class="event adminPermissionRow" data-admin="${admin.id}"><strong>${escapeHtml(admin.username)}</strong><div class="adminPermissionChecks">${permissionChecks(admin.permissions)}</div><label>New password (optional)</label><input class="adminNewPassword" type="password" minlength="4"><button class="soft saveAdminPermissions" type="button">Save permissions</button> <button class="danger removeAdmin" type="button">Remove admin</button></div>`).join("");
+          document.querySelectorAll(".saveAdminPermissions").forEach(button=>button.onclick=async()=>{const row=button.closest(".adminPermissionRow"),permissions=Object.fromEntries([...row.querySelectorAll("[data-permission]")].map(input=>[input.dataset.permission,input.checked])),password=row.querySelector(".adminNewPassword").value;try{await request(`/api/admins/${row.dataset.admin}`,{method:"POST",body:JSON.stringify({permissions,...(password?{password}:{})})});adminMessage("Administrator permissions saved.");await loadAdmins()}catch(error){adminMessage(error.message,true)}});
+          document.querySelectorAll(".removeAdmin").forEach(button=>button.onclick=async()=>{const row=button.closest(".adminPermissionRow");if(!confirm("Remove this administrator account?"))return;try{await request(`/api/admins/${row.dataset.admin}`,{method:"DELETE",body:"{}"});adminMessage("Administrator removed.");await refresh()}catch(error){adminMessage(error.message,true)}});
+        } catch(error) { adminMessage(error.message,true); }
+      }
+      function adminMessage(text, error = false) {
+        el("adminMessage").textContent = text;
+        el("adminMessage").style.color = error ? "#ff8298" : "#55dfa0";
+      }
+      async function mutate(url, body = {}) {
+        try {
+          await request(url, { method: "POST", body: JSON.stringify(body) });
+          await refresh();
+          adminMessage("Saved and verified by server.");
+        } catch (error) {
+          adminMessage(error.message, true);
+        }
+      }
+      function requestPasswordConfirmation(text, action) {
+        pendingPasswordAction = action;
+        el("passwordConfirmText").textContent = text;
+        el("passwordConfirmError").textContent = "";
+        el("adminPassword").value = "";
+        el("passwordConfirm").hidden = false;
+        setTimeout(() => el("adminPassword").focus(), 0);
+      }
+      function closePasswordConfirmation() {
+        pendingPasswordAction = null;
+        el("adminPassword").value = "";
+        el("passwordConfirmError").textContent = "";
+        el("passwordConfirm").hidden = true;
+      }
+      async function addCredits(userId) {
+        const instance = adminInstance(),
+          instanceId = instance?.id,
+          member = instance?.members.find((item) => item.userId === userId),
+          amount = Number(
+            document.querySelector(`[data-amount="${userId}"]`)?.value,
+          );
+        if (!instanceId || !member) {
+          adminMessage("Selected member is no longer available.", true);
+          return;
+        }
+        if (!Number.isInteger(amount) || amount < 50 || amount > 50000) {
+          adminMessage("Credits must be between 50 and 50,000.", true);
+          return;
+        }
+        const operationId = newOperationId();
+        requestPasswordConfirmation(
+          `Add ${amount.toLocaleString()} credits to ${member.username}? Balance: ${member.balance.toLocaleString()} → ${(member.balance + amount).toLocaleString()}.`,
+          async (adminPassword) => {
+            await request(`/api/instances/${instanceId}/credits`, {
+              method: "POST",
+              body: JSON.stringify({
+                userId: member.userId,
+                amount,
+                adminPassword,
+                operationId,
+              }),
+            });
+            await refresh();
+            adminMessage(
+              `${amount.toLocaleString()} credits added to ${member.username}. Reference: ${operationId}`,
+            );
+          },
+        );
+      }
+      async function boot() {
+        try {
+          await refresh();
+        } catch {
+          const bootstrap = await request("/api/bootstrap");
+          el("auth").hidden = false;
+          el("setupView").hidden = !bootstrap.setupRequired;
+          el("loginView").hidden = bootstrap.setupRequired;
+        }
+      }
+      el("setupForm").onsubmit = async (event) => {
+        event.preventDefault();
+        const input = Object.fromEntries(new FormData(event.target));
+        try {
+          await request("/api/setup", {
+            method: "POST",
+            body: JSON.stringify(input),
+          });
+          el("setupView").hidden = true;
+          el("loginView").hidden = false;
+          el("authMessage").textContent =
+            "Setup complete. Sign in with your new administrator account.";
+        } catch (error) {
+          el("authMessage").textContent = error.message;
+        }
+      };
+      el("loginForm").onsubmit = async (event) => {
+        event.preventDefault();
+        const input = Object.fromEntries(new FormData(event.target));
+        try {
+          const data = await request("/api/login", {
+            method: "POST",
+            body: JSON.stringify(input),
+          });
+          state = data;
+          csrf = data.csrf;
+          selectWallet(
+            localStorage.getItem(activeInstanceStorageKey(data.user)),
+            data,
+          );
+          rememberActiveInstance();
+          renderApp();
+        } catch (error) {
+          el("authMessage").textContent = error.message;
+        }
+      };
+      const signOut = async () => {
+        if (realtime) realtime.close();
+        await request("/api/logout", { method: "POST", body: "{}" });
+        state = null;
+        csrf = "";
+        location.reload();
+      };
+      el("logout").onclick = signOut;
+      el("mainLogout").onclick = signOut;
+      el("instanceSelect").onchange = (event) => {
+        selectWallet(event.target.value);
+        rememberActiveInstance();
+        selectedGame = "";
+        el("player").hidden = true;
+        el("placeholder").hidden = false;
+        renderApp();
+      };
+      el("search").oninput = (event) => renderGames(event.target.value);
+      el("adminButton").onclick = () => {
+        if (state?.user?.root) {
+          window.open("/play-config", "_blank", "noopener");
+          return;
+        }
+        requestPasswordConfirmation(
+          "Enter your administrator password to open Play Config.",
+          async (adminPassword) => {
+            await request("/api/admin/authorize", {
+              method: "POST",
+              body: JSON.stringify({ adminPassword }),
+            });
+            adminInstanceId = adminInstance()?.id || "";
+            el("adminOverlay").hidden = false;
+            renderAdmin();
+          },
+        );
+      };
+      el("closeAdmin").onclick = () => (el("adminOverlay").hidden = true);
+      el("accountForm").onsubmit = async (event) => {
+        event.preventDefault();
+        const input = Object.fromEntries(new FormData(event.target)),
+          amount = Number(input.credits || 0),
+          bind = Boolean(input.bindToActiveInstance);
+        if (
+          !Number.isInteger(amount) ||
+          amount < 0 ||
+          amount > 50000 ||
+          (amount > 0 && amount < 50)
+        ) {
+          adminMessage("Credits must be 0 or between 50 and 50,000.", true);
+          return;
+        }
+        if (amount > 0 && !bind) {
+          adminMessage(
+            "Enable “Add user to the active instance” before adding credits.",
+            true,
+          );
+          return;
+        }
+        try {
+          const created = await request("/api/accounts", {
+            method: "POST",
+            body: JSON.stringify({
+              username: input.username,
+              role: input.role,
+              password: input.password,
+            }),
+          });
+          if (bind)
+            await request(`/api/instances/${adminInstance()?.id}/members`, {
+              method: "POST",
+              body: JSON.stringify({ username: input.username }),
+            });
+          event.target.reset();
+          await refresh();
+          if (amount > 0) {
+            requestPasswordConfirmation(
+              `Add ${amount.toLocaleString()} credits to ${input.username}?`,
+              async (adminPassword) => {
+                await request(`/api/instances/${adminInstance()?.id}/credits`, {
+                  method: "POST",
+                  body: JSON.stringify({
+                    userId: created.user.id,
+                    amount,
+                    adminPassword,
+                    reference: "account-creation",
+                  }),
+                });
+                await refresh();
+                adminMessage(
+                  `Account ${input.username} created, bound to the instance, and credited ${amount.toLocaleString()}. Password authorization cleared.`,
+                );
+              },
+            );
+          } else
+            adminMessage(
+              bind
+                ? "Account created and added to the active instance with balance 0."
+                : "Account created.",
+            );
+        } catch (error) {
+          adminMessage(error.message, true);
+        }
+      };
+      el("adminCreateForm").onsubmit = async (event) => {
+        event.preventDefault();
+        const values=Object.fromEntries(new FormData(event.target)),permissions=Object.fromEntries([...el("newAdminPermissions").querySelectorAll("[data-permission]")].map(input=>[input.dataset.permission,input.checked]));
+        const submit=event.submitter||event.target.querySelector('button[type="submit"],button:not([type])');
+        if(submit)submit.disabled=true;
+        adminMessage("Adding administrator…");
+        try { await request("/api/admins",{method:"POST",body:JSON.stringify({...values,permissions})});event.target.reset();await refresh();el("adminOverlay").hidden=false;await loadAdmins();adminMessage("Administrator created and active immediately."); }
+        catch(error){adminMessage(error.message,true)}
+        finally{if(submit)submit.disabled=false}
+      };
+      el("instanceForm").onsubmit = async (event) => {
+        event.preventDefault();
+        const input = {
+          ...Object.fromEntries(new FormData(event.target)),
+          sourceInstanceId: adminInstance()?.id || "",
+        };
+        try {
+          const created = await request("/api/instances", {
+            method: "POST",
+            body: JSON.stringify(input),
+          });
+          event.target.reset();
+          await refresh();
+          adminInstanceId = created.instance.id;
+          renderApp();
+          el("adminOverlay").hidden = false;
+          renderAdmin();
+          adminMessage(
+            created.transferredBalance
+              ? `Instance created for ${input.memberUsername}. ${created.transferredBalance.toLocaleString()} credits transferred from the previous instance.`
+              : "Instance created. New balances begin at 0; credits can be added from Balance controls.",
+          );
+        } catch (error) {
+          adminMessage(error.message, true);
+        }
+      };
+      el("memberForm").onsubmit = async (event) => {
+        event.preventDefault();
+        const input = Object.fromEntries(new FormData(event.target));
+        await mutate(`/api/instances/${adminInstance()?.id}/members`, input);
+        event.target.reset();
+      };
+      el("passwordConfirmForm").onsubmit = async (event) => {
+        event.preventDefault();
+        if (!pendingPasswordAction) return;
+        const action = pendingPasswordAction,
+          password = el("adminPassword").value,
+          button = el("submitPasswordConfirm");
+        button.disabled = true;
+        try {
+          await action(password);
+          closePasswordConfirmation();
+        } catch (error) {
+          el("adminPassword").value = "";
+          el("passwordConfirmError").textContent = error.message;
+          el("adminPassword").focus();
+        } finally {
+          button.disabled = false;
+        }
+      };
+      el("cancelPasswordConfirm").onclick = closePasswordConfirmation;
+      el("resetBalances").onclick = () =>
+        requestPasswordConfirmation(
+          "Reset every member balance in this instance to 0?",
+          async (adminPassword) => {
+            await request(`/api/instances/${adminInstance()?.id}/reset-balances`, {
+              method: "POST",
+              body: JSON.stringify({ adminPassword }),
+            });
+            await refresh();
+            adminMessage(
+              "All balances reset to 0. Password authorization cleared.",
+            );
+          },
+        );
+      el("clearSlate").onclick = () => {
+        if (confirm("Permanently clear all prior activity for this instance?"))
+          mutate(`/api/instances/${adminInstance()?.id}/clear`);
+      };
+      el("deleteInstance").onclick = () =>
+        requestPasswordConfirmation(
+          `Delete instance “${adminInstance()?.name || ""}” and remove it from every user?`,
+          async (adminPassword) => {
+            const instanceId = adminInstance()?.id;
+            await request(`/api/instances/${instanceId}`, {
+              method: "DELETE",
+              body: JSON.stringify({ adminPassword }),
+            });
+            adminInstanceId = "";
+            el("adminOverlay").hidden = true;
+            await refresh();
+            adminMessage("Instance deleted.");
+          },
+        );
+      el("saveRtp").onclick = async () => {
+        try {
+          const rtpPercent = Number(el("settingRtpPercent").value);
+          if (
+            !Number.isFinite(rtpPercent) ||
+            rtpPercent < 0 ||
+            rtpPercent > 100 ||
+            Math.abs(rtpPercent * 100 - Math.round(rtpPercent * 100)) > 0.000001
+          )
+            throw new Error("RTP must be between 0.00% and 100.00%");
+          await request("/api/settings", {
+            method: "POST",
+            body: JSON.stringify({ rtpPercent }),
+          });
+          await refresh();
+          adminMessage(
+            `Local-engine RTP set to ${rtpPercent.toFixed(2)}%. New accounting epoch started.`,
+          );
+        } catch (error) {
+          adminMessage(error.message, true);
+        }
+      };
+      el("saveSettings").onclick = async () => {
+        try {
+          await request("/api/settings", {
+            method: "POST",
+            body: JSON.stringify({
+              playerCanLaunchGames: el("settingPlayerLaunch").checked,
+              auditGameLaunches: el("settingAuditLaunch").checked,
+              allowAdminInstanceCreation: el("settingAdminInstances").checked,
+              hidePlayLabels: el("settingHidePlay").checked,
+              automaticUpdates: el("settingAutomaticUpdates").checked,
+              updateIntervalMinutes: Number(el("settingUpdateInterval").value),
+              defaultLanguage: el("settingDefaultLanguage").value,
+            }),
+          });
+          await refresh();
+          adminMessage("Settings and permissions saved.");
+        } catch (error) {
+          adminMessage(error.message, true);
+        }
+      };
+      el("checkUpdates").onclick = async () => {
+        const button = el("checkUpdates");
+        button.disabled = true;
+        el("updateStatus").textContent = "Checking upstream…";
+        try {
+          const result = await request("/api/admin/check-updates", {
+            method: "POST",
+            body: "{}",
+          });
+          el("updateStatus").textContent = result.ok
+            ? result.changed
+              ? "Update detected and cache refreshed."
+              : "System is current."
+            : `Update check failed: ${result.error}`;
+          await refresh();
+        } catch (error) {
+          el("updateStatus").textContent = error.message;
+        } finally {
+          button.disabled = false;
+        }
+      };
+      el("languageSelect").onchange = (event) => {
+        currentLanguage = event.target.value;
+        localStorage.setItem("egt_language", currentLanguage);
+        renderApp();
+      };
+      el("openImporter").onclick = () => {
+        const importer = new URL(location.href);
+        importer.port = "8081";
+        importer.pathname = "/";
+        importer.search = "";
+        importer.hash = "";
+        window.open(importer.href, "_blank", "noopener");
+      };
+      el("dockHome").onclick = () => scrollTo({ top: 0, behavior: "smooth" });
+      el("dockGames").onclick = () =>
+        el("categories").scrollIntoView({ behavior: "smooth", block: "start" });
+      el("dockMenu").onclick = () => {
+        if (!el("adminButton").hidden) el("adminButton").click();
+        else el("instanceSelect").focus();
+      };
+      applyLanguage();
+      boot();
+    </script>
+  </body>
+</html>

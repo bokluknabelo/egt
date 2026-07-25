@@ -1,0 +1,1059 @@
+{
+  "schemaVersion": 2,
+  "gameKey": "RORGKLSlot",
+  "generatedAt": "2026-07-24T12:21:00.030Z",
+  "captureCount": 1,
+  "capturedClientVersion": "9627",
+  "settings": {
+    "linesPerDenomination": [
+      50,
+      50,
+      25,
+      25,
+      25
+    ],
+    "languages": [
+      "BG",
+      "EN"
+    ],
+    "freeSpinFakeReels": [
+      [
+        4,
+        1,
+        9,
+        8,
+        2,
+        5,
+        10,
+        6,
+        3,
+        7,
+        0,
+        8,
+        1,
+        11,
+        4,
+        2,
+        6,
+        9,
+        5,
+        3,
+        7,
+        12
+      ],
+      [
+        1,
+        4,
+        10,
+        6,
+        0,
+        8,
+        5,
+        7,
+        9,
+        3,
+        1,
+        4,
+        11,
+        2,
+        6,
+        3,
+        10,
+        8,
+        7,
+        5,
+        12
+      ],
+      [
+        5,
+        3,
+        6,
+        0,
+        4,
+        1,
+        7,
+        5,
+        9,
+        2,
+        4,
+        3,
+        11,
+        5,
+        6,
+        10,
+        4,
+        8,
+        2,
+        7,
+        12
+      ],
+      [
+        6,
+        0,
+        8,
+        7,
+        9,
+        4,
+        2,
+        11,
+        3,
+        5,
+        10,
+        1,
+        12
+      ],
+      [
+        0,
+        4,
+        1,
+        5,
+        2,
+        6,
+        3,
+        7,
+        0,
+        8,
+        1,
+        4,
+        2,
+        5,
+        3,
+        6,
+        0,
+        7,
+        1,
+        9,
+        2,
+        4
+      ]
+    ],
+    "gamble": {
+      "doubleUp": {
+        "maxBetLimit": 35,
+        "maxGambleAttempts": 5,
+        "maxGambleAmount": 75000
+      }
+    },
+    "jurisdiction": {
+      "metric": "both",
+      "country": "Bulgaria",
+      "lobbyHome": "fullScreen",
+      "openLobby": true,
+      "statsType": "inGame",
+      "gsHideInfo": false,
+      "lobbyStyle": "simple",
+      "restrictions": [],
+      "defaultMetric": "currency",
+      "newPopupsStyle": true,
+      "minimumSpinTime": 0,
+      "enableHyperSpins": true,
+      "lobbyDefenceCode": true,
+      "gsFinalCollection": false,
+      "hidePlayerHistory": false,
+      "enableLobbyDeposit": false,
+      "autoplayRestrictions": {
+        "extend": false,
+        "autoPlays": [
+          10,
+          20,
+          50,
+          100
+        ],
+        "mandatory": [],
+        "winLimits": 200,
+        "lossLimits": 80,
+        "maxLossAmount": false,
+        "singleWinLimit": 100,
+        "confirmationModal": false,
+        "infinityByDefault": false
+      },
+      "rouletteFavoriteMenu": true,
+      "maxProbabilityDisplay": false,
+      "endGameOnWalletTimeout": true
+    },
+    "denominations": [
+      1,
+      2,
+      5,
+      10,
+      20
+    ],
+    "reconnectInterval": 10000,
+    "paytable": {
+      "0": {
+        "coef": [
+          2,
+          5,
+          25,
+          100
+        ],
+        "multiplier": 1
+      },
+      "1": {
+        "coef": [
+          5,
+          25,
+          100
+        ],
+        "multiplier": 1
+      },
+      "2": {
+        "coef": [
+          5,
+          25,
+          100
+        ],
+        "multiplier": 1
+      },
+      "3": {
+        "coef": [
+          5,
+          25,
+          100
+        ],
+        "multiplier": 1
+      },
+      "4": {
+        "coef": [
+          10,
+          50,
+          125
+        ],
+        "multiplier": 1
+      },
+      "5": {
+        "coef": [
+          10,
+          50,
+          125
+        ],
+        "multiplier": 1
+      },
+      "6": {
+        "coef": [
+          15,
+          75,
+          250
+        ],
+        "multiplier": 1
+      },
+      "7": {
+        "coef": [
+          15,
+          75,
+          250
+        ],
+        "multiplier": 1
+      },
+      "8": {
+        "coef": [
+          20,
+          100,
+          400
+        ],
+        "multiplier": 1
+      },
+      "9": {
+        "coef": [
+          2,
+          25,
+          125,
+          750
+        ],
+        "multiplier": 1
+      },
+      "10": {
+        "coef": [
+          2,
+          25,
+          125,
+          750
+        ],
+        "multiplier": 1
+      },
+      "11": {
+        "coef": [
+          10,
+          250,
+          2500,
+          10000
+        ],
+        "multiplier": 1
+      },
+      "12": {
+        "coef": [
+          1,
+          5,
+          10,
+          100
+        ],
+        "multiplier": 1
+      }
+    },
+    "reels": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "bets": [
+      1,
+      2,
+      3,
+      5,
+      10
+    ],
+    "linesOptions": [
+      25,
+      50
+    ],
+    "factors": [
+      50,
+      25
+    ],
+    "denomination": 1,
+    "bet": 1,
+    "coinFeature": 15,
+    "initialGameMode": "NORMAL_MODE",
+    "gameModes": [
+      {
+        "gameMode": "NORMAL_MODE",
+        "factor": 25,
+        "lines": 25,
+        "supportCampaign": true,
+        "isBuyBonus": false,
+        "betIndices": [],
+        "denominationIndices": []
+      },
+      {
+        "gameMode": "NORMAL_MODE",
+        "factor": 50,
+        "lines": 50,
+        "supportCampaign": true,
+        "isBuyBonus": false,
+        "betIndices": [],
+        "denominationIndices": []
+      }
+    ],
+    "feature": [
+      "SG_JACKPOT",
+      "GAMBLE"
+    ],
+    "fakeReels": [
+      [
+        8,
+        3,
+        9,
+        4,
+        7,
+        0,
+        5,
+        6,
+        13,
+        1,
+        9,
+        0,
+        7,
+        3,
+        1,
+        8,
+        4,
+        2,
+        10,
+        3,
+        5,
+        6,
+        11,
+        2,
+        7,
+        3,
+        5,
+        0,
+        4,
+        8,
+        1,
+        0,
+        6,
+        5,
+        2,
+        0,
+        7,
+        3,
+        6,
+        4,
+        1,
+        12,
+        3,
+        2,
+        10,
+        13,
+        3,
+        0,
+        5,
+        10,
+        1,
+        8,
+        0,
+        7,
+        1,
+        12,
+        3,
+        4,
+        6,
+        2,
+        8,
+        1,
+        3,
+        9,
+        13,
+        6,
+        0,
+        10,
+        2,
+        1
+      ],
+      [
+        4,
+        1,
+        8,
+        0,
+        9,
+        3,
+        6,
+        1,
+        13,
+        2,
+        3,
+        4,
+        8,
+        2,
+        5,
+        7,
+        4,
+        1,
+        6,
+        5,
+        3,
+        11,
+        1,
+        2,
+        7,
+        3,
+        4,
+        6,
+        8,
+        5,
+        10,
+        7,
+        2,
+        1,
+        10,
+        3,
+        1,
+        5,
+        12,
+        4,
+        1,
+        9,
+        3,
+        0,
+        5,
+        13,
+        1,
+        8,
+        0,
+        7,
+        1,
+        12,
+        3,
+        4,
+        6,
+        2,
+        8,
+        1,
+        3,
+        9,
+        1,
+        6,
+        0,
+        10,
+        13,
+        1,
+        9,
+        2,
+        7,
+        5
+      ],
+      [
+        4,
+        6,
+        2,
+        8,
+        0,
+        4,
+        9,
+        0,
+        13,
+        5,
+        8,
+        1,
+        10,
+        4,
+        3,
+        1,
+        5,
+        7,
+        2,
+        11,
+        0,
+        2,
+        9,
+        0,
+        7,
+        1,
+        10,
+        3,
+        0,
+        10,
+        3,
+        2,
+        9,
+        5,
+        7,
+        2,
+        12,
+        3,
+        0,
+        5,
+        10,
+        1,
+        8,
+        0,
+        7,
+        1,
+        13,
+        3,
+        4,
+        6,
+        2,
+        8,
+        1,
+        3,
+        9,
+        1,
+        6,
+        0,
+        10,
+        2,
+        1,
+        9,
+        2,
+        7,
+        13,
+        0,
+        6,
+        5,
+        8,
+        1
+      ],
+      [
+        10,
+        4,
+        0,
+        6,
+        2,
+        8,
+        5,
+        9,
+        13,
+        7,
+        0,
+        5,
+        2,
+        11,
+        0,
+        7,
+        3,
+        9,
+        1,
+        10,
+        4,
+        11,
+        6,
+        3,
+        4,
+        10,
+        6,
+        7,
+        5,
+        8,
+        2,
+        6,
+        1,
+        11,
+        3,
+        9,
+        6,
+        3,
+        0,
+        5,
+        10,
+        1,
+        8,
+        0,
+        7,
+        1,
+        13,
+        3,
+        4,
+        6,
+        2,
+        8,
+        1,
+        3,
+        9,
+        1,
+        6,
+        0,
+        10,
+        2,
+        1,
+        9,
+        2,
+        7,
+        13,
+        9,
+        3,
+        7,
+        0,
+        5
+      ],
+      [
+        6,
+        4,
+        8,
+        2,
+        7,
+        1,
+        8,
+        13,
+        10,
+        2,
+        11,
+        1,
+        9,
+        3,
+        8,
+        5,
+        6,
+        7,
+        4,
+        11,
+        0,
+        6,
+        2,
+        7,
+        0,
+        12,
+        2,
+        10,
+        3,
+        7,
+        5,
+        6,
+        0,
+        11,
+        4,
+        6,
+        3,
+        5,
+        9,
+        2,
+        10,
+        3,
+        12,
+        1,
+        4,
+        8,
+        1,
+        13,
+        3,
+        10,
+        0,
+        8,
+        4,
+        9,
+        1,
+        12,
+        3,
+        2,
+        9,
+        0,
+        11,
+        1,
+        7,
+        5,
+        13,
+        1,
+        2,
+        0,
+        3,
+        5
+      ]
+    ],
+    "gameVersion": "1.2.2",
+    "godsKingsLink": {
+      "bonusCoinFeature": 50,
+      "mini": 1000,
+      "minor": 5000
+    },
+    "factor": 50,
+    "lines": 50,
+    "clientSettings": {
+      "configuredRtp": "9627",
+      "branding": "",
+      "gameUI": "Turtle",
+      "enableVipUi": false
+    }
+  },
+  "loadGameShape": {
+    "game": {
+      "state": {
+        "limitOverflow": false,
+        "gambles": 0
+      }
+    },
+    "state": "idle",
+    "context": {},
+    "jackpotStats": [
+      {
+        "jackpotName": "Bell Link",
+        "miniGameKey": "",
+        "baseDenomination": 1,
+        "levelStats": [
+          {
+            "levelId": 1,
+            "currentValue": 8414137,
+            "totalWins": 32,
+            "lastWinValue": 27700414,
+            "lastWinPlayerName": "1101",
+            "lastWinDate": "2026-07-24T06:25:48.315122+03:00",
+            "maxWinValue": 36611826,
+            "maxWinPlayerName": "1101",
+            "maxWinDate": "2026-07-22T03:15:11.836+03:00",
+            "limit": 0
+          },
+          {
+            "levelId": 2,
+            "currentValue": 2599293,
+            "totalWins": 518,
+            "lastWinValue": 166508,
+            "lastWinPlayerName": "1101",
+            "lastWinDate": "2026-07-24T06:34:06.448474+03:00",
+            "maxWinValue": 4711917,
+            "maxWinPlayerName": "1101",
+            "maxWinDate": "2026-07-21T18:18:30.892+03:00",
+            "limit": 0
+          },
+          {
+            "levelId": 11,
+            "currentValue": 1250000,
+            "totalWins": 1,
+            "lastWinValue": 1250000,
+            "lastWinPlayerName": "1101",
+            "lastWinDate": "2026-07-23T01:09:52.328404+03:00",
+            "maxWinValue": 1250000,
+            "maxWinPlayerName": "1101",
+            "maxWinDate": "2026-07-23T01:09:52.328+03:00",
+            "limit": 0
+          },
+          {
+            "levelId": 12,
+            "currentValue": 100000,
+            "totalWins": 11,
+            "lastWinValue": 100000,
+            "lastWinPlayerName": "1101",
+            "lastWinDate": "2026-07-24T02:45:02.292784+03:00",
+            "maxWinValue": 100000,
+            "maxWinPlayerName": "1101",
+            "maxWinDate": "2026-07-22T05:02:37.481+03:00",
+            "limit": 0
+          }
+        ]
+      }
+    ]
+  },
+  "eventFamilies": {
+    "jpstats": [
+      {
+        "event": "jpstats",
+        "context": {},
+        "jackpotStats": [
+          {
+            "jackpotName": "Bell Link",
+            "miniGameKey": "",
+            "baseDenomination": 1,
+            "levelStats": [
+              {
+                "levelId": 1,
+                "currentValue": 8421467,
+                "totalWins": 32,
+                "lastWinValue": 27700414,
+                "lastWinPlayerName": "1101",
+                "lastWinDate": "2026-07-24T06:25:48.315122+03:00",
+                "maxWinValue": 36611826,
+                "maxWinPlayerName": "1101",
+                "maxWinDate": "2026-07-22T03:15:11.836+03:00",
+                "limit": 0
+              },
+              {
+                "levelId": 2,
+                "currentValue": 2606623,
+                "totalWins": 518,
+                "lastWinValue": 166508,
+                "lastWinPlayerName": "1101",
+                "lastWinDate": "2026-07-24T06:34:06.448474+03:00",
+                "maxWinValue": 4711917,
+                "maxWinPlayerName": "1101",
+                "maxWinDate": "2026-07-21T18:18:30.892+03:00",
+                "limit": 0
+              },
+              {
+                "levelId": 11,
+                "currentValue": 1250000,
+                "totalWins": 1,
+                "lastWinValue": 1250000,
+                "lastWinPlayerName": "1101",
+                "lastWinDate": "2026-07-23T01:09:52.328404+03:00",
+                "maxWinValue": 1250000,
+                "maxWinPlayerName": "1101",
+                "maxWinDate": "2026-07-23T01:09:52.328+03:00",
+                "limit": 0
+              },
+              {
+                "levelId": 12,
+                "currentValue": 100000,
+                "totalWins": 11,
+                "lastWinValue": 100000,
+                "lastWinPlayerName": "1101",
+                "lastWinDate": "2026-07-24T02:45:02.292784+03:00",
+                "maxWinValue": 100000,
+                "maxWinPlayerName": "1101",
+                "maxWinDate": "2026-07-22T05:02:37.481+03:00",
+                "limit": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "bet": [
+      {
+        "event": "bet",
+        "game": {
+          "state": {
+            "matchId": "880670703307723841",
+            "bet": {
+              "level": 10,
+              "factor": 25,
+              "denomination": 20,
+              "lines": 25,
+              "gameMode": "NORMAL_MODE"
+            },
+            "totalWin": "0",
+            "totalWinAmount": "0",
+            "limitOverflow": false,
+            "gambles": 0,
+            "prizes": []
+          },
+          "result": {
+            "spins": [
+              {
+                "entries": [],
+                "mutations": [],
+                "totalWinAmount": "0",
+                "type": "SPIN",
+                "reels": [
+                  [
+                    0,
+                    7,
+                    3,
+                    6,
+                    4
+                  ],
+                  [
+                    10,
+                    3,
+                    1,
+                    5,
+                    12
+                  ],
+                  [
+                    9,
+                    0,
+                    7,
+                    2,
+                    10
+                  ],
+                  [
+                    10,
+                    2,
+                    1,
+                    9,
+                    2
+                  ],
+                  [
+                    5,
+                    6,
+                    7,
+                    4,
+                    11
+                  ]
+                ],
+                "bonuses": [],
+                "totalWin": 0
+              }
+            ],
+            "lastWinAmount": "0",
+            "lastWin": "0"
+          }
+        },
+        "state": "idle",
+        "context": {}
+      }
+    ]
+  },
+  "outcomes": [
+    {
+      "state": "idle",
+      "totalWin": 0,
+      "sourceBet": {
+        "level": 10,
+        "denomination": 20,
+        "lines": 25,
+        "factor": 25,
+        "gameMode": "NORMAL_MODE"
+      },
+      "sourceStake": 5000,
+      "game": {
+        "state": {
+          "matchId": "880670703307723841",
+          "bet": {
+            "level": 10,
+            "factor": 25,
+            "denomination": 20,
+            "lines": 25,
+            "gameMode": "NORMAL_MODE"
+          },
+          "totalWin": "0",
+          "totalWinAmount": "0",
+          "limitOverflow": false,
+          "gambles": 0,
+          "prizes": []
+        },
+        "result": {
+          "spins": [
+            {
+              "entries": [],
+              "mutations": [],
+              "totalWinAmount": "0",
+              "type": "SPIN",
+              "reels": [
+                [
+                  0,
+                  7,
+                  3,
+                  6,
+                  4
+                ],
+                [
+                  10,
+                  3,
+                  1,
+                  5,
+                  12
+                ],
+                [
+                  9,
+                  0,
+                  7,
+                  2,
+                  10
+                ],
+                [
+                  10,
+                  2,
+                  1,
+                  9,
+                  2
+                ],
+                [
+                  5,
+                  6,
+                  7,
+                  4,
+                  11
+                ]
+              ],
+              "bonuses": [],
+              "totalWin": 0
+            }
+          ],
+          "lastWinAmount": "0",
+          "lastWin": "0"
+        }
+      },
+      "context": {},
+      "tags": [
+        "idle",
+        "SPIN"
+      ]
+    }
+  ],
+  "coverage": {
+    "events": {
+      "jpstats": 1,
+      "bet": 1
+    },
+    "states": [
+      "idle"
+    ],
+    "tags": [
+      "idle",
+      "SPIN"
+    ],
+    "outcomeSource": "captured",
+    "reconnectConnections": 1
+  }
+}

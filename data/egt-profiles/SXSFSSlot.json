@@ -1,0 +1,728 @@
+{
+  "schemaVersion": 2,
+  "gameKey": "SXSFSSlot",
+  "generatedAt": "2026-07-24T12:21:00.252Z",
+  "captureCount": 1,
+  "capturedClientVersion": "9650",
+  "settings": {
+    "languages": [
+      "BG",
+      "EN"
+    ],
+    "gamble": {
+      "doubleUp": {
+        "maxBetLimit": 35,
+        "maxGambleAttempts": 5,
+        "maxGambleAmount": 75000
+      }
+    },
+    "jurisdiction": {
+      "metric": "both",
+      "country": "Bulgaria",
+      "lobbyHome": "fullScreen",
+      "openLobby": true,
+      "statsType": "inGame",
+      "gsHideInfo": false,
+      "lobbyStyle": "simple",
+      "restrictions": [],
+      "defaultMetric": "currency",
+      "newPopupsStyle": true,
+      "minimumSpinTime": 0,
+      "enableHyperSpins": true,
+      "lobbyDefenceCode": true,
+      "gsFinalCollection": false,
+      "hidePlayerHistory": false,
+      "enableLobbyDeposit": false,
+      "autoplayRestrictions": {
+        "extend": false,
+        "autoPlays": [
+          10,
+          20,
+          50,
+          100
+        ],
+        "mandatory": [],
+        "winLimits": 200,
+        "lossLimits": 80,
+        "maxLossAmount": false,
+        "singleWinLimit": 100,
+        "confirmationModal": false,
+        "infinityByDefault": false
+      },
+      "rouletteFavoriteMenu": true,
+      "maxProbabilityDisplay": false,
+      "endGameOnWalletTimeout": true
+    },
+    "denominations": [
+      1
+    ],
+    "reconnectInterval": 10000,
+    "paytable": {
+      "0": {
+        "coef": [
+          2,
+          2,
+          3,
+          3,
+          5,
+          5,
+          15,
+          15,
+          50
+        ],
+        "multiplier": 1
+      },
+      "1": {
+        "coef": [
+          2,
+          2,
+          3,
+          3,
+          5,
+          5,
+          15,
+          15,
+          50
+        ],
+        "multiplier": 1
+      },
+      "2": {
+        "coef": [
+          2,
+          2,
+          3,
+          3,
+          5,
+          5,
+          15,
+          15,
+          50
+        ],
+        "multiplier": 1
+      },
+      "3": {
+        "coef": [
+          3,
+          3,
+          6,
+          6,
+          10,
+          10,
+          30,
+          30,
+          100
+        ],
+        "multiplier": 1
+      },
+      "4": {
+        "coef": [
+          3,
+          3,
+          6,
+          6,
+          10,
+          10,
+          30,
+          30,
+          100
+        ],
+        "multiplier": 1
+      },
+      "5": {
+        "coef": [
+          5,
+          5,
+          10,
+          10,
+          20,
+          20,
+          60,
+          60,
+          200
+        ],
+        "multiplier": 1
+      },
+      "6": {
+        "coef": [
+          5,
+          5,
+          10,
+          10,
+          20,
+          20,
+          60,
+          60,
+          200
+        ],
+        "multiplier": 1
+      },
+      "7": {
+        "coef": [
+          7,
+          7,
+          15,
+          15,
+          40,
+          40,
+          120,
+          120,
+          400
+        ],
+        "multiplier": 1
+      },
+      "8": {
+        "coef": [
+          10,
+          10,
+          20,
+          20,
+          100,
+          100,
+          300,
+          300,
+          1000
+        ],
+        "multiplier": 1
+      }
+    },
+    "reels": [
+      [
+        8,
+        7,
+        6,
+        3,
+        3,
+        0,
+        0
+      ],
+      [
+        8,
+        7,
+        6,
+        3,
+        3,
+        0,
+        0
+      ],
+      [
+        8,
+        7,
+        5,
+        5,
+        3,
+        1,
+        0
+      ],
+      [
+        8,
+        7,
+        6,
+        5,
+        1,
+        1,
+        1
+      ],
+      [
+        8,
+        7,
+        5,
+        5,
+        4,
+        1,
+        2
+      ],
+      [
+        8,
+        7,
+        6,
+        4,
+        4,
+        2,
+        2
+      ],
+      [
+        8,
+        7,
+        6,
+        4,
+        4,
+        2,
+        2
+      ]
+    ],
+    "bets": [
+      1,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      16,
+      20,
+      30,
+      40,
+      50,
+      60,
+      80,
+      100,
+      120,
+      160,
+      200,
+      240,
+      300,
+      360,
+      400,
+      500,
+      600,
+      1000,
+      1200,
+      1600,
+      2000,
+      2400,
+      3000,
+      4000,
+      5000,
+      6000,
+      8000,
+      10000
+    ],
+    "linesOptions": [
+      0
+    ],
+    "factors": [
+      10,
+      100,
+      200,
+      300
+    ],
+    "denomination": 1,
+    "bet": 1,
+    "initialGameMode": "NORMAL_MODE",
+    "gameModes": [
+      {
+        "gameMode": "NORMAL_MODE",
+        "factor": 10,
+        "lines": 0,
+        "supportCampaign": true,
+        "isBuyBonus": false,
+        "betIndices": [],
+        "denominationIndices": []
+      },
+      {
+        "gameMode": "LOW_MULTIPLIER",
+        "factor": 100,
+        "lines": 0,
+        "supportCampaign": true,
+        "isBuyBonus": true,
+        "betIndices": [],
+        "denominationIndices": []
+      },
+      {
+        "gameMode": "MEDIUM_MULTIPLIER",
+        "factor": 200,
+        "lines": 0,
+        "supportCampaign": true,
+        "isBuyBonus": true,
+        "betIndices": [],
+        "denominationIndices": []
+      },
+      {
+        "gameMode": "HIGH_MULTIPLIER",
+        "factor": 300,
+        "lines": 0,
+        "supportCampaign": true,
+        "isBuyBonus": true,
+        "betIndices": [],
+        "denominationIndices": []
+      }
+    ],
+    "feature": [
+      "MYSTERY_JACKPOT",
+      "BUY_BONUS",
+      "GAMBLE"
+    ],
+    "gameVersion": "1.0.0",
+    "factor": 10,
+    "lines": 0,
+    "buyBonusOptions": [
+      100,
+      200,
+      300
+    ],
+    "clientSettings": {
+      "maxBetLimits": {
+        "EGT": 100000
+      },
+      "configuredRtp": "9650",
+      "branding": "",
+      "gameUI": "Turtle",
+      "enableVipUi": false
+    }
+  },
+  "loadGameShape": {
+    "game": {
+      "state": {
+        "limitOverflow": false,
+        "gambles": 0
+      }
+    },
+    "state": "idle",
+    "context": {},
+    "jackpotStats": [
+      {
+        "jackpotName": "Clover Chance",
+        "miniGameKey": "Mystery",
+        "baseDenomination": 1,
+        "levelStats": [
+          {
+            "levelId": 1,
+            "currentValue": 22319340,
+            "totalWins": 87,
+            "lastWinValue": 75347717,
+            "lastWinPlayerName": "1101",
+            "lastWinDate": "2026-07-24T06:42:06.190402+03:00",
+            "maxWinValue": 159648696,
+            "maxWinPlayerName": "1101",
+            "maxWinDate": "2026-07-23T21:23:57.271+03:00",
+            "limit": 0
+          },
+          {
+            "levelId": 2,
+            "currentValue": 4491583,
+            "totalWins": 249,
+            "lastWinValue": 15552803,
+            "lastWinPlayerName": "1101",
+            "lastWinDate": "2026-07-24T07:09:17.855152+03:00",
+            "maxWinValue": 62846858,
+            "maxWinPlayerName": "1101",
+            "maxWinDate": "2026-07-21T14:28:56.865+03:00",
+            "limit": 0
+          },
+          {
+            "levelId": 3,
+            "currentValue": 4693820,
+            "totalWins": 306,
+            "lastWinValue": 11874449,
+            "lastWinPlayerName": "1101",
+            "lastWinDate": "2026-07-24T07:15:59.193038+03:00",
+            "maxWinValue": 65405389,
+            "maxWinPlayerName": "1101",
+            "maxWinDate": "2026-07-23T09:27:16.475+03:00",
+            "limit": 0
+          },
+          {
+            "levelId": 4,
+            "currentValue": 8528425,
+            "totalWins": 342,
+            "lastWinValue": 9442636,
+            "lastWinPlayerName": "1101",
+            "lastWinDate": "2026-07-24T07:02:10.665042+03:00",
+            "maxWinValue": 46546630,
+            "maxWinPlayerName": "1101",
+            "maxWinDate": "2026-07-21T22:43:40.684+03:00",
+            "limit": 0
+          }
+        ]
+      }
+    ]
+  },
+  "eventFamilies": {
+    "jpstats": [
+      {
+        "event": "jpstats",
+        "context": {},
+        "jackpotStats": [
+          {
+            "jackpotName": "Clover Chance",
+            "miniGameKey": "Mystery",
+            "baseDenomination": 1,
+            "levelStats": [
+              {
+                "levelId": 1,
+                "currentValue": 22361201,
+                "totalWins": 87,
+                "lastWinValue": 75347717,
+                "lastWinPlayerName": "1101",
+                "lastWinDate": "2026-07-24T06:42:06.190402+03:00",
+                "maxWinValue": 159648696,
+                "maxWinPlayerName": "1101",
+                "maxWinDate": "2026-07-23T21:23:57.271+03:00",
+                "limit": 0
+              },
+              {
+                "levelId": 2,
+                "currentValue": 4533444,
+                "totalWins": 249,
+                "lastWinValue": 15552803,
+                "lastWinPlayerName": "1101",
+                "lastWinDate": "2026-07-24T07:09:17.855152+03:00",
+                "maxWinValue": 62846858,
+                "maxWinPlayerName": "1101",
+                "maxWinDate": "2026-07-21T14:28:56.865+03:00",
+                "limit": 0
+              },
+              {
+                "levelId": 3,
+                "currentValue": 4735682,
+                "totalWins": 306,
+                "lastWinValue": 11874449,
+                "lastWinPlayerName": "1101",
+                "lastWinDate": "2026-07-24T07:15:59.193038+03:00",
+                "maxWinValue": 65405389,
+                "maxWinPlayerName": "1101",
+                "maxWinDate": "2026-07-23T09:27:16.475+03:00",
+                "limit": 0
+              },
+              {
+                "levelId": 4,
+                "currentValue": 8570286,
+                "totalWins": 342,
+                "lastWinValue": 9442636,
+                "lastWinPlayerName": "1101",
+                "lastWinDate": "2026-07-24T07:02:10.665042+03:00",
+                "maxWinValue": 46546630,
+                "maxWinPlayerName": "1101",
+                "maxWinDate": "2026-07-21T22:43:40.684+03:00",
+                "limit": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "bet": [
+      {
+        "event": "bet",
+        "game": {
+          "state": {
+            "matchId": "880667506363077696",
+            "bet": {
+              "level": 6000,
+              "factor": 10,
+              "denomination": 1,
+              "lines": 0,
+              "gameMode": "NORMAL_MODE"
+            },
+            "totalWin": "0",
+            "totalWinAmount": "0",
+            "limitOverflow": false,
+            "gambles": 0,
+            "prizes": []
+          },
+          "result": {
+            "spins": [
+              {
+                "entries": [],
+                "mutations": [],
+                "totalWinAmount": "0",
+                "type": "SPIN",
+                "reels": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    2,
+                    5,
+                    5,
+                    5,
+                    5,
+                    5
+                  ],
+                  [
+                    5,
+                    8,
+                    8,
+                    8,
+                    8,
+                    8,
+                    0
+                  ],
+                  [
+                    7,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    2
+                  ],
+                  [
+                    8,
+                    8,
+                    6,
+                    6,
+                    6,
+                    6,
+                    6
+                  ],
+                  [
+                    3,
+                    3,
+                    3,
+                    7,
+                    7,
+                    7,
+                    7
+                  ],
+                  [
+                    4,
+                    4,
+                    4,
+                    4,
+                    4,
+                    0,
+                    0
+                  ]
+                ],
+                "bonuses": [],
+                "totalWin": 0
+              }
+            ],
+            "lastWinAmount": "0",
+            "lastWin": "0"
+          }
+        },
+        "state": "idle",
+        "context": {}
+      }
+    ]
+  },
+  "outcomes": [
+    {
+      "state": "idle",
+      "totalWin": 0,
+      "sourceBet": {
+        "level": 6000,
+        "denomination": 1,
+        "lines": 0,
+        "factor": 10,
+        "gameMode": "NORMAL_MODE"
+      },
+      "sourceStake": 60000,
+      "game": {
+        "state": {
+          "matchId": "880667506363077696",
+          "bet": {
+            "level": 6000,
+            "factor": 10,
+            "denomination": 1,
+            "lines": 0,
+            "gameMode": "NORMAL_MODE"
+          },
+          "totalWin": "0",
+          "totalWinAmount": "0",
+          "limitOverflow": false,
+          "gambles": 0,
+          "prizes": []
+        },
+        "result": {
+          "spins": [
+            {
+              "entries": [],
+              "mutations": [],
+              "totalWinAmount": "0",
+              "type": "SPIN",
+              "reels": [
+                [
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  2,
+                  5,
+                  5,
+                  5,
+                  5,
+                  5
+                ],
+                [
+                  5,
+                  8,
+                  8,
+                  8,
+                  8,
+                  8,
+                  0
+                ],
+                [
+                  7,
+                  1,
+                  1,
+                  1,
+                  1,
+                  1,
+                  2
+                ],
+                [
+                  8,
+                  8,
+                  6,
+                  6,
+                  6,
+                  6,
+                  6
+                ],
+                [
+                  3,
+                  3,
+                  3,
+                  7,
+                  7,
+                  7,
+                  7
+                ],
+                [
+                  4,
+                  4,
+                  4,
+                  4,
+                  4,
+                  0,
+                  0
+                ]
+              ],
+              "bonuses": [],
+              "totalWin": 0
+            }
+          ],
+          "lastWinAmount": "0",
+          "lastWin": "0"
+        }
+      },
+      "context": {},
+      "tags": [
+        "idle",
+        "SPIN"
+      ]
+    }
+  ],
+  "coverage": {
+    "events": {
+      "jpstats": 1,
+      "bet": 1
+    },
+    "states": [
+      "idle"
+    ],
+    "tags": [
+      "idle",
+      "SPIN"
+    ],
+    "outcomeSource": "captured",
+    "reconnectConnections": 1
+  }
+}

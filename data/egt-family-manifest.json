@@ -1,0 +1,2809 @@
+{
+  "generatedAt": "2026-07-24T16:38:10.340Z",
+  "titleCount": 133,
+  "familyCount": 7,
+  "families": {
+    "classic-lines-coin": {
+      "titleCount": 89,
+      "bonusProtocolReady": false,
+      "titles": [
+        "ABSlot",
+        "BCSlot",
+        "BHESlot",
+        "BORSlot",
+        "FBCSSlot",
+        "FBCSlot",
+        "FBHRSlot",
+        "FBHSSlot",
+        "FBHSlot",
+        "FCHJSlot",
+        "FCHSlot",
+        "FDCSlot",
+        "FDHSlot",
+        "FHBSlot",
+        "FHESlot",
+        "FHSlot",
+        "FLKSlot",
+        "FMCSlot",
+        "FRBPSlot",
+        "FRCHTSlot",
+        "FRCLHSlot",
+        "FRDCSlot",
+        "FRDHSlot",
+        "FRJHSlot",
+        "FRLHSlot",
+        "FRSHRSlot",
+        "FRSHSlot",
+        "FRSPSlot",
+        "FRSRSlot",
+        "FSCSlot",
+        "FVBPSlot",
+        "FVCHSlot",
+        "FVCHTSlot",
+        "FVCLHSlot",
+        "FVJHSlot",
+        "FVLRSlot",
+        "FVSFSlot",
+        "FVSHRSlot",
+        "FVSHSlot",
+        "FVSPSlot",
+        "FVSRSlot",
+        "FYHBSlot",
+        "OBCSlot",
+        "OBHSlot",
+        "OHBPSlot",
+        "OHCHSlot",
+        "OHCHTSlot",
+        "OHCLHSlot",
+        "OHDCSlot",
+        "OHDHSlot",
+        "OHJHSlot",
+        "OHLHSlot",
+        "OHLRSlot",
+        "OHSHRSlot",
+        "OHSPSlot",
+        "OHSRSlot",
+        "OLHSlot",
+        "OSFSlot",
+        "OSHSSlot",
+        "OSHSlot",
+        "TBCSlot",
+        "TBHSlot",
+        "TCHJSlot",
+        "TDCSlot",
+        "TDHSlot",
+        "THBSlot",
+        "THSFSlot",
+        "TNDHSlot",
+        "TNSFSlot",
+        "TNSHRSlot",
+        "TNSHSlot",
+        "TNSPSlot",
+        "TSDHRSlot",
+        "TSDSlot",
+        "TSHSASlot",
+        "TSSSlot",
+        "TWBHCHSlot",
+        "TWBPSlot",
+        "TWCHSlot",
+        "TWCLHSlot",
+        "TWDRSlot",
+        "TWGSlot",
+        "TWJHSlot",
+        "TWLHSlot",
+        "TWSHRSlot",
+        "TWSHSlot",
+        "TWSPSlot",
+        "TWSRSlot",
+        "UFSlot"
+      ]
+    },
+    "gods-kings-link": {
+      "titleCount": 4,
+      "bonusProtocolReady": false,
+      "titles": [
+        "ALGKLSlot",
+        "GAGKLSlot",
+        "OGGKLSlot",
+        "RORGKLSlot"
+      ]
+    },
+    "buy-bonus-ways": {
+      "titleCount": 5,
+      "bonusProtocolReady": false,
+      "titles": [
+        "ARSlot",
+        "BORJWSlot",
+        "HFTTSlot",
+        "ODJWSlot",
+        "SXSFSSlot"
+      ]
+    },
+    "bell-link": {
+      "titleCount": 19,
+      "bonusProtocolReady": false,
+      "titles": [
+        "BCBLSlot",
+        "BDBLSlot",
+        "BLBLSlot",
+        "BSBLSlot",
+        "FBHBLSlot",
+        "FDHBLSlot",
+        "FHBLSlot",
+        "FHEBLSlot",
+        "FLKBLSlot",
+        "FRLKEBLSlot",
+        "FSCBLSlot",
+        "FSFBLSlot",
+        "FSHBLSlot",
+        "FSHSlot",
+        "FZWBLSlot",
+        "SACBLSlot",
+        "TSFBLSlot",
+        "TSHBLSlot",
+        "TSHSlot"
+      ]
+    },
+    "ways-cascade": {
+      "titleCount": 4,
+      "bonusProtocolReady": true,
+      "titles": [
+        "BESlot",
+        "EITHHRSlot",
+        "EITHSlot",
+        "SUCSlot"
+      ]
+    },
+    "classic-lines": {
+      "titleCount": 10,
+      "bonusProtocolReady": true,
+      "titles": [
+        "FBRSlot",
+        "FRJRSlot",
+        "FRSRBHRSlot",
+        "FRSRBSlot",
+        "FSFSlot",
+        "FTBRSlot",
+        "OHBRSlot",
+        "OHJRSlot",
+        "SACRSlot",
+        "TWBRSlot"
+      ]
+    },
+    "ways-or-cluster": {
+      "titleCount": 2,
+      "bonusProtocolReady": false,
+      "titles": [
+        "FXSFSSlot",
+        "TFWSlot"
+      ]
+    }
+  },
+  "titles": [
+    {
+      "gameKey": "ABSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 30,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "ALGKLSlot",
+      "family": "gods-kings-link",
+      "evaluation": "paylines",
+      "bonus": "gods-kings-link",
+      "reels": 5,
+      "lines": 50,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": 6,
+        "wild": 5,
+        "coins": [
+          101,
+          102,
+          103,
+          104,
+          105,
+          110,
+          115,
+          120,
+          150,
+          200,
+          300,
+          500,
+          600,
+          800,
+          1000
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "ARSlot",
+      "family": "buy-bonus-ways",
+      "evaluation": "ways",
+      "bonus": "buy-bonus",
+      "reels": 6,
+      "lines": 0,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "BUY_BONUS",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "BCBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8,
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "BCSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "BDBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8,
+          101,
+          102,
+          103,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "BESlot",
+      "family": "ways-cascade",
+      "evaluation": "ways",
+      "bonus": "cascade",
+      "reels": 8,
+      "lines": 6561,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8,
+          9
+        ]
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "BHESlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": 10,
+        "wild": 7,
+        "coins": [
+          8,
+          9
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "BLBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "BORJWSlot",
+      "family": "buy-bonus-ways",
+      "evaluation": "ways",
+      "bonus": "buy-bonus",
+      "reels": 6,
+      "lines": 0,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "BUY_BONUS",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "BORSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 10,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": 9,
+        "wild": 8,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "BSBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "EITHHRSlot",
+      "family": "ways-cascade",
+      "evaluation": "ways",
+      "bonus": "cascade",
+      "reels": 4,
+      "lines": 81,
+      "features": [
+        "HIGH_RTP",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "EITHSlot",
+      "family": "ways-cascade",
+      "evaluation": "ways",
+      "bonus": "cascade",
+      "reels": 4,
+      "lines": 81,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "FBCSSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 6,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FBCSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FBHBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8,
+          11
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FBHRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FBHSSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 6,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FBHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": 10,
+        "wild": 9,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FBRSlot",
+      "family": "classic-lines",
+      "evaluation": "paylines",
+      "bonus": "none",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "FCHJSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FCHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FDCSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FDHBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": 6,
+        "wild": 5,
+        "coins": [
+          7,
+          8,
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FDHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FHBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8,
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FHBSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 50,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FHEBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8,
+          101,
+          102,
+          103,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FHESlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FLKBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8,
+          10
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FLKSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FMCSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FRBPSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FRCHTSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          10
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FRCLHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          10
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FRDCSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FRDHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FRJHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FRJRSlot",
+      "family": "classic-lines",
+      "evaluation": "paylines",
+      "bonus": "none",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "FRLHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          10
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FRLKEBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8,
+          101,
+          102,
+          103,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FRSHRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FRSHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FRSPSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FRSRBHRSlot",
+      "family": "classic-lines",
+      "evaluation": "paylines",
+      "bonus": "none",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "HIGH_RTP",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "FRSRBSlot",
+      "family": "classic-lines",
+      "evaluation": "paylines",
+      "bonus": "none",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "FRSRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FSCBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8,
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FSCSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FSFBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FSFSlot",
+      "family": "classic-lines",
+      "evaluation": "paylines",
+      "bonus": "none",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "FSHBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": 7,
+        "wild": 6,
+        "coins": [
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FSHSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FTBRSlot",
+      "family": "classic-lines",
+      "evaluation": "paylines",
+      "bonus": "none",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "FVBPSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FVCHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FVCHTSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FVCLHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FVJHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FVLRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FVSFSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FVSHRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FVSHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FVSPSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FVSRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FXSFSSlot",
+      "family": "ways-or-cluster",
+      "evaluation": "profile-required",
+      "bonus": "profile-required",
+      "reels": 6,
+      "lines": 0,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FYHBSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 50,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "FZWBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8,
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "GAGKLSlot",
+      "family": "gods-kings-link",
+      "evaluation": "paylines",
+      "bonus": "gods-kings-link",
+      "reels": 5,
+      "lines": 50,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": 10,
+        "wild": 9,
+        "coins": [
+          11,
+          12,
+          101,
+          102,
+          103,
+          104,
+          105,
+          110,
+          115,
+          120,
+          150,
+          200,
+          300,
+          5100,
+          5101,
+          5102,
+          5103
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "HFTTSlot",
+      "family": "buy-bonus-ways",
+      "evaluation": "ways",
+      "bonus": "buy-bonus",
+      "reels": 6,
+      "lines": 0,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "SUPER_BUY_BONUS",
+        "BUY_BONUS",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OBCSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OBHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "ODJWSlot",
+      "family": "buy-bonus-ways",
+      "evaluation": "ways",
+      "bonus": "buy-bonus",
+      "reels": 6,
+      "lines": 0,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "BUY_BONUS",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          11
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OGGKLSlot",
+      "family": "gods-kings-link",
+      "evaluation": "paylines",
+      "bonus": "gods-kings-link",
+      "reels": 5,
+      "lines": 50,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": 9,
+        "wild": 8,
+        "coins": [
+          10
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OHBPSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OHBRSlot",
+      "family": "classic-lines",
+      "evaluation": "paylines",
+      "bonus": "none",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "OHCHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OHCHTSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          10
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OHCLHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          10
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OHDCSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OHDHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OHJHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OHJRSlot",
+      "family": "classic-lines",
+      "evaluation": "paylines",
+      "bonus": "none",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "OHLHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          10
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OHLRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          10
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OHSHRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OHSPSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OHSRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OLHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OSFSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OSHSSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 6,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "OSHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 100,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "RORGKLSlot",
+      "family": "gods-kings-link",
+      "evaluation": "paylines",
+      "bonus": "gods-kings-link",
+      "reels": 5,
+      "lines": 50,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": 12,
+        "wild": 11,
+        "coins": [
+          13
+        ]
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "SACBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          10,
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "SACRSlot",
+      "family": "classic-lines",
+      "evaluation": "paylines",
+      "bonus": "none",
+      "reels": 3,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "SUCSlot",
+      "family": "ways-cascade",
+      "evaluation": "ways",
+      "bonus": "cascade",
+      "reels": 3,
+      "lines": 27,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "SXSFSSlot",
+      "family": "buy-bonus-ways",
+      "evaluation": "ways",
+      "bonus": "buy-bonus",
+      "reels": 7,
+      "lines": 0,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "BUY_BONUS",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TBCSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TBHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TCHJSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TDCSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TDHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TFWSlot",
+      "family": "ways-or-cluster",
+      "evaluation": "profile-required",
+      "bonus": "profile-required",
+      "reels": 3,
+      "lines": 0,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "THBSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "THSFSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 30,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TNDHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 10,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TNSFSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 10,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TNSHRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 10,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TNSHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 10,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TNSPSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 10,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TSDHRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 10,
+      "features": [
+        "HIGH_RTP",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TSDSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 10,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TSFBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TSHBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          101,
+          102,
+          103,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TSHSASlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TSHSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TSSSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 30,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TWBHCHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8,
+          101,
+          102,
+          103,
+          104,
+          105,
+          110,
+          115,
+          120,
+          125,
+          170,
+          180
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TWBPSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TWBRSlot",
+      "family": "classic-lines",
+      "evaluation": "paylines",
+      "bonus": "none",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": true
+    },
+    {
+      "gameKey": "TWCHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TWCLHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          10
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TWDRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TWGSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 25,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TWJHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TWLHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TWSHRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TWSHSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TWSPSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "TWSRSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 20,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "UFSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 3,
+      "lines": 5,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    }
+  ]
+}

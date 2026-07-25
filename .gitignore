@@ -1,0 +1,43 @@
+*
+
+# Root application source, UI, scripts, and documentation.
+!.gitignore
+!README.md
+!REBOOT_HANDOFF.md
+!SLOT_MATH_REFERENCES.md
+!package.json
+!package-lock.json
+!*.cjs
+!*.js
+!*.html
+!*.sh
+
+# Small artwork required by the launcher UI.
+!images/
+!images/**
+!game-icons/
+!game-icons/**
+
+# Math/configuration metadata; runtime credentials and captures stay local.
+!data/
+!data/**
+data/launcher-auth*.json
+data/*setup*token*
+data/*.bak
+data/*.backup
+data/egt-protocol-captures.jsonl
+data/egt-captures/
+data/egt-math-reports/
+data/egt-migration-queue.json
+data/discovery-cursors.json
+
+# Defensive generated/runtime exclusions.
+**/.env
+**/.env.*
+**/node_modules/
+**/vendor/
+**/.runtime/
+**/.playwright*/
+**/output/
+**/*.log
+**/*-assets.zip

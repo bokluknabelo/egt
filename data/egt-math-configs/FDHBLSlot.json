@@ -1,0 +1,568 @@
+{
+  "schemaVersion": 3,
+  "generatedAt": "2026-07-25T00:08:08.099Z",
+  "gameKey": "FDHBLSlot",
+  "factor": 50,
+  "artifactType": "complete-game",
+  "originalMathematics": true,
+  "source": "original-bell-link-mathematics-v1",
+  "designParameters": {
+    "coinMean": 10,
+    "landingProbability": 0.1,
+    "jackpotRtp": 0.01
+  },
+  "familySpec": {
+    "gameKey": "FDHBLSlot",
+    "family": "bell-link",
+    "reels": 5,
+    "rows": 3,
+    "lines": 5,
+    "clientConfiguredRtp": 96.5,
+    "roles": {
+      "scatter": 7,
+      "wild": null,
+      "coins": [
+        8,
+        101,
+        102,
+        103,
+        104,
+        105,
+        108,
+        110
+      ]
+    },
+    "scatters": [
+      7
+    ],
+    "baseStripsReady": true,
+    "clientMetadataReady": true,
+    "paylinesReady": true,
+    "featureModels": [
+      {
+        "type": "hold-and-spin",
+        "source": "published-bell-link-family-rule",
+        "cells": 15,
+        "triggerCount": 5,
+        "triggerDistribution": {
+          "5": 0.0000782182041713495
+        },
+        "allCoinCountDistribution": {
+          "0": 0.43592719126239565,
+          "1": 0.3945392502995949,
+          "2": 0.14189790811606273,
+          "3": 0.025319522387318324,
+          "4": 0.002237909730458055,
+          "5": 0.0000782182041713495
+        },
+        "coinSymbols": [
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          110
+        ],
+        "lives": 3
+      }
+    ],
+    "gaps": [
+      "hold-and-spin landing probability",
+      "coin-value distribution",
+      "full-grid/jackpot awards",
+      "jackpot contribution"
+    ],
+    "featureMathComplete": false
+  },
+  "configurations": {
+    "95": {
+      "config": {
+        "schemaVersion": 1,
+        "gameKey": "FDHBLSlot",
+        "family": "bell-link",
+        "evaluation": "paylines",
+        "targetRtp": 95,
+        "source": "original-bell-link-mathematics-v1",
+        "baseGameOnly": false,
+        "featureMathComplete": true,
+        "runtimeProtocolReady": true,
+        "rows": 3,
+        "strips": [
+          [
+            6,
+            3,
+            3,
+            4,
+            4,
+            6,
+            4,
+            4,
+            7,
+            2,
+            2,
+            1,
+            6,
+            2,
+            0,
+            0,
+            0,
+            3,
+            5,
+            102,
+            1,
+            5,
+            1,
+            1,
+            1,
+            4,
+            2,
+            6,
+            3,
+            3,
+            1,
+            4,
+            6,
+            4,
+            4,
+            7,
+            2,
+            2,
+            6,
+            105,
+            6,
+            2,
+            0,
+            0,
+            4,
+            4,
+            5,
+            101,
+            1,
+            2,
+            4,
+            1,
+            1,
+            3,
+            6
+          ],
+          [
+            6,
+            2,
+            1,
+            2,
+            5,
+            6,
+            6,
+            5,
+            0,
+            0,
+            0,
+            7,
+            0,
+            3,
+            3,
+            3,
+            1,
+            3,
+            103,
+            4,
+            4,
+            1,
+            4,
+            1,
+            4,
+            4,
+            2,
+            6,
+            6,
+            2,
+            2,
+            0,
+            1,
+            6,
+            4,
+            0,
+            0,
+            0,
+            7,
+            0,
+            3,
+            0,
+            3,
+            1,
+            3,
+            104,
+            1,
+            1,
+            6,
+            4,
+            1,
+            108,
+            4,
+            4,
+            2
+          ],
+          [
+            6,
+            2,
+            4,
+            0,
+            0,
+            7,
+            1,
+            6,
+            1,
+            6,
+            3,
+            5,
+            5,
+            4,
+            1,
+            2,
+            1,
+            2,
+            0,
+            110,
+            6,
+            6,
+            0,
+            4,
+            2,
+            2,
+            2,
+            6,
+            2,
+            6,
+            0,
+            0,
+            7,
+            1,
+            1,
+            4,
+            6,
+            1,
+            4,
+            3,
+            3,
+            2,
+            1,
+            3,
+            3,
+            4,
+            101,
+            4,
+            4,
+            0,
+            4,
+            102,
+            4,
+            6,
+            2
+          ],
+          [
+            6,
+            1,
+            1,
+            1,
+            4,
+            6,
+            6,
+            4,
+            4,
+            3,
+            4,
+            7,
+            4,
+            4,
+            2,
+            2,
+            6,
+            4,
+            6,
+            0,
+            0,
+            0,
+            103,
+            3,
+            3,
+            1,
+            5,
+            5,
+            6,
+            1,
+            1,
+            1,
+            6,
+            1,
+            3,
+            0,
+            3,
+            104,
+            4,
+            7,
+            4,
+            4,
+            2,
+            2,
+            0,
+            1,
+            2,
+            0,
+            6,
+            2,
+            108,
+            3,
+            2,
+            5,
+            6
+          ],
+          [
+            6,
+            3,
+            3,
+            1,
+            2,
+            2,
+            5,
+            4,
+            1,
+            6,
+            7,
+            0,
+            1,
+            6,
+            1,
+            105,
+            3,
+            3,
+            2,
+            4,
+            0,
+            6,
+            6,
+            1,
+            0,
+            1,
+            1,
+            110,
+            2,
+            2,
+            4,
+            4,
+            6,
+            4,
+            1,
+            2,
+            2,
+            1,
+            5,
+            1,
+            5,
+            7,
+            1,
+            1,
+            1,
+            1,
+            3,
+            4,
+            3,
+            1,
+            0,
+            6,
+            8,
+            4,
+            2
+          ]
+        ],
+        "paylines": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          [
+            0,
+            1,
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            1,
+            0,
+            1,
+            2
+          ]
+        ],
+        "paytable": {
+          "0": {
+            "coef": [
+              25,
+              100,
+              250,
+              1000
+            ],
+            "multiplier": 1
+          },
+          "1": {
+            "coef": [
+              100,
+              250,
+              1000
+            ],
+            "multiplier": 1
+          },
+          "2": {
+            "coef": [
+              100,
+              250,
+              1000
+            ],
+            "multiplier": 1
+          },
+          "3": {
+            "coef": [
+              100,
+              250,
+              1000
+            ],
+            "multiplier": 1
+          },
+          "4": {
+            "coef": [
+              250,
+              1000,
+              2500
+            ],
+            "multiplier": 1
+          },
+          "5": {
+            "coef": [
+              250,
+              1000,
+              2500
+            ],
+            "multiplier": 1
+          },
+          "6": {
+            "coef": [
+              500,
+              5000,
+              25000
+            ],
+            "multiplier": 1
+          }
+        },
+        "roles": {
+          "scatter": 7,
+          "wild": null,
+          "coins": [
+            8,
+            101,
+            102,
+            103,
+            104,
+            105,
+            108,
+            110
+          ]
+        },
+        "scatters": [
+          7
+        ],
+        "scatterEligibleReels": {
+          "7": [
+            0,
+            2,
+            4
+          ]
+        },
+        "features": [
+          "SG_JACKPOT",
+          "GAMBLE"
+        ],
+        "featureModels": [
+          {
+            "type": "hold-and-spin",
+            "source": "original-bell-link-mathematics-v1",
+            "cells": 15,
+            "triggerCount": 5,
+            "triggerDistribution": {
+              "5": 0.00011732730625702425
+            },
+            "initialCoinValue": {
+              "5": 52.99999999999999
+            },
+            "coinSymbols": [
+              8,
+              101,
+              102,
+              103,
+              104,
+              105,
+              108,
+              110
+            ],
+            "coinValueBySymbol": {
+              "8": 1,
+              "101": 2,
+              "102": 4,
+              "103": 6,
+              "104": 10,
+              "105": 14,
+              "108": 19,
+              "110": 24
+            },
+            "lives": 3,
+            "resetLives": 3,
+            "landingProbability": 0.1,
+            "meanCoinValue": 10,
+            "fullGridAward": 1733.786394117556,
+            "blankSymbol": 0
+          }
+        ],
+        "jackpotModel": {
+          "type": "full-grid-award",
+          "contributionRtp": 0.01,
+          "awardMultiple": 1733.786394117556
+        },
+        "versionHash": "abbf17205347ca557d50a998fe65c72955697be75b2f0c7883e5cbc339173d08"
+      },
+      "math": {
+        "baseRtp": 0.9270783540617568,
+        "featureRtp": 0.013096057187057674,
+        "jackpotRtp": 0.01,
+        "totalRtp": 0.9501744112488144,
+        "holdSpin": {
+          "type": "hold-and-spin",
+          "triggerProbability": 0.00011732730625702425,
+          "triggerHitFrequency": 8523.16508323595,
+          "expectedRespinsPerTrigger": 9.61431149723589,
+          "expectedRespinsPerPaidSpin": 0.0011280212694866247,
+          "rtp": 0.023096057187057675
+        }
+      },
+      "iterations": 226,
+      "changes": 73,
+      "converged": true
+    }
+  }
+}
