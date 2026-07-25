@@ -1,6 +1,6 @@
 # EGT Arcade reboot handoff
 
-Last verified: **2026-07-23 17:29 UTC**
+Last verified: **2026-07-25 UTC**
 
 This is the durable continuation note for the work in `/egt`. Do not rebuild or reclone the project. The current files and PostgreSQL database are authoritative.
 
@@ -200,6 +200,26 @@ npm test
 ## Continuation instruction
 
 On the next session, read this file first, verify PostgreSQL and ports 8080/8081, and continue from the current workspace and database. Do not repeat completed migrations or reset production state.
+
+## GitHub snapshot and next-machine continuation — 2026-07-25
+
+- `/egt` is now a Git repository on branch `main`, with `origin` set to `https://github.com/bokluknabelo/egt.git`.
+- Initial source-only snapshot: commit `7c2682c` (`Initial EGT Account Arcade source`).
+- Before that snapshot, `npm test` and syntax checks for `game-launcher.cjs`, `launcher-store.cjs`, `game-importer.cjs`, and `game-client-patches.cjs` passed.
+- The repository intentionally tracks application source, UI, scripts, documentation, math/configuration metadata, and launcher artwork. The working deployment remains larger than the Git repository.
+- `.gitignore` intentionally excludes captured game directories and ZIP archives, `node_modules`, Playwright/runtime output, generated protocol captures/reports, logs, nested third-party repositories, and authentication-state files. Do not force-add those files without reviewing their size, provenance, licensing, and secrets.
+- The multi-gigabyte `/tmp/egt-project.tar.gz` attempt was deleted. No archive is required for continuation; use Git for source and preserve the existing deployment/database separately.
+- Historical `data/launcher-auth*.json` files remain local and untracked. Never commit them, setup tokens, browser/session cookies, database credentials, or GitHub credentials.
+- The GitHub credential used for the initial push was supplied interactively, was not saved in the remote URL, and its temporary askpass file was deleted. Rotate/revoke that credential because it appeared in chat.
+
+### Planned live capture from another machine
+
+- The user plans to reconnect from another machine and provide a reachable local/LAN IP so live behavior can be captured there.
+- At the start of that session, first pull/clone `main`, read this handoff, confirm which machine owns the authoritative PostgreSQL data, and verify reachability before changing services or firewall rules.
+- Record the supplied host/IP, ports, target game/title and game key, exact reproduction steps, browser/device/orientation, selected user-instance wallet, and whether the run uses the normal upstream relay or `EGT_GAME_ENGINE=local`.
+- For the unresolved `FDHBLSlot` blank-symbol/endless-spin issue, enable bounded per-spin response capture before reproducing. Capture timestamps/reference IDs, reel arrays and visible cells, entries, bonus/state envelopes, WebSocket request/response ordering, client console errors, and screenshots/video around the failing spin. Redact cookies, authorization headers, setup/session tokens, and unrelated account data before committing anything.
+- Keep capture scope narrow and time-bounded. Store raw sensitive captures locally; commit only sanitized fixtures and the minimal code/config needed to reproduce or fix the issue.
+- Do not expose PostgreSQL or management interfaces directly to an untrusted network. Prefer LAN-only access or an authenticated tunnel explicitly approved by the user.
 
 ## Current state — 2026-07-23 18:31 UTC
 
