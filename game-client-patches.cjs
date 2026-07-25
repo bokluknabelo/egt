@@ -36,11 +36,11 @@ function patchGameBundle(source, options = {}) {
 function patchReelsTimingBundle(source) {
   let output = String(source), replacements = 0;
   const timing = {
-    gameInitialReelRotationTime: 180,
-    gameInitialReelRotationTimeInQuickSpin: 120,
-    gameBetweenReelsDelay: 110,
-    gameBetweenReelsDelayInQuickSpin: 70,
-    gameAnticipationReelsDelay: 900,
+    gameInitialReelRotationTime: 70,
+    gameInitialReelRotationTimeInQuickSpin: 45,
+    gameBetweenReelsDelay: 25,
+    gameBetweenReelsDelayInQuickSpin: 0,
+    gameAnticipationReelsDelay: 120,
   };
   for (const [key, value] of Object.entries(timing)) {
     const pattern = new RegExp(`(${key}=)\\d+(?:\\.\\d+)?`, 'g');

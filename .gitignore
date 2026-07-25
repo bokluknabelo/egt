@@ -22,6 +22,7 @@
 !data/
 !data/**
 data/launcher-auth*.json
+data/launcher-file-runtime.json
 data/*setup*token*
 data/*.bak
 data/*.backup

@@ -201,6 +201,86 @@ npm test
 
 On the next session, read this file first, verify PostgreSQL and ports 8080/8081, and continue from the current workspace and database. Do not repeat completed migrations or reset production state.
 
+## Local-to-VPS migration checkpoint — 2026-07-25 16:24 UTC
+
+This is the current authoritative local workspace state before moving work back to the VPS.
+
+### Git and source state
+
+- Local repo path: `/home/xel/egt`
+- Branch: `main`
+- Origin before forking/pushing: `https://github.com/bokluknabelo/egt.git`
+- Runtime/session files are intentionally ignored by Git. Do not force-add `data/launcher-auth*.json`, `data/launcher-file-runtime.json`, `data/egt-protocol-captures.jsonl`, setup tokens, bridge tokens, cookies, or GitHub credentials.
+- A GitHub PAT was provided in chat for this migration. It must not be written to disk, committed, or left in remote URLs. Revoke/rotate it after the push because it appeared in chat.
+
+### Runtime/session backup
+
+- Local runtime bundle created outside the repo:
+  `/home/xel/egt-vps-handoff/egt-runtime-state-20260725T1624Z.tar.gz`
+- SHA-256:
+  `1519a563b1fe6917fa79a68d54aaab9c595450c713739fbc73b6c1475789fe65`
+- Bundle contents:
+  `data/launcher-auth.json`
+  `data/launcher-file-runtime.json`
+  `data/egt-protocol-captures.jsonl`
+- Use this bundle only for controlled VPS migration or audit. It contains live auth/runtime state and must not be published to GitHub.
+
+### Local launcher state before shutdown
+
+- Production-like local launcher was running on `0.0.0.0:443` with:
+  `PORT=443`
+  `EGT_PROTOCOL_CAPTURE_ALL=1`
+  `EGT_GAME_ENGINE=local`
+  `EGT_RESERVOIR_ONLY=1`
+  `EGT_REPLAY_CAPTURED_PROFILE=1`
+  `LAUNCHER_FILE_STORE=1`
+- Fresh temporary WAN tunnel used for final verification:
+  `https://ripe-bugs-bathe.loca.lt/`
+- `/health` returned:
+  `{"ok":true,"setupRequired":false,"shuttingDown":false}`
+- The earlier `https://36b15f601c9fe3.lhr.life/` tunnel was stale and returned `no tunnel here`.
+
+### Implemented local fixes to preserve
+
+- Reservoir-backed local engine now loads captured slot reservoirs per slot and shuffles the reservoir bag instead of replaying a fixed startup state.
+- 100-line reservoir wins are normalized to visible bet-sized increments. This fixes `OBCSlot` at bet 10 showing invalid wins such as 9, 13, or 22.
+- Ordinary non-feature reservoir responses sanitize accidental coded coin/bonus-symbol floods. This fixes `TSFBLSlot` showing a full screen of bonus symbols during ordinary spins while preserving real feature payloads.
+- Wallet settlement for authoritative local/reservoir slots is server-owned. Browser bridge balance reports no longer apply separate upstream deltas for those slots.
+- Visible wallet settlement converts raw engine units with `/100`, so bet 10 wagers settle as `-10` and matching wins settle at the displayed amount.
+- Shared reel timing patch was shortened for slow multi-slot testing:
+  `gameInitialReelRotationTime=70`
+  `gameInitialReelRotationTimeInQuickSpin=45`
+  `gameBetweenReelsDelay=25`
+  `gameBetweenReelsDelayInQuickSpin=0`
+  `gameAnticipationReelsDelay=120`
+- The launcher catalog now includes all 27 reservoir-backed slot keys, not only the original four.
+- Main lobby UI was restyled toward the provided cabinet/photo reference: dark red cabinet surface, left cash panel, glowing rectangular game tiles, and bottom page buttons.
+
+### Reservoir-backed slot keys enabled locally
+
+`BCSlot`, `BDBLSlot`, `EDSlot`, `FBCSlot`, `FBHSSlot`, `FHBLSlot`, `FMCSlot`, `FSCBLSlot`, `FSFBLSlot`, `FZWBLSlot`, `MDBLSlot`, `OBCSlot`, `OSHSlot`, `PCHCSlot`, `PRCJWSlot`, `SACBLSlot`, `SBBLSlot`, `SCBLSlot`, `TBCSlot`, `TBHSlot`, `TCWSlot`, `TDHSlot`, `TSDSlot`, `TSFBLSlot`, `TWBHCHSlot`, `VNBLSlot`, `ZWBLSlot`.
+
+### Verification completed locally
+
+- Full regression command:
+  `/root/node24/node-v24.18.0-linux-x64/bin/node test-wallet-regressions.cjs`
+- Result:
+  `104/104` passing.
+- Focused all-reservoir audit:
+  27 keys checked, zero invalid 100-line visible win increment issues, zero ordinary coded-symbol flood issues.
+- Targeted samples:
+  `OBCSlot` bet 10 no longer emitted visible wins outside 10-credit increments in the local sample.
+  `TSFBLSlot` ordinary non-feature spins no longer emitted more than two coded coin/bonus symbols in the local sample.
+
+### VPS continuation plan
+
+1. Clone/pull the Git snapshot on the VPS.
+2. Restore or carefully merge the runtime bundle only if the VPS should inherit local sessions/balances. Do not overwrite a newer VPS production database blindly.
+3. Connect to the VPS PostgreSQL database and compare enabled UI titles against the 27 reservoir-backed local keys.
+4. For every title enabled in the VPS UI, verify whether it should use local reservoir engine, fixed math engine, or upstream relay.
+5. Start the VPS launcher with the same local-engine flags only after confirming PostgreSQL, catalog rows, user/member balances, and tunnel/ingress.
+6. Re-run `test-wallet-regressions.cjs` and a small live smoke on `OBCSlot`, `TSFBLSlot`, `TSDSlot`, and `BCSlot` before resuming broad capture work.
+
 ## GitHub snapshot and next-machine continuation — 2026-07-25
 
 - `/egt` is now a Git repository on branch `main`, with `origin` set to `https://github.com/bokluknabelo/egt.git`.

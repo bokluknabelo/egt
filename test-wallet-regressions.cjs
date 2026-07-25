@@ -320,8 +320,8 @@ test('all local titles expose and enforce the six global total bets', () => {
 test('every migrated title routes through an explicit local engine family', () => {
   const { DEFINITIONS, inventoryProfiles } = require('./egt-family-engines.cjs');
   const titles = inventoryProfiles();
-  assert.equal(titles.length, 133);
-  assert.equal(new Set(titles.map(title => title.gameKey)).size, 133);
+  assert.ok(titles.length >= 133);
+  assert.equal(new Set(titles.map(title => title.gameKey)).size, titles.length);
   assert.equal(titles.some(title => !DEFINITIONS[title.family]), false);
   assert.equal(titles.some(title => !title.reels), false);
 });
@@ -649,9 +649,44 @@ test('shared reels bundle receives a short normal stop schedule', () => {
   const source = 'this.gameInitialReelRotationTime=340,this.gameInitialReelRotationTimeInQuickSpin=250,this.gameBetweenReelsDelay=320,this.gameBetweenReelsDelayInQuickSpin=150,this.gameAnticipationReelsDelay=2050';
   const patched = patchReelsTimingBundle(source);
   assert.equal(patched.replacements, 5);
-  assert.match(patched.source, /gameInitialReelRotationTime=180/);
-  assert.match(patched.source, /gameBetweenReelsDelay=110/);
-  assert.match(patched.source, /gameAnticipationReelsDelay=900/);
+  assert.match(patched.source, /gameInitialReelRotationTime=70/);
+  assert.match(patched.source, /gameBetweenReelsDelay=25/);
+  assert.match(patched.source, /gameAnticipationReelsDelay=120/);
+});
+
+test('reservoir slots normalize reported wins and ordinary bonus symbols', () => {
+  const obc = new EgtLocalSession({
+    profile: JSON.parse(fs.readFileSync('data/egt-profiles/OBCSlot.json', 'utf8')),
+    gameKey: 'OBCSlot',
+    balanceUnits: 1e9,
+    replayCapturedProfile: true,
+    random: () => 0.42,
+    randomInt: () => 0,
+  });
+  for (let id = 1; id <= 250; id += 1) {
+    const response = obc.handleShared({ event: 'bet', id, bet: { level: 10, denomination: 1, lines: 100, factor: 100 } });
+    const visibleWin = Number(response.game?.state?.totalWinAmount || response.game?.result?.totalWinAmount || 0) / 100;
+    if (visibleWin > 0) assert.equal(visibleWin % 10, 0);
+  }
+
+  const tsfbl = new EgtLocalSession({
+    profile: JSON.parse(fs.readFileSync('data/egt-profiles/TSFBLSlot.json', 'utf8')),
+    gameKey: 'TSFBLSlot',
+    balanceUnits: 1e9,
+    replayCapturedProfile: true,
+    random: () => 0.42,
+    randomInt: () => 0,
+  });
+  for (let id = 1; id <= 250; id += 1) {
+    const response = tsfbl.handleShared({ event: 'bet', id, bet: { level: 20, denomination: 1, lines: 20, factor: 50 } });
+    const hasFeature = Array.isArray(response.game?.state?.rounds) && response.game.state.rounds.length;
+    if (hasFeature) continue;
+    const codedSymbols = (response.game?.result?.spins || [])
+      .flatMap(spin => (spin.reels || []).flat())
+      .map(Number)
+      .filter(symbol => Number.isFinite(symbol) && symbol >= 100);
+    assert.ok(codedSymbols.length <= 2, `ordinary TSFBL frame has ${codedSymbols.length} coded symbols`);
+  }
 });
 
 test('local EGT sessions restore unsettled state and emit captured jackpot pushes', () => {
@@ -1074,6 +1109,24 @@ test('FDHBL production math executes a full persisted hold-spin protocol through
   assert.equal(response.game.restore.base.spins[0].bonuses.length,0);
   assert.ok(engine.consumeSettlement().winUnits>0);
   assert.equal(selectMathConfiguration('FDHBLSlot',95).versionHash,config.versionHash);
+});
+
+test('FDHBL production math resolves the live Pick Me websocket protocol', () => {
+  const profile=JSON.parse(fs.readFileSync('data/egt-profiles/FDHBLSlot.json','utf8'));
+  const artifact=JSON.parse(fs.readFileSync('data/egt-math-configs/FDHBLSlot.json','utf8')),config=artifact.configurations['95'].config;
+  const stops=[6,9,3,9,8],randomInt=max=>stops.length?stops.shift():0;
+  const engine=new EgtLocalSession({profile,gameKey:'FDHBLSlot',balanceUnits:100000,targetRtp:95,randomInt});engine.mathConfig=config;
+  const factor=engine.betSettings.factor,bet={level:20/factor,factor,denomination:1,lines:engine.betSettings.lines};
+  const trigger=engine.bet({id:'trigger-pick',event:'bet',bet});
+  assert.equal(trigger.state,'pick');assert.equal(trigger.game.result.spins[0].bonuses[0].type,'PICK');
+  assert.deepEqual(trigger.game.result.scatters,[0,2,1,2,2,2,3,2,4,2]);
+  const picked=engine.handle({id:'pick-0',event:'pick',context:{choice:0}});
+  assert.equal(picked.event,'pick');assert.equal(picked.state,'win');
+  assert.equal(picked.game.result.choice,0);assert.deepEqual(picked.game.result.restorePoints,['SPIN']);
+  assert.deepEqual(picked.game.restore.SPIN.scatters,trigger.game.result.scatters);
+  assert.equal(picked.game.result.entries[0].mode,'scatter');assert.equal(picked.game.result.entries[0].symbol,7);
+  assert.equal(picked.game.state.rounds[0].type,'PICK');assert.equal(picked.game.state.rounds[0].remain,0);
+  assert.ok(engine.consumeSettlement().winUnits>0);assert.equal(engine.activeFeature,null);
 });
 
 test('configuration-driven hold-and-spin persists cells, resets lives and settles exactly once', () => {

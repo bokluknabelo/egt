@@ -1122,6 +1122,262 @@
         }
       }
     </style>
+    <style id="cabinet-photo-match">
+      body {
+        min-height: 100vh;
+        background:
+          linear-gradient(90deg, #120504 0 10rem, #210a07 10rem 11rem, transparent 11rem),
+          radial-gradient(circle at 38% 18%, #7f2718 0, #2d0b08 20rem, transparent 44rem),
+          radial-gradient(circle at 70% 88%, #2b160d 0, #080302 42rem),
+          #050302;
+      }
+      body:before {
+        opacity: 0.1;
+        background:
+          linear-gradient(180deg, #000 0 3.8rem, transparent 11rem),
+          repeating-linear-gradient(0deg, transparent 0 7px, #ffffff12 8px);
+      }
+      .shell {
+        width: min(1540px, 100%);
+        padding-bottom: 38px;
+      }
+      .top {
+        min-height: 54px;
+        border-bottom: 1px solid #4e2718;
+        background: #050302d9;
+      }
+      .logo {
+        color: #ffd66d;
+        font-size: clamp(15px, 1.6vw, 22px);
+      }
+      .mark {
+        width: 42px;
+        height: 42px;
+        border-color: #ffb83f;
+        background: radial-gradient(circle at 35% 30%, #fff6a6, #e3391f 48%, #4d0905);
+        box-shadow: 0 0 18px #df311f88;
+      }
+      .workspace {
+        grid-template-columns: 170px minmax(0, 1fr);
+        gap: 18px;
+        align-items: start;
+      }
+      .side {
+        margin-top: 118px;
+        padding: 12px;
+        border: 3px solid #d49b47;
+        border-radius: 12px;
+        background: linear-gradient(180deg, #6a251f, #35110e 58%, #1d0908);
+        box-shadow:
+          inset 0 0 18px #0009,
+          0 0 16px #ce813a55;
+      }
+      .side label,
+      .side select,
+      .sideActions {
+        display: none;
+      }
+      .balanceCard {
+        display: block;
+        margin: 0;
+        min-height: 170px;
+        padding: 20px 8px;
+        border: 0;
+        background: transparent;
+      }
+      .balanceCard small {
+        color: #ffe9bd;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: 0.16em;
+      }
+      .balance {
+        margin-top: 14px;
+        color: white;
+        font-size: clamp(28px, 3.4vw, 52px);
+        line-height: 0.95;
+        text-shadow: 0 0 10px #fff4, 0 4px #4b120d;
+      }
+      .balanceCard span:last-child {
+        color: #ffd56b;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(210px, 330px);
+        align-items: end;
+        margin: 24px 0 16px;
+      }
+      .hero h1 {
+        color: #ffd766;
+        font-size: clamp(44px, 6vw, 86px);
+        letter-spacing: 0;
+        text-align: center;
+        text-shadow:
+          0 3px #711609,
+          0 0 14px #ff9c24,
+          0 0 28px #ff2b1e;
+      }
+      .hero p {
+        display: none;
+      }
+      .search {
+        border-color: #b14f33;
+        border-radius: 8px;
+        background: #160706;
+      }
+      .categories {
+        justify-content: center;
+      }
+      .category {
+        min-width: 0;
+        padding: 7px 13px;
+        border-color: #9c2b2b;
+        border-radius: 8px;
+        background: linear-gradient(#701d1d, #2b0b0b);
+      }
+      .category.active {
+        border-color: #ffcf4e;
+        background: linear-gradient(#ff3a32, #7d120d);
+        box-shadow: 0 0 12px #ff272f99;
+      }
+      .layout {
+        display: block;
+      }
+      .library {
+        display: block;
+        max-height: calc(100vh - 210px);
+        overflow: auto;
+        padding: 2px 6px 12px;
+      }
+      .familySection {
+        padding: 0;
+        border: 0;
+        background: transparent;
+      }
+      .familyHead {
+        display: none;
+      }
+      .familyGames {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 13px;
+        margin-bottom: 13px;
+      }
+      .game {
+        min-height: 116px;
+        aspect-ratio: 1.42 / 1;
+        padding: 8px;
+        border: 3px solid var(--accent);
+        border-radius: 9px;
+        background: #120605;
+        box-shadow:
+          inset 0 0 0 1px #ffffff2e,
+          0 0 11px color-mix(in srgb, var(--accent) 70%, transparent),
+          0 8px 12px #000b;
+      }
+      .game:hover,
+      .game:focus-visible,
+      .game.active {
+        transform: translateY(-2px) scale(1.01);
+        border-color: #ffe37a;
+        box-shadow:
+          inset 0 0 0 1px #fff7,
+          0 0 18px #ffde69,
+          0 9px 14px #000d;
+      }
+      .game.hasIcon:before {
+        background: linear-gradient(180deg, #0000 42%, #050202d6 100%);
+      }
+      .game small {
+        margin-bottom: 66px;
+        color: #fff2aa;
+        font-size: 8px;
+      }
+      .game strong {
+        font: 900 clamp(11px, 1.1vw, 15px) / 1.05 Inter, system-ui, sans-serif;
+        letter-spacing: 0;
+      }
+      .pageControls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 8px 0 12px;
+      }
+      .pageButton {
+        width: 34px;
+        height: 34px;
+        border: 2px solid #782121;
+        border-radius: 8px;
+        color: white;
+        background: linear-gradient(#a82222, #4d0d0d);
+        box-shadow: 0 0 8px #000, inset 0 1px #fff4;
+        font-weight: 900;
+      }
+      .pageButton.active {
+        border-color: #ffdc61;
+        background: linear-gradient(#ff453b, #b71313);
+        box-shadow: 0 0 13px #ff3434;
+      }
+      .player {
+        display: none;
+      }
+      @media (max-width: 760px) {
+        body {
+          background:
+            linear-gradient(#000 0 56px, #220806 57px, #090302 100%);
+        }
+        .shell {
+          padding-bottom: 84px;
+        }
+        .top {
+          min-height: 56px;
+          padding: 8px 10px;
+        }
+        .workspace {
+          display: block;
+        }
+        .side {
+          margin: 8px 10px 0;
+          min-height: 74px;
+        }
+        .balanceCard {
+          min-height: 0;
+          padding: 6px;
+        }
+        .balanceCard small {
+          font-size: 13px;
+        }
+        .balance {
+          font-size: 30px;
+        }
+        .hero {
+          display: block;
+          margin: 8px 0 6px;
+        }
+        .hero h1 {
+          font-size: 40px;
+        }
+        .search {
+          margin: 8px 10px 0;
+          width: calc(100% - 20px);
+        }
+        .library {
+          max-height: none;
+          padding: 0 7px 8px;
+        }
+        .familyGames {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 7px;
+        }
+        .game {
+          min-height: 100px;
+        }
+        .game small {
+          margin-bottom: 54px;
+        }
+      }
+    </style>
   </head>
   <body>
     <section id="auth" class="auth">
@@ -1134,12 +1390,7 @@
             instance.
           </p>
           <form id="setupForm">
-            <label>One-time setup code</label
-            ><input
-              name="setupToken"
-              autocomplete="one-time-code"
-              required
-            /><label>Admin username</label
+            <label>Admin username</label
             ><input name="username" autocomplete="username" required /><label
               >Password</label
             ><input
@@ -1197,7 +1448,7 @@
         <div class="main">
           <section class="hero">
             <div>
-              <h1>Choose your game.</h1>
+              <h1>Select a game</h1>
               <p id="instanceCaption">Select an instance to start.</p>
             </div>
             <input
@@ -1213,6 +1464,16 @@
           </div>
           <section id="gameArea" class="layout">
             <div id="library" class="library"></div>
+            <nav class="pageControls" aria-label="Game pages">
+              <button class="pageButton active">1</button>
+              <button class="pageButton">2</button>
+              <button class="pageButton">3</button>
+              <button class="pageButton">4</button>
+              <button class="pageButton">5</button>
+              <button class="pageButton">6</button>
+              <button class="pageButton">7</button>
+              <button class="pageButton">8</button>
+            </nav>
             <article class="player">
               <div class="playerbar">
                 <div class="now">

@@ -207,7 +207,14 @@ class BellLinkEngine extends ClassicLinesEngine {
       if (!model) return outcome;
       const rows = session.mathConfig.rows, coins = new Set((model.coinSymbols || session.mathConfig.roles.coins).map(Number));
       const count = outcome.spin.reels.reduce((sum, reel) => sum + reel.slice(1, rows + 1).filter(symbol => coins.has(Number(symbol))).length, 0);
-      return count >= Number(model.triggerCount || 5) ? session.holdSpinTrigger(stake, bet, { baseOutcome: outcome, model }) : outcome;
+      if (count >= Number(model.triggerCount || 5)) return session.holdSpinTrigger(stake, bet, { baseOutcome: outcome, model });
+      const pickModel = session.mathConfig.featureModels?.find(feature => feature.type === 'pick-me') || (this.gameKey === 'FDHBLSlot' ? { type: 'pick-me', triggerCount: 3 } : null);
+      const scatter = Number(pickModel?.scatterSymbol ?? session.mathConfig.roles.scatter);
+      if (pickModel && Number.isFinite(scatter)) {
+        const scatterCount = outcome.spin.reels.reduce((sum, reel) => sum + reel.slice(1, rows + 1).filter(symbol => Number(symbol) === scatter).length, 0);
+        if (scatterCount >= Number(pickModel.triggerCount || 3)) return session.pickMeTrigger(stake, bet, { baseOutcome: outcome, scatter, triggerCount: Number(pickModel.triggerCount || 3) });
+      }
+      return outcome;
     }
     for (const scatter of scatterSymbols(this.profile, this.gameKey)) {
       const distribution = scatterCountProbabilities(this.profile, scatter);

@@ -6,6 +6,7 @@ const { RorgklReelReservoir } = require('./rorgkl-reel-engine.cjs');
 const { fixedCascadeOutcome, fixedReelOutcome, secureRandomInt, visibleRowCount } = require('./egt-fixed-reel-engine.cjs');
 const { selectMathConfiguration } = require('./egt-math-registry.cjs');
 const { clientMathMetadata } = require('./egt-client-metadata.cjs');
+const { SlotReservoirRunner, loadSlotReservoir, normalizeReplayMessage, responseWin } = require('./egt-slot-reservoir.cjs');
 
 const PAYLINES_20 = [
   [1,1,1,1,1],[0,0,0,0,0],[2,2,2,2,2],[0,1,2,1,0],[2,1,0,1,2],
@@ -197,6 +198,69 @@ function scaledOutcomeGame(game, ratio) {
   const walk = value => { if (!value || typeof value !== 'object') return; for (const [key, child] of Object.entries(value)) { if (monetary.has(key) && (typeof child === 'number' || /^-?\d+(?:\.\d+)?$/.test(String(child)))) value[key] = typeof child === 'string' ? moneyString(Number(child) * ratio) : Math.round(Number(child) * ratio); else walk(child); } };
   walk(copy); return copy;
 }
+function scaledReservoirMessage(message, ratio) {
+  if (!Number.isFinite(ratio) || Math.abs(ratio - 1) < 0.000001) return structuredClone(message);
+  const copy = structuredClone(message);
+  if (copy.game) copy.game = scaledOutcomeGame(copy.game, ratio);
+  return copy;
+}
+function reservoirMessageHasFeature(message) {
+  const state = String(message?.state || message?.game?.state?.state || '').toLowerCase();
+  const rounds = message?.game?.state?.rounds;
+  const spins = message?.game?.result?.spins || [];
+  if (['holdspin','freespin','respin','freeRespin','highCashFreeRespin','bonusChance','pick','jackpotPick','pickFreeGamesConfig'].includes(state)) return true;
+  if (Array.isArray(rounds) && rounds.length) return true;
+  if (message?.game?.result?.bellLink || message?.game?.result?.freeSpins || message?.game?.result?.freeRespin) return true;
+  return spins.some(spin => String(spin?.type || '').toUpperCase() !== 'SPIN' || (spin?.bonuses || []).some(bonus => ['HOLDSPIN','FREESPIN','RESPIN','FREE_RESPIN'].includes(String(bonus?.type || bonus).toUpperCase())));
+}
+function sanitizeReservoirCoinFlood(game, profile) {
+  const spins = game?.result?.spins;
+  if (!Array.isArray(spins) || !spins.length) return;
+  const filler = ordinarySymbols(profile);
+  if (!filler.length) return;
+  for (const spin of spins) {
+    if (!Array.isArray(spin?.reels)) continue;
+    let coded = 0;
+    for (let reelIndex = 0; reelIndex < spin.reels.length; reelIndex += 1) {
+      const reel = spin.reels[reelIndex];
+      if (!Array.isArray(reel)) continue;
+      for (let row = 0; row < reel.length; row += 1) {
+        const symbol = Number(reel[row]);
+        if (!Number.isFinite(symbol) || symbol < 100) continue;
+        coded += 1;
+        if (coded <= 2) continue;
+        reel[row] = filler[(reelIndex * 7 + row * 3 + coded) % filler.length];
+      }
+    }
+  }
+}
+function normalizeReservoirWinIncrement(message, stake, profile) {
+  const lineCount = Number(profile?.settings?.lines || profile?.settings?.linesOptions?.[0] || 0);
+  if (lineCount < 100 || reservoirMessageHasFeature(message)) return message;
+  const currentWin = responseWin(message);
+  const increment = Math.max(1, Math.round(Number(stake || 0)));
+  if (!Number.isFinite(currentWin) || currentWin <= 0 || increment <= 1) return message;
+  const normalizedWin = Math.max(increment, Math.round(currentWin / increment) * increment);
+  if (normalizedWin === currentWin) return message;
+  const copy = structuredClone(message);
+  if (copy.game) copy.game = scaledOutcomeGame(copy.game, normalizedWin / currentWin);
+  if (copy.game?.state) {
+    copy.game.state.totalWin = moneyString(normalizedWin);
+    copy.game.state.totalWinAmount = moneyString(normalizedWin);
+  }
+  if (copy.game?.result) {
+    copy.game.result.totalWin = normalizedWin;
+    copy.game.result.totalWinAmount = moneyString(normalizedWin);
+    copy.game.result.lastWin = copy.game.result.lastWin && Number(copy.game.result.lastWin) > 0 ? moneyString(normalizedWin) : copy.game.result.lastWin;
+    copy.game.result.lastWinAmount = copy.game.result.lastWinAmount && Number(copy.game.result.lastWinAmount) > 0 ? moneyString(normalizedWin) : copy.game.result.lastWinAmount;
+  }
+  return copy;
+}
+function prepareReservoirMessage(message, { ratio, stake, profile }) {
+  const copy = normalizeReservoirWinIncrement(scaledReservoirMessage(message, ratio), stake, profile);
+  if (!reservoirMessageHasFeature(copy)) sanitizeReservoirCoinFlood(copy.game, profile);
+  return copy;
+}
 let bellLinkArchetype, freeSpinArchetype;
 const cascadeFamilyCache = new Map();
 function isCascadeFamily(profile, gameKey) {
@@ -254,9 +318,12 @@ function capturedFeatureOutcomes(profile) {
 }
 
 class EgtLocalSession {
-  constructor({ profile, gameKey, balanceUnits, targetRtp = 100, random = secureRandom, randomInt = secureRandomInt, featurePreference = '', enableFixedMath = true }) {
+  constructor({ profile, gameKey, balanceUnits, targetRtp = 100, random = secureRandom, randomInt = secureRandomInt, featurePreference = '', enableFixedMath = true, replayCapturedProfile = false }) {
     this.profile = profile; this.gameKey = gameKey; this.balance = Math.round(balanceUnits); this.targetRtp = Number(targetRtp); this.random = random; this.randomInt = randomInt;
-    this.sessionKey = crypto.randomUUID(); this.pendingWin = 0; this.lastWin = 0; this.lastGame = null; this.lastState = 'idle'; this.activeFeature = null; this.featurePreference = featurePreference; this.lastReelsKey = ''; this.lastSettlement = null; this.familyEngine = createFamilyEngine(profile, gameKey);
+    this.sessionKey = crypto.randomUUID(); this.pendingWin = 0; this.lastWin = 0; this.lastGame = null; this.lastState = 'idle'; this.activeFeature = null; this.featurePreference = featurePreference; this.lastReelsKey = ''; this.lastSettlement = null; this.replayStateQueue = null; this.familyEngine = createFamilyEngine(profile, gameKey);
+    this.replayCapturedProfile = replayCapturedProfile || process.env.EGT_REPLAY_CAPTURED_PROFILE === '1';
+    const slotReservoir = this.replayCapturedProfile ? loadSlotReservoir(gameKey) : null;
+    this.slotReservoirRunner = slotReservoir ? new SlotReservoirRunner({ reservoir: slotReservoir, targetRtp: this.targetRtp, random: this.random, randomInt: this.randomInt }) : null;
     // The registry itself is the safety gate: only content-addressed configs
     // with complete feature math and verified total RTP are selectable. All
     // base-only artifacts are rejected before a session reaches this point.
@@ -269,6 +336,8 @@ class EgtLocalSession {
   pushMessages(event) { return (this.profile.eventFamilies?.[event] || []).slice(0, 1).map(template => sockJsEncode(this.fromTemplate({ event }, template))); }
   handle(request) { return this.familyEngine.handle(this, request); }
   handleShared(request) {
+    if (this.activeFeature?.kind === 'slot-reservoir-v1' && ['bet', 'pick'].includes(request.event)) return this.continueSlotReservoir(request, this.activeFeature);
+    if (this.activeFeature && request.event === 'pick') return this.continueFeature(request);
     if (request.event === 'loadGame') return this.loadGame(request);
     if (request.event === 'bet') return this.bet(request);
     if (request.event === 'collect') return this.collect(request);
@@ -284,6 +353,62 @@ class EgtLocalSession {
     if (response.balance) response.balance = { ...response.balance, balance: this.balance };
     if (response.game?.state?.matchId) response.game.state.matchId = randomId();
     return response;
+  }
+  hasCapturedResultKey(key) {
+    const outcomes = Array.isArray(this.profile.outcomes) ? this.profile.outcomes : [];
+    if (outcomes.some(outcome => outcome.game?.result && Object.hasOwn(outcome.game.result, key))) return true;
+    return Object.values(this.profile.eventFamilies || {}).some(samples => Array.isArray(samples) && samples.some(sample => sample.game?.result && Object.hasOwn(sample.game.result, key)));
+  }
+  hasCapturedResultHint(key) {
+    return Object.values(this.profile.schemaHints || {}).some(hint => Array.isArray(hint.resultKeys) && hint.resultKeys.includes(key));
+  }
+  hasCapturedStake(stake) {
+    const outcomes = Array.isArray(this.profile.outcomes) ? this.profile.outcomes : [];
+    return outcomes.some(outcome => Number(outcome.sourceStake) === Number(stake));
+  }
+  hasCapturedBetShape(bet, stake) {
+    const outcomes = Array.isArray(this.profile.outcomes) ? this.profile.outcomes : [];
+    return outcomes.some(outcome => {
+      const source = outcome.sourceBet || {};
+      return Number(outcome.sourceStake) === Number(stake)
+        && Number(source.level) === Number(bet.level)
+        && Number(source.factor || 1) === Number(bet.factor || 1)
+        && Number(source.denomination || 1) === Number(bet.denomination || 1)
+        && Number(source.lines || this.betSettings.lines) === Number(bet.lines || this.betSettings.lines);
+    });
+  }
+  normalizeCapturedResultFields(game) {
+    if (!game?.result) return game;
+    if ((this.hasCapturedResultKey('jpw') || this.hasCapturedResultHint('jpw')) && !Object.hasOwn(game.result, 'jpw')) game.result.jpw = [];
+    if ((this.hasCapturedResultKey('multiplier') || this.hasCapturedResultHint('multiplier')) && !Object.hasOwn(game.result, 'multiplier')) game.result.multiplier = 1;
+    if ((this.hasCapturedResultKey('freeRespin') || this.hasCapturedResultHint('freeRespin')) && !Object.hasOwn(game.result, 'freeRespin')) game.result.freeRespin = 1;
+    return game;
+  }
+  mergeMissing(target, source) {
+    if (!source || typeof source !== 'object') return target;
+    if (!target || typeof target !== 'object') return structuredClone(source);
+    for (const [key, value] of Object.entries(source)) {
+      if (!Object.hasOwn(target, key)) target[key] = structuredClone(value);
+      else if (value && typeof value === 'object' && !Array.isArray(value) && target[key] && typeof target[key] === 'object' && !Array.isArray(target[key])) this.mergeMissing(target[key], value);
+    }
+    return target;
+  }
+  applyCapturedStateSchema(game, state) {
+    if (!game || !state) return game;
+    const samples = [...(this.profile.eventFamilies?.bet || []), ...(this.profile.outcomes || [])];
+    game.result ||= {}; game.state ||= {};
+    for (const template of samples.filter(sample => sample.state === state && sample.game)) {
+      if (template.game.result?.bellLink) game.result.bellLink = this.mergeMissing(game.result.bellLink || {}, template.game.result.bellLink);
+      if (template.game.result?.cashHeat) game.result.cashHeat = this.mergeMissing(game.result.cashHeat || {}, template.game.result.cashHeat);
+      if (template.game.result?.respin) game.result.respin = this.mergeMissing(game.result.respin || {}, template.game.result.respin);
+      if (template.game.result?.freeRespin && !Object.hasOwn(game.result, 'freeRespin')) game.result.freeRespin = structuredClone(template.game.result.freeRespin);
+      if (template.game.result?.jpw && !Object.hasOwn(game.result, 'jpw')) game.result.jpw = structuredClone(template.game.result.jpw);
+      if (template.game.result?.multiplier && !Object.hasOwn(game.result, 'multiplier')) game.result.multiplier = structuredClone(template.game.result.multiplier);
+      if (template.game.result?.restorePoints && !game.result.restorePoints) game.result.restorePoints = structuredClone(template.game.result.restorePoints);
+      if (template.game.restore) game.restore = this.mergeMissing(game.restore || {}, template.game.restore);
+      if (template.game.state?.rounds && !game.state.rounds) game.state.rounds = structuredClone(template.game.state.rounds);
+    }
+    return game;
   }
   loadGame(request) {
     const jackpotStats = this.profile.loadGameShape.jackpotStats?.length ? this.profile.loadGameShape.jackpotStats : defaultJackpotStats(this.profile);
@@ -305,10 +430,10 @@ class EgtLocalSession {
   bet(request) {
     if (this.activeFeature) return this.continueFeature(request);
     const bet = request.bet || {}, rawStake = Number(bet.level) * Number(bet.factor || 1) * Number(bet.denomination || 1), stake = Math.round(rawStake);
-    const validShape = Number(bet.factor) === this.betSettings.factor && Number(bet.denomination || 1) === 1
+    const validShape = this.hasCapturedBetShape(bet, stake) || (Number(bet.factor) === this.betSettings.factor && Number(bet.denomination || 1) === 1
       && this.betSettings.bets.some(level => Math.abs(Number(bet.level) - level) < 0.000001)
-      && Number(bet.lines || this.betSettings.lines) === Number(this.betSettings.lines);
-    if (!validShape || !Number.isFinite(rawStake) || Math.abs(rawStake - stake) > 0.000001 || !ALLOWED_STAKE_SET.has(stake)) return { referenceId: request.id, sessionKey: this.sessionKey, event: 'bet', balance: { balance: this.balance, units: 100, currency: 'EGT' }, state: 'idle', error: { code: 'INVALID_BET', message: 'Allowed total bets: 0.20, 0.50, 1, 2, 5, 10' }, context: {} };
+      && Number(bet.lines || this.betSettings.lines) === Number(this.betSettings.lines));
+    if (!validShape || !Number.isFinite(rawStake) || Math.abs(rawStake - stake) > 0.000001 || (!ALLOWED_STAKE_SET.has(stake) && !this.hasCapturedStake(stake))) return { referenceId: request.id, sessionKey: this.sessionKey, event: 'bet', balance: { balance: this.balance, units: 100, currency: 'EGT' }, state: 'idle', error: { code: 'INVALID_BET', message: 'Allowed total bets: 0.20, 0.50, 1, 2, 5, 10' }, context: {} };
     this.balance += this.pendingWin; this.lastWin = this.pendingWin; this.pendingWin = 0;
     if (this.balance < stake) return { referenceId: request.id, sessionKey: this.sessionKey, event: 'bet', balance: { balance: this.balance, units: 100, currency: 'EGT' }, state: 'idle', error: { code: 'INSUFFICIENT_FUNDS' }, context: {} };
     this.balance -= stake;
@@ -319,10 +444,11 @@ class EgtLocalSession {
     game.state ||= {}; game.state.matchId = randomId(); game.state.bet = structuredClone(bet); game.state.totalWin = moneyString(outcome.totalWin); game.state.totalWinAmount = moneyString(outcome.totalWin);
     // These fields describe a win still being presented, not the amount that was
     // collected before this spin. Carrying the previous value keeps its win layer alive.
-    game.result ||= {}; game.result.lastWinAmount = '0'; game.result.lastWin = '0';
+    game.result ||= {}; game.result.lastWinAmount = '0'; game.result.lastWin = '0'; this.normalizeCapturedResultFields(game);
     this.lastGame = structuredClone(game); this.lastState = outcome.state || (outcome.totalWin > 0 ? 'win' : 'idle');
-    const round = game.state.rounds?.find(value => ['FREESPIN','HOLDSPIN'].includes(value.type));
-    if (round) { this.activeFeature = outcome.familyFeature ? { ...structuredClone(outcome.familyFeature), type: round.type, game: structuredClone(game), context: structuredClone(outcome.context || {}) } : { type: round.type, remain: Math.max(1, Number(round.remain || round.count || 1)), totalWin: outcome.totalWin, game: structuredClone(game), context: structuredClone(outcome.context || {}) }; this.pendingWin = 0; }
+    if (!outcome.slotReservoirReplay) this.applyCapturedStateSchema(game, this.lastState);
+    const round = game.state.rounds?.find(value => ['FREESPIN','HOLDSPIN','PICK'].includes(value.type));
+    if (round || outcome.familyFeature) { this.activeFeature = outcome.familyFeature ? { ...structuredClone(outcome.familyFeature), type: round?.type || outcome.familyFeature.type, game: structuredClone(game), context: structuredClone(outcome.context || {}) } : { type: round.type, remain: Math.max(1, Number(round.remain || round.count || 1)), totalWin: outcome.totalWin, game: structuredClone(game), context: structuredClone(outcome.context || {}) }; this.pendingWin = 0; }
     else { this.balance += this.pendingWin; this.lastWin = this.pendingWin; this.lastSettlement.winUnits = this.pendingWin; this.pendingWin = 0; }
     // The local wallet settles a complete ordinary round atomically. This lets the
     // launcher persist the wager and gross payout as two ledger entries instead of
@@ -332,6 +458,7 @@ class EgtLocalSession {
   }
   continueFeature(request) {
     const feature = this.activeFeature;
+    if (feature.kind === 'pick-me-v1') return this.continuePickMe(request, feature);
     if (feature.kind === 'hold-and-spin-v1') return this.continueHoldSpin(request, feature);
     const game = structuredClone(feature.game); feature.remain = Math.max(0, feature.remain - 1);
     if (feature.kind === 'free-spins-v1') return this.continueFreeSpins(request, feature);
@@ -339,8 +466,8 @@ class EgtLocalSession {
     const round = game.state.rounds?.find(value => value.type === feature.type); if (round) round.remain = feature.remain;
     const final = feature.remain === 0, state = final ? (feature.totalWin > 0 ? 'win' : 'idle') : feature.type.toLowerCase();
     for (const spin of game.result?.spins || []) spin.bonuses = final ? [] : [{ count: feature.remain, type: feature.type }];
-    game.result ||= {}; game.result.lastWinAmount = '0'; game.result.lastWin = '0';
-    this.lastGame = structuredClone(game); this.lastState = state;
+    game.result ||= {}; game.result.lastWinAmount = '0'; game.result.lastWin = '0'; this.normalizeCapturedResultFields(game);
+    this.applyCapturedStateSchema(game, state); this.lastGame = structuredClone(game); this.lastState = state;
     if (final) { this.balance += feature.totalWin; this.lastWin = feature.totalWin; this.lastSettlement = { reference: String(request.id || randomId()), wagerUnits: 0, winUnits: feature.totalWin }; this.activeFeature = null; }
     return { referenceId: request.id, sessionKey: this.sessionKey, event: 'bet', balance: { balance: this.balance, units: 100, currency: 'EGT' }, game, state, context: structuredClone(feature.context) };
   }
@@ -373,6 +500,44 @@ class EgtLocalSession {
       result: { spins: [spin], bellLink: { pos: occupied.map(coin => coin.position), multiplier: 1, boost: false }, totalWinAmount: moneyString(baseWin), totalWin: baseWin, lastWinAmount: '0', lastWin: '0' },
     };
     return { totalWin: baseWin, game, state: 'holdspin', context: {}, familyFeature: { kind: 'hold-and-spin-v1', remain: Number(model.lives || 3), count: Number(model.lives || 3), spinsPlayed: 0, stake, bet: structuredClone(bet), baseWin, totalWin, occupied, model: structuredClone(model), restoreResponse: structuredClone(spin) } };
+  }
+  pickMeTrigger(stake, bet, { baseOutcome, scatter, triggerCount = 3 }) {
+    const outcome = structuredClone(baseOutcome), spin = outcome.spin || outcome.spins?.[0];
+    if (!spin?.reels) throw new Error('pick-me trigger requires a base reel window');
+    const rows = visibleRowCount(this.profile), cells = [];
+    for (let reel = 0; reel < spin.reels.length; reel += 1) for (let row = 0; row < rows; row += 1) {
+      if (Number(spin.reels[reel][row + 1]) === Number(scatter)) cells.push(reel, row);
+    }
+    if (cells.length / 2 < triggerCount) throw new Error('pick-me trigger does not contain enough scatter symbols');
+    spin.bonuses = [{ count: 1, type: 'PICK' }];
+    const baseWin = Number(outcome.totalWin || 0);
+    const game = {
+      state: { matchId: randomId(), bet: structuredClone(bet), totalWin: moneyString(baseWin), totalWinAmount: moneyString(baseWin), limitOverflow: false, gambles: 0, prizes: [] },
+      result: { spins: [spin], scatters: cells, lastWinAmount: '0', lastWin: '0' },
+    };
+    return { totalWin: baseWin, game, state: 'pick', context: {}, familyFeature: { kind: 'pick-me-v1', type: 'PICK', scatter, cells, stake, bet: structuredClone(bet), baseWin, triggerSpin: structuredClone(spin), choices: [stake, Math.round(stake * 2), Math.round(stake * 1.5)] } };
+  }
+  continuePickMe(request, feature) {
+    const choice = Math.max(0, Math.min(feature.choices.length - 1, Number(request.context?.choice || 0)));
+    const win = Math.round(feature.choices[choice]);
+    const totalWin = feature.baseWin + win;
+    const entry = { mode: 'scatter', symbol: Number(feature.scatter), winAmount: moneyString(win), cells: structuredClone(feature.cells), coef: win / Math.max(1, feature.stake), multiplier: 1, occurs: feature.cells.length / 2, win };
+    const restorePoint = 'SPIN', restoreSpin = structuredClone(feature.triggerSpin);
+    const game = {
+      state: {
+        matchId: randomId(), rounds: [{ type: 'PICK', remain: 0, count: 1, totalWin, totalWinAmount: totalWin }],
+        bet: structuredClone(feature.bet), totalWin: moneyString(totalWin), totalWinAmount: moneyString(totalWin),
+        limitOverflow: false, gambles: 1, gambleHistory: [], prizes: [],
+      },
+      result: {
+        entries: [entry], values: structuredClone(feature.choices), lastWin: moneyString(this.lastWin),
+        restorePoints: [restorePoint], type: 'PICK', choice, lastWinAmount: moneyString(this.lastWin),
+      },
+      restore: { [restorePoint]: { spins: [restoreSpin], scatters: structuredClone(feature.cells) } },
+    };
+    this.balance += totalWin; this.lastWin = totalWin; this.lastSettlement = { reference: String(request.id || randomId()), wagerUnits: 0, winUnits: totalWin };
+    this.activeFeature = null; this.lastGame = structuredClone(game); this.lastState = totalWin > 0 ? 'win' : 'idle';
+    return { referenceId: request.id, sessionKey: this.sessionKey, event: 'pick', balance: { balance: this.balance, units: 100, currency: 'EGT' }, game, state: this.lastState, context: {} };
   }
   holdCoinValue(model, symbol) {
     const configured = Number(model.coinValueBySymbol?.[symbol] ?? model.coinValueBySymbol?.[String(symbol)]);
@@ -461,13 +626,91 @@ class EgtLocalSession {
     }
     const final = feature.remain === 0, state = final ? 'win' : 'freespin';
     const rounds = [{ type: 'FREESPIN', remain: feature.remain, count: feature.count, totalWin: feature.totalWin, totalWinAmount: feature.totalWin }];
-    const game = { state: { matchId: randomId(), bet: structuredClone(feature.bet), totalWin: moneyString(feature.totalWin), totalWinAmount: moneyString(feature.totalWin), limitOverflow: false, gambles: 0, gambleHistory: [], prizes: [], rounds }, result: { spins, totalWinAmount: moneyString(win), totalWin: win, lastWinAmount: '0', lastWin: '0' } };
+    const game = this.applyCapturedStateSchema(this.normalizeCapturedResultFields({ state: { matchId: randomId(), bet: structuredClone(feature.bet), totalWin: moneyString(feature.totalWin), totalWinAmount: moneyString(feature.totalWin), limitOverflow: false, gambles: 0, gambleHistory: [], prizes: [], rounds }, result: { spins, totalWinAmount: moneyString(win), totalWin: win, lastWinAmount: '0', lastWin: '0' } }), state);
     if (final) { this.balance += feature.totalWin; this.lastWin = feature.totalWin; this.lastSettlement = { reference: String(request.id || randomId()), wagerUnits: 0, winUnits: feature.totalWin }; this.activeFeature = null; }
     this.lastGame = structuredClone(game); this.lastState = state;
     return { referenceId: request.id, sessionKey: this.sessionKey, event: 'bet', balance: { balance: this.balance, units: 100, currency: 'EGT' }, game, state, context: {} };
   }
   outcome(stake, bet) {
-    return this.familyEngine.outcome(this, stake, bet);
+    return this.slotReservoirOutcome(stake, bet) || this.capturedProfileOutcome(stake, bet) || this.familyEngine.outcome(this, stake, bet);
+  }
+  slotReservoirOutcome(stake, bet) {
+    if (!this.replayCapturedProfile || !this.slotReservoirRunner) return null;
+    const round = this.slotReservoirRunner.nextRound();
+    if (!round?.messages?.length) return null;
+    const sourceStake = Math.max(1, Number(round.stake || round.sourceStake || round.messages[0]?.game?.state?.bet?.level * round.messages[0]?.game?.state?.bet?.factor || stake));
+    const stakeRatio = stake / sourceStake;
+    const messages = round.messages.map(message => prepareReservoirMessage(message, { ratio: stakeRatio, stake, profile: this.profile }));
+    const roundTotalWin = messages.length > 1 ? Math.round(Number(round.totalWin || 0) * stakeRatio) : Math.max(0, responseWin(messages[0]));
+    const first = messages[0];
+    const game = structuredClone(first.game || {});
+    game.state ||= {}; game.result ||= {};
+    game.state.bet = structuredClone(bet);
+    game.state.matchId = randomId();
+    const firstWin = Number(game.state.totalWinAmount || game.state.totalWin || game.result.totalWinAmount || game.result.totalWin || 0);
+    if (messages.length > 1) {
+      const feature = {
+        kind: 'slot-reservoir-v1',
+        roundId: round.id,
+        responses: messages.slice(1),
+        totalWin: roundTotalWin,
+        stake,
+        bet: structuredClone(bet),
+      };
+      return { totalWin: firstWin, game, state: first.state || (firstWin > 0 ? 'win' : 'idle'), context: structuredClone(first.context || {}), familyFeature: feature, slotReservoirReplay: true };
+    }
+    const totalWin = firstWin || roundTotalWin;
+    return { totalWin, game, state: first.state || (totalWin > 0 ? 'win' : 'idle'), context: structuredClone(first.context || {}), slotReservoirReplay: true };
+  }
+  continueSlotReservoir(request, feature) {
+    const template = feature.responses.shift();
+    if (!template) { this.activeFeature = null; return this.bet(request); }
+    const final = feature.responses.length === 0;
+    if (final) {
+      this.balance += Number(feature.totalWin || 0);
+      this.lastWin = Number(feature.totalWin || 0);
+      this.lastSettlement = { reference: String(request.id || randomId()), wagerUnits: 0, winUnits: this.lastWin };
+      this.activeFeature = null;
+    }
+    const response = normalizeReplayMessage(template, { request, sessionKey: this.sessionKey, balance: this.balance, bet: feature.bet });
+    this.lastGame = structuredClone(response.game || null);
+    this.lastState = response.state || this.lastState;
+    return response;
+  }
+  capturedProfileOutcome(stake, bet) {
+    if (!this.replayCapturedProfile) return null;
+    const outcomes = Array.isArray(this.profile.outcomes) ? this.profile.outcomes.filter(outcome => outcome?.game?.result?.spins?.length) : [];
+    if (!outcomes.length) return null;
+    const featureful = outcomes.filter(outcome => outcome.tags?.some(tag => ['HOLDSPIN','FREESPIN','RESPIN','FREERESPIN','PICK','JACKPOT_PICK'].includes(String(tag).toUpperCase())));
+    const winning = outcomes.filter(outcome => Number(outcome.totalWin || outcome.game?.state?.totalWin || outcome.game?.result?.totalWin || outcome.game?.result?.totalWinAmount || 0) > 0 || outcome.state === 'win');
+    if (!featureful.length && !winning.length) return null;
+    this.replayStateQueue ||= [...new Set(outcomes.map(outcome => outcome.state).filter(Boolean))];
+    const forcedState = this.replayStateQueue.shift();
+    if (forcedState) {
+      const candidates = outcomes.filter(outcome => outcome.state === forcedState);
+      if (candidates.length) return this.replayCapturedSample(candidates[Math.floor(this.random() * candidates.length)], outcomes, bet);
+    }
+    const ordinary = outcomes.filter(outcome => !featureful.includes(outcome));
+    const featureChance = featureful.length ? Math.min(0.25, featureful.length / outcomes.length) : 0;
+    const pool = featureful.length && this.random() < featureChance ? featureful : ordinary.length ? ordinary : outcomes;
+    return this.replayCapturedSample(pool[Math.floor(this.random() * pool.length)], outcomes, bet);
+  }
+  replayCapturedSample(source, outcomes, bet) {
+    const sample = structuredClone(source);
+    const game = structuredClone(sample.game);
+    game.state ||= {}; game.result ||= {};
+    game.state.bet = structuredClone(bet);
+    game.state.matchId = randomId();
+    for (const spin of game.result.spins || []) {
+      spin.totalWin = Number(spin.totalWin || spin.totalWinAmount || 0);
+      spin.totalWinAmount = moneyString(spin.totalWin);
+    }
+    const totalWin = Number(game.state.totalWinAmount || game.state.totalWin || game.result.totalWin || game.result.totalWinAmount || sample.totalWin || 0);
+    game.state.totalWin = moneyString(totalWin); game.state.totalWinAmount = moneyString(totalWin);
+    game.result.totalWin = totalWin; game.result.totalWinAmount = moneyString(totalWin);
+    this.normalizeCapturedResultFields(game);
+    game.result.lastWin = '0'; game.result.lastWinAmount = '0';
+    return { totalWin, game, state: sample.state || (totalWin > 0 ? 'win' : 'idle'), context: structuredClone(sample.context || {}) };
   }
   fixedMathOutcome(stake, bet, strips = null) {
     const config = this.mathConfig;

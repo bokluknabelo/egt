@@ -1,16 +1,17 @@
 {
-  "generatedAt": "2026-07-24T16:38:10.340Z",
-  "titleCount": 133,
+  "generatedAt": "2026-07-25T05:20:44.920Z",
+  "titleCount": 141,
   "familyCount": 7,
   "families": {
     "classic-lines-coin": {
-      "titleCount": 89,
+      "titleCount": 93,
       "bonusProtocolReady": false,
       "titles": [
         "ABSlot",
         "BCSlot",
         "BHESlot",
         "BORSlot",
+        "EDSlot",
         "FBCSSlot",
         "FBCSlot",
         "FBHRSlot",
@@ -37,6 +38,7 @@
         "FRSPSlot",
         "FRSRSlot",
         "FSCSlot",
+        "FSHSlot",
         "FVBPSlot",
         "FVCHSlot",
         "FVCHTSlot",
@@ -67,6 +69,7 @@
         "OSFSlot",
         "OSHSSlot",
         "OSHSlot",
+        "PCHCSlot",
         "TBCSlot",
         "TBHSlot",
         "TCHJSlot",
@@ -82,6 +85,7 @@
         "TSDHRSlot",
         "TSDSlot",
         "TSHSASlot",
+        "TSHSlot",
         "TSSSlot",
         "TWBHCHSlot",
         "TWBPSlot",
@@ -109,18 +113,19 @@
       ]
     },
     "buy-bonus-ways": {
-      "titleCount": 5,
+      "titleCount": 6,
       "bonusProtocolReady": false,
       "titles": [
         "ARSlot",
         "BORJWSlot",
         "HFTTSlot",
         "ODJWSlot",
+        "PRCJWSlot",
         "SXSFSSlot"
       ]
     },
     "bell-link": {
-      "titleCount": 19,
+      "titleCount": 22,
       "bonusProtocolReady": false,
       "titles": [
         "BCBLSlot",
@@ -136,22 +141,33 @@
         "FSCBLSlot",
         "FSFBLSlot",
         "FSHBLSlot",
-        "FSHSlot",
         "FZWBLSlot",
+        "MDBLSlot",
         "SACBLSlot",
+        "SBBLSlot",
+        "SCBLSlot",
         "TSFBLSlot",
         "TSHBLSlot",
-        "TSHSlot"
+        "VNBLSlot",
+        "ZWBLSlot"
+      ]
+    },
+    "ways-coin": {
+      "titleCount": 3,
+      "bonusProtocolReady": false,
+      "titles": [
+        "BESlot",
+        "SUCSlot",
+        "TFWSlot"
       ]
     },
     "ways-cascade": {
-      "titleCount": 4,
+      "titleCount": 3,
       "bonusProtocolReady": true,
       "titles": [
-        "BESlot",
         "EITHHRSlot",
         "EITHSlot",
-        "SUCSlot"
+        "FXSFSSlot"
       ]
     },
     "classic-lines": {
@@ -169,14 +185,6 @@
         "SACRSlot",
         "TWBRSlot"
       ]
-    },
-    "ways-or-cluster": {
-      "titleCount": 2,
-      "bonusProtocolReady": false,
-      "titles": [
-        "FXSFSSlot",
-        "TFWSlot"
-      ]
     }
   },
   "titles": [
@@ -192,7 +200,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -211,7 +219,7 @@
       ],
       "symbolRoles": {
         "scatter": 6,
-        "wild": 5,
+        "wild": null,
         "coins": [
           101,
           102,
@@ -245,7 +253,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": []
       },
@@ -263,10 +271,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": [
-          8,
           101,
           102,
           103,
@@ -290,8 +297,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -308,10 +315,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 9,
+        "wild": 8,
         "coins": [
-          8,
           101,
           102,
           103,
@@ -324,9 +330,9 @@
     },
     {
       "gameKey": "BESlot",
-      "family": "ways-cascade",
+      "family": "ways-coin",
       "evaluation": "ways",
-      "bonus": "cascade",
+      "bonus": "mystery-coin",
       "reels": 8,
       "lines": 6561,
       "features": [
@@ -341,7 +347,7 @@
           9
         ]
       },
-      "bonusProtocolReady": true
+      "bonusProtocolReady": false
     },
     {
       "gameKey": "BHESlot",
@@ -356,7 +362,7 @@
       ],
       "symbolRoles": {
         "scatter": 10,
-        "wild": 7,
+        "wild": null,
         "coins": [
           8,
           9
@@ -376,8 +382,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -395,8 +401,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 9,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -414,7 +420,7 @@
       ],
       "symbolRoles": {
         "scatter": 9,
-        "wild": 8,
+        "wild": 9,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -431,8 +437,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 6,
         "coins": [
           101,
           102,
@@ -442,6 +448,24 @@
           108,
           110
         ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "EDSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 10,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
       },
       "bonusProtocolReady": false
     },
@@ -458,7 +482,7 @@
       ],
       "symbolRoles": {
         "scatter": null,
-        "wild": null,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": true
@@ -476,7 +500,7 @@
       ],
       "symbolRoles": {
         "scatter": null,
-        "wild": null,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": true
@@ -493,7 +517,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -511,8 +535,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -529,10 +553,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": [
-          8,
           11
         ]
       },
@@ -550,7 +573,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -568,8 +591,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -587,10 +610,8 @@
       ],
       "symbolRoles": {
         "scatter": 10,
-        "wild": 9,
-        "coins": [
-          8
-        ]
+        "wild": 8,
+        "coins": []
       },
       "bonusProtocolReady": false
     },
@@ -606,8 +627,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": true
@@ -624,11 +645,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
-        "coins": [
-          8
-        ]
+        "scatter": 9,
+        "wild": 8,
+        "coins": []
       },
       "bonusProtocolReady": false
     },
@@ -644,7 +663,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -662,7 +681,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -680,10 +699,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": 6,
-        "wild": 5,
+        "scatter": 7,
+        "wild": null,
         "coins": [
-          7,
           8,
           101,
           102,
@@ -708,7 +726,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -726,10 +744,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 9,
+        "wild": 8,
         "coins": [
-          8,
           101,
           102,
           103,
@@ -753,8 +770,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 9,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -771,10 +788,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 9,
+        "wild": 8,
         "coins": [
-          8,
           101,
           102,
           103,
@@ -797,8 +813,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 9,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -815,7 +831,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": []
       },
@@ -833,10 +849,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 9,
+        "wild": 8,
         "coins": [
-          8,
           10
         ]
       },
@@ -854,7 +869,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": []
       },
@@ -872,7 +887,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 11,
         "wild": null,
         "coins": []
       },
@@ -890,7 +905,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -910,7 +925,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": [
           10
@@ -930,7 +945,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": [
           10
@@ -950,7 +965,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -968,7 +983,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -1022,7 +1037,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": [
           10
@@ -1042,10 +1057,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 9,
+        "wild": 8,
         "coins": [
-          8,
           101,
           102,
           103,
@@ -1068,7 +1082,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -1086,7 +1100,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -1104,8 +1118,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 5,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -1122,8 +1136,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 9,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": true
@@ -1140,8 +1154,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 9,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": true
@@ -1158,8 +1172,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 6,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -1176,10 +1190,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": [
-          8,
           101,
           102,
           103,
@@ -1203,7 +1216,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -1223,8 +1236,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 6,
         "coins": [
           8
         ]
@@ -1243,8 +1256,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 6,
         "coins": []
       },
       "bonusProtocolReady": true
@@ -1277,9 +1290,9 @@
     },
     {
       "gameKey": "FSHSlot",
-      "family": "bell-link",
+      "family": "classic-lines-coin",
       "evaluation": "paylines",
-      "bonus": "hold-and-spin",
+      "bonus": "mystery-coin",
       "reels": 5,
       "lines": 40,
       "features": [
@@ -1287,7 +1300,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -1305,7 +1318,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -1323,11 +1336,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
-        "coins": [
-          8
-        ]
+        "scatter": 10,
+        "wild": 8,
+        "coins": []
       },
       "bonusProtocolReady": false
     },
@@ -1343,7 +1354,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -1363,7 +1374,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": []
       },
@@ -1381,7 +1392,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": []
       },
@@ -1435,7 +1446,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -1453,7 +1464,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -1473,7 +1484,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -1493,8 +1504,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 5,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -1511,17 +1522,17 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 6,
         "coins": []
       },
       "bonusProtocolReady": false
     },
     {
       "gameKey": "FXSFSSlot",
-      "family": "ways-or-cluster",
-      "evaluation": "profile-required",
-      "bonus": "profile-required",
+      "family": "ways-cascade",
+      "evaluation": "ways",
+      "bonus": "cascade",
       "reels": 6,
       "lines": 0,
       "features": [
@@ -1529,11 +1540,11 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 12,
         "wild": null,
         "coins": []
       },
-      "bonusProtocolReady": false
+      "bonusProtocolReady": true
     },
     {
       "gameKey": "FYHBSlot",
@@ -1547,8 +1558,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 9,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -1565,10 +1576,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": [
-          8,
           101,
           102,
           103,
@@ -1592,10 +1602,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": 10,
-        "wild": 9,
+        "scatter": 11,
+        "wild": 10,
         "coins": [
-          11,
           12,
           101,
           102,
@@ -1630,9 +1639,29 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "MDBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 50,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": 11,
+        "wild": null,
+        "coins": [
+          12
+        ]
       },
       "bonusProtocolReady": false
     },
@@ -1648,7 +1677,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -1668,7 +1697,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -1687,11 +1716,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
-        "coins": [
-          11
-        ]
+        "scatter": 12,
+        "wild": 11,
+        "coins": []
       },
       "bonusProtocolReady": false
     },
@@ -1708,7 +1735,7 @@
       ],
       "symbolRoles": {
         "scatter": 9,
-        "wild": 8,
+        "wild": 9,
         "coins": [
           10
         ]
@@ -1727,7 +1754,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -1747,7 +1774,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -1765,7 +1792,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -1785,7 +1812,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": [
           10
@@ -1805,7 +1832,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": [
           10
@@ -1825,7 +1852,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -1843,7 +1870,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -1897,7 +1924,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": [
           10
@@ -1937,7 +1964,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -1957,8 +1984,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 5,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -1975,8 +2002,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 6,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -1993,7 +2020,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": []
       },
@@ -2011,7 +2038,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -2029,7 +2056,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -2047,9 +2074,48 @@
         "GAMBLE"
       ],
       "symbolRoles": {
+        "scatter": 7,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "PCHCSlot",
+      "family": "classic-lines-coin",
+      "evaluation": "paylines",
+      "bonus": "mystery-coin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
         "scatter": null,
         "wild": null,
         "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "PRCJWSlot",
+      "family": "buy-bonus-ways",
+      "evaluation": "ways",
+      "bonus": "buy-bonus",
+      "reels": 6,
+      "lines": 0,
+      "features": [
+        "MYSTERY_JACKPOT",
+        "BUY_BONUS",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          10
+        ]
       },
       "bonusProtocolReady": false
     },
@@ -2086,9 +2152,8 @@
       ],
       "symbolRoles": {
         "scatter": null,
-        "wild": null,
+        "wild": 10,
         "coins": [
-          10,
           101,
           102,
           103,
@@ -2112,17 +2177,60 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 8,
+        "wild": 7,
         "coins": []
       },
       "bonusProtocolReady": true
     },
     {
+      "gameKey": "SBBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 40,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "SCBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 10,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          8,
+          101,
+          103,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
       "gameKey": "SUCSlot",
-      "family": "ways-cascade",
+      "family": "ways-coin",
       "evaluation": "ways",
-      "bonus": "cascade",
+      "bonus": "mystery-coin",
       "reels": 3,
       "lines": 27,
       "features": [
@@ -2134,7 +2242,7 @@
         "wild": null,
         "coins": []
       },
-      "bonusProtocolReady": true
+      "bonusProtocolReady": false
     },
     {
       "gameKey": "SXSFSSlot",
@@ -2149,7 +2257,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 8,
         "wild": null,
         "coins": []
       },
@@ -2167,7 +2275,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -2185,7 +2293,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -2205,7 +2313,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": [
           8
@@ -2225,7 +2333,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -2243,7 +2351,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -2251,9 +2359,9 @@
     },
     {
       "gameKey": "TFWSlot",
-      "family": "ways-or-cluster",
-      "evaluation": "profile-required",
-      "bonus": "profile-required",
+      "family": "ways-coin",
+      "evaluation": "ways",
+      "bonus": "mystery-coin",
       "reels": 3,
       "lines": 0,
       "features": [
@@ -2279,8 +2387,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 9,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -2297,7 +2405,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -2315,7 +2423,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -2333,7 +2441,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -2351,8 +2459,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -2369,11 +2477,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
-        "coins": [
-          8
-        ]
+        "scatter": 10,
+        "wild": 8,
+        "coins": []
       },
       "bonusProtocolReady": false
     },
@@ -2389,8 +2495,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 5,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -2407,8 +2513,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -2425,8 +2531,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -2443,8 +2549,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 6,
         "coins": [
           8
         ]
@@ -2463,8 +2569,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 6,
         "coins": [
           101,
           102,
@@ -2488,7 +2594,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -2496,9 +2602,9 @@
     },
     {
       "gameKey": "TSHSlot",
-      "family": "bell-link",
+      "family": "classic-lines-coin",
       "evaluation": "paylines",
-      "bonus": "hold-and-spin",
+      "bonus": "mystery-coin",
       "reels": 5,
       "lines": 20,
       "features": [
@@ -2506,7 +2612,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -2524,7 +2630,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -2542,10 +2648,9 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 8,
         "coins": [
-          8,
           101,
           102,
           103,
@@ -2573,7 +2678,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -2593,7 +2698,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": []
       },
@@ -2611,7 +2716,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -2631,7 +2736,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": [
           10
@@ -2651,7 +2756,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 7,
         "wild": null,
         "coins": []
       },
@@ -2669,8 +2774,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 10,
+        "wild": 9,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -2705,7 +2810,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 9,
         "wild": null,
         "coins": []
       },
@@ -2723,7 +2828,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -2743,7 +2848,7 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
+        "scatter": 10,
         "wild": null,
         "coins": [
           8
@@ -2763,8 +2868,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 5,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -2781,8 +2886,8 @@
         "GAMBLE"
       ],
       "symbolRoles": {
-        "scatter": null,
-        "wild": null,
+        "scatter": 7,
+        "wild": 6,
         "coins": []
       },
       "bonusProtocolReady": false
@@ -2802,6 +2907,60 @@
         "scatter": null,
         "wild": null,
         "coins": []
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "VNBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": null,
+        "wild": null,
+        "coins": [
+          10,
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          110
+        ]
+      },
+      "bonusProtocolReady": false
+    },
+    {
+      "gameKey": "ZWBLSlot",
+      "family": "bell-link",
+      "evaluation": "paylines",
+      "bonus": "hold-and-spin",
+      "reels": 5,
+      "lines": 5,
+      "features": [
+        "SG_JACKPOT",
+        "GAMBLE"
+      ],
+      "symbolRoles": {
+        "scatter": 10,
+        "wild": null,
+        "coins": [
+          8,
+          101,
+          102,
+          103,
+          104,
+          105,
+          108,
+          110
+        ]
       },
       "bonusProtocolReady": false
     }

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { chromium } = require('/tmp/egt-browser/node_modules/playwright');
+const { chromium, firefox } = require('/tmp/egt-browser/node_modules/playwright');
 const { EgtLocalSession, sockJsDecode } = require('./egt-local-engine.cjs');
 
 const gameKey = process.argv[2] || 'TSHSASlot';
@@ -8,15 +8,34 @@ const validateReconnect = process.env.VALIDATE_RECONNECT === '1';
 const profile = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'egt-profiles', `${gameKey}.json`), 'utf8'));
 
 (async () => {
-  const browser = await chromium.launch({ headless: true, chromiumSandbox: false, args: ['--no-sandbox'] });
-  const page = await browser.newPage({ viewport: { width: 1365, height: 768 } });
+  const browserType = process.env.PLAYWRIGHT_BROWSER === 'firefox' ? firefox : chromium;
+  const executablePath = process.env.PLAYWRIGHT_EXECUTABLE || (browserType === firefox ? process.env.PLAYWRIGHT_FIREFOX_EXECUTABLE : process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE) || undefined;
+  const browser = await browserType.launch({ executablePath, headless: true, chromiumSandbox: false, args: ['--no-sandbox'] });
+  const page = await browser.newPage({
+    viewport: { width: 1365, height: 768 },
+    userAgent: process.env.PLAYWRIGHT_USER_AGENT || undefined,
+  });
   const events = [], errors = [], ignoredErrors = [];
   page.on('pageerror', error => { const value = error.stack || error.message; (/generateLineBtnLable/.test(value) ? ignoredErrors : errors).push(value); });
   page.on('console', message => {
     if (message.type() !== 'error') return;
     const value = message.text();
     if (/NO GAME MODE FOUND: DOUBLE_CHANCE/.test(value)) return;
-    errors.push(value);
+    errors.push(`${value}${message.location()?.url ? ` @ ${message.location().url}:${message.location().lineNumber}` : ''}`);
+  });
+  if (process.env.PLAYWRIGHT_SPOOF_CHROME === '1') await page.addInitScript(() => {
+    const define = (target, key, value) => {
+      try { Object.defineProperty(target, key, { get: () => value, configurable: true }); } catch {}
+    };
+    define(navigator, 'vendor', 'Google Inc.');
+    define(navigator, 'platform', 'Linux x86_64');
+    define(navigator, 'userAgentData', {
+      brands: [{ brand: 'Chromium', version: '149' }, { brand: 'Google Chrome', version: '149' }, { brand: 'Not A(Brand', version: '24' }],
+      mobile: false,
+      platform: 'Linux',
+      getHighEntropyValues: async () => ({ brands: [{ brand: 'Chromium', version: '149' }, { brand: 'Google Chrome', version: '149' }], fullVersionList: [{ brand: 'Chromium', version: '149.0.0.0' }, { brand: 'Google Chrome', version: '149.0.0.0' }], platform: 'Linux', platformVersion: '6.0.0', architecture: 'x86', model: '', mobile: false }),
+    });
+    window.chrome ||= { runtime: {} };
   });
   await page.route(/game-server-demo\.egt-ong\.com\/game-websocket\/info(?:\?|$)/, route => route.fulfill({
     status: 200,

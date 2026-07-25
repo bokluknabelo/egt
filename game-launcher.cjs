@@ -11,7 +11,9 @@ const { compressionCacheVariant } = require('./game-proxy-policy.cjs');
 const { EgtLocalSession } = require('./egt-local-engine.cjs');
 const { DEFINITIONS: EGT_FAMILY_DEFINITIONS, classifyFamily: classifyEgtFamily } = require('./egt-family-engines.cjs');
 const { selectMathConfiguration } = require('./egt-math-registry.cjs');
-const { initStorage, saveState, saveStateWithLedger, saveGameSettlements, listLedger, recordError, monitoringSnapshot, recordUpdateCheck, recentUpdateChecks, saveSession, loadSessions, deleteSession, pruneSessions, saveGameBridge, loadGameBridges, pruneGameBridges: pruneStoredGameBridges, pruneOperationalData, pool } = require('./launcher-store.cjs');
+const { loadSlotReservoir } = require('./egt-slot-reservoir.cjs');
+const launcherStore = require(process.env.LAUNCHER_FILE_STORE === '1' ? './launcher-store-file.cjs' : './launcher-store.cjs');
+const { initStorage, saveState, saveStateWithLedger, saveGameSettlements, listLedger, recordError, monitoringSnapshot, recordUpdateCheck, recentUpdateChecks, saveSession, loadSessions, deleteSession, pruneSessions, saveGameBridge, loadGameBridges, pruneGameBridges: pruneStoredGameBridges, pruneOperationalData, pool } = launcherStore;
 
 const port = Number(process.env.PORT || 8080);
 const root = __dirname;
@@ -21,7 +23,6 @@ const iconDir = path.join(root, 'game-icons');
 const iconManifestPath = path.join(root, 'data', 'game-icons.json');
 const dataPath = process.env.LAUNCHER_DATA_PATH || path.join(root, 'data', 'launcher-auth.json');
 const dataDir = path.dirname(dataPath);
-const setupTokenPath = `${dataPath}.setup-token`;
 const sessions = new Map();
 const loginAttempts = new Map();
 const eventClients = new Set();
@@ -54,13 +55,6 @@ function loadFallbackDb() {
   catch (error) { throw new Error(`Cannot read account database: ${error.message}`); }
 }
 let db = blankDb();
-
-function requiredSetupToken() {
-  if (db.users.length) return '';
-  if (process.env.LAUNCHER_SETUP_TOKEN) return process.env.LAUNCHER_SETUP_TOKEN;
-  if (!fs.existsSync(setupTokenPath)) fs.writeFileSync(setupTokenPath, crypto.randomBytes(12).toString('hex'), { mode: 0o600 });
-  return fs.readFileSync(setupTokenPath, 'utf8').trim();
-}
 
 async function persist() { await saveState(db); }
 
@@ -265,6 +259,14 @@ function localEgtGameKeys() {
   if (!fs.existsSync(directory)) return [];
   return fs.readdirSync(directory).filter(name => /^[A-Za-z0-9_-]+\.json$/.test(name)).map(name => name.slice(0, -5));
 }
+function localEgtReservoirKeys() {
+  const directory = path.join(dataDir, 'egt-slot-reservoirs');
+  if (!fs.existsSync(directory)) return [];
+  return fs.readdirSync(directory).filter(name => /^[A-Za-z0-9_-]+\.json$/.test(name)).map(name => name.slice(0, -5));
+}
+function reservoirBacked(gameKey) {
+  return Boolean(loadSlotReservoir(gameKey));
+}
 async function limitedBody(response,limit=128*1024*1024){const declared=Number(response.headers.get('content-length')||0);if(declared>limit)throw apiError(502,'Upstream resource exceeds proxy limit');const chunks=[];let size=0;for await(const chunk of response.body){size+=chunk.length;if(size>limit)throw apiError(502,'Upstream resource exceeds proxy limit');chunks.push(chunk)}return Buffer.concat(chunks,size)}
 function cachedResourceBytes(resource){let total=resource.payload.length;for(const payload of resource.gzipVariants?.values()||[])total+=payload.length;return total}
 function broadcastInstance(instance, type = 'state') {
@@ -419,11 +421,11 @@ async function stateFor(user, csrf) {
     accounts: hasPermission(user, 'manageUsers') ? db.users.filter(account => user.root || sameTenant(user, account)).map(publicUser) : [],
     instances: playablePublicInstances(user),
     managedInstances: user.role === 'admin' ? db.instances.filter(instance => canAdmin(user, instance)).map(instance => publicInstance(instance, user)) : [],
-    catalog: db.catalog.filter(game => game.enabled).map(game => {
+    catalog: db.catalog.filter(game => game.enabled).filter(game => process.env.EGT_RESERVOIR_ONLY !== '1' || reservoirBacked(game.key)).map(game => {
       const profile = localEgtProfile(game.key);
       return { ...game, family: profile ? classifyEgtFamily(profile) : 'external' };
     }),
-    settings: { ...db.settings, localGameEngineActive: process.env.EGT_GAME_ENGINE === 'local', localGameKeys: localEgtGameKeys() },
+    settings: { ...db.settings, localGameEngineActive: process.env.EGT_GAME_ENGINE === 'local', localGameKeys: localEgtGameKeys(), localReservoirKeys: localEgtReservoirKeys(), reservoirOnly: process.env.EGT_RESERVOIR_ONLY === '1' },
     permissions: { canLaunchGames: user.role === 'admin' || db.settings.playerCanLaunchGames, canManageUsers: hasPermission(user,'manageUsers'), canManageInstances: hasPermission(user,'manageInstances'), canManageBalances: hasPermission(user,'manageBalances'), canManageAccess: hasPermission(user,'manageAccess'), canDeleteInstances: hasPermission(user,'deleteInstances'), canViewLedger: hasPermission(user,'viewLedger'), canManageCatalog: hasPermission(user,'manageCatalog'), canManageSettings: hasPermission(user,'manageSettings'), canViewMonitoring: hasPermission(user,'viewMonitoring'), canManageAdmins: Boolean(user.root), canManageRtp: Boolean(user.root) },
     systemAudit: user.root ? db.systemAudit.slice(-200).reverse() : [],
   };
@@ -435,10 +437,6 @@ async function api(request, response, url) {
   if (request.method === 'POST' && url.pathname === '/api/setup') {
     if (db.users.length) throw apiError(409, 'Setup is already complete');
     const input = await body(request); const username = normalizeUsername(input.username);
-    const expectedToken = requiredSetupToken();
-    const suppliedToken = String(input.setupToken || '');
-    const suppliedTokenBuffer = Buffer.from(suppliedToken); const expectedTokenBuffer = Buffer.from(expectedToken);
-    if (!expectedToken || suppliedTokenBuffer.length !== expectedTokenBuffer.length || !crypto.timingSafeEqual(suppliedTokenBuffer, expectedTokenBuffer)) throw apiError(403, 'Invalid one-time setup code');
     if (!validUsername(username)) throw apiError(400, 'Username must be 3–32 letters, numbers, dots, dashes, or underscores');
     if (!validPassword(input.password)) throw apiError(400, 'Password must be 4–128 characters');
     const instanceName = String(input.instanceName || '').trim(); if (instanceName.length < 2 || instanceName.length > 60) throw apiError(400, 'Instance name must be 2–60 characters');
@@ -446,7 +444,6 @@ async function api(request, response, url) {
     const user = { id: id('usr'), username, nickname: String(input.nickname || username).trim().slice(0, 40) || username, role: 'admin', root: true, currency: 'RON', passwordSalt: credentials.salt, passwordHash: credentials.hash, createdAt: now() }; user.tenantAdminId=user.id;
     const instance = { id: id('ins'), name: instanceName, ownerUserId: user.id, members: [{ userId: user.id, balance: 0 }], activity: [], createdAt: now(), clearedAt: null };
     audit(instance, user, 'INSTANCE_CREATED', { name: instanceName }); db.users.push(user); db.instances.push(instance); await persist();
-    if (fs.existsSync(setupTokenPath)) fs.unlinkSync(setupTokenPath);
     return sendJson(response, 201, { ok: true });
   }
   if (request.method === 'POST' && url.pathname === '/api/login') {
@@ -492,6 +489,11 @@ async function api(request, response, url) {
       const { bridge, bridgeHash, instance, member, walletUser, auth } = bridgeFor(request, bridgeMatch[1]);
       if (sequence <= bridge.lastSequence) return { balance: member.balance, applied: 0, duplicate: true, simulated: true };
       bridge.lastSequence = sequence;
+      if (usesAuthoritativeLocalSettlement(bridge.gameKey)) {
+        bridge.upstreamBalance = upstreamBalance;
+        await saveGameBridge(bridgeHash, bridge);
+        return { balance: member.balance, applied: 0, rawDelta: 0, authoritativeLocal: true, simulated: true };
+      }
       if (initialize || bridge.upstreamBalance === null) { bridge.upstreamBalance = upstreamBalance; await saveGameBridge(bridgeHash, bridge); return { balance: member.balance, applied: 0, initialized: true, simulated: true }; }
       const rawDelta = roundMoney(upstreamBalance - bridge.upstreamBalance); bridge.upstreamBalance = upstreamBalance;
       if (!rawDelta) { await saveGameBridge(bridgeHash, bridge); return { balance: member.balance, applied: 0, simulated: true }; }
@@ -808,8 +810,16 @@ function localTargetRtp(bridge) {
   if (auditWallet && bridge?.walletUserId === auditWallet && Number.isFinite(auditRtp) && auditRtp >= 0 && auditRtp <= 100) return auditRtp;
   return Number(db.settings.rtpPercent);
 }
+function usesAuthoritativeLocalSettlement(gameKey) {
+  if (process.env.EGT_GAME_ENGINE !== 'local') return false;
+  const profile = localEgtProfile(gameKey);
+  if (!profile) return false;
+  if (process.env.EGT_REPLAY_CAPTURED_PROFILE === '1' && reservoirBacked(gameKey)) return true;
+  return Boolean(selectMathConfiguration(gameKey, Number(db.settings.rtpPercent)));
+}
 async function settleLocalEngineRound(context, settlement, engineBalanceUnits) {
   if (!settlement || (!settlement.wagerUnits && !settlement.winUnits)) return;
+  const visibleCredits = units => roundMoney(Number(units || 0) / 100);
   const walletKey = `${context.instance.id}:${context.walletUser.id}`;
   const operation = (walletQueues.get(walletKey) || Promise.resolve()).then(async () => {
     const member = context.instance.members.find(item => item.userId === context.walletUser.id);
@@ -821,8 +831,8 @@ async function settleLocalEngineRound(context, settlement, engineBalanceUnits) {
       audit(context.instance, context.walletUser, reason, { transactionId: transaction.id, userId: context.walletUser.id, username: context.walletUser.username, gameKey: context.bridge.gameKey, amount, balance, grossSettlement: true });
       entries.push(transaction);
     };
-    const wager = roundMoney(Number(settlement.wagerUnits || 0) / 100);
-    const win = roundMoney(Number(settlement.winUnits || 0) / 100);
+    const wager = visibleCredits(settlement.wagerUnits);
+    const win = visibleCredits(settlement.winUnits);
     if (wager > 0) addEntry(-Math.min(balance, wager), 'GAME_WAGER', applyGlobalRtp(db.settings, -Math.min(balance, wager), walletKey));
     if (win > 0) addEntry(win, 'GAME_WIN', applyGlobalRtp(db.settings, win, walletKey));
     member.balance = balance;
@@ -839,13 +849,14 @@ server.on('upgrade', (request, socket, head) => {
     if (url.pathname === '/egt-game-websocket') {
       const token = url.searchParams.get('bridge') || '', context = bridgeFor(request, token);
       const profile = localEgtProfile(context.bridge.gameKey), targetRtp = localTargetRtp(context.bridge);
-      const useLocalEngine = process.env.EGT_GAME_ENGINE === 'local' && profile && selectMathConfiguration(context.bridge.gameKey, targetRtp);
+      const hasReservoir = process.env.EGT_REPLAY_CAPTURED_PROFILE === '1' && reservoirBacked(context.bridge.gameKey);
+      const useLocalEngine = process.env.EGT_GAME_ENGINE === 'local' && profile && (hasReservoir || selectMathConfiguration(context.bridge.gameKey, targetRtp));
       if (useLocalEngine) {
         const { familyId, familyServer } = egtFamilyWebSocket(profile);
         return familyServer.handleUpgrade(request, socket, head, client => {
         const sessionId = `${context.bridgeHash}:${context.bridge.gameKey}`;
         let localSession = egtLocalSessions.get(sessionId);
-        if (!localSession) { localSession = { engine: new EgtLocalSession({ profile, gameKey: context.bridge.gameKey, balanceUnits: Number(context.member.balance) * 100, targetRtp }) }; egtLocalSessions.set(sessionId, localSession); }
+        if (!localSession) { localSession = { engine: new EgtLocalSession({ profile, gameKey: context.bridge.gameKey, balanceUnits: Number(context.member.balance) * 100, targetRtp: localTargetRtp(context.bridge), replayCapturedProfile: hasReservoir }) }; egtLocalSessions.set(sessionId, localSession); }
         const engine = localSession.engine; engine.targetRtp = targetRtp;
         if (!egtLocalClients.has(sessionId)) egtLocalClients.set(sessionId, new Set());
         egtLocalClients.get(sessionId).add(client);

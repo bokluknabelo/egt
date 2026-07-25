@@ -173,14 +173,13 @@ The processes are currently manual and do not survive reboot unless you add syst
 | `PGDATABASE` | `egt_arcade` | PostgreSQL database when `DATABASE_URL` is unset |
 | `PGUSER` | `root` | PostgreSQL role when `DATABASE_URL` is unset |
 | `LAUNCHER_DATA_PATH` | `/egt/data/launcher-auth.json` | Fallback/pre-cutover data and setup-token location |
-| `LAUNCHER_SETUP_TOKEN` | generated when required | One-time setup override for an empty account database |
 | `CAPTURE_WAIT_MS` | `20000` | Default Playwright capture wait for the capture worker |
 
 Do not store passwords, session cookies, CSRF tokens, setup tokens, or private database URLs in tracked documentation.
 
 ## First-time setup
 
-When the user table is empty, the login page displays the initial setup flow. Obtain the one-time setup token from the generated setup-token file or provide `LAUNCHER_SETUP_TOKEN` before starting the launcher. The setup endpoint deletes the generated token after successful initialization.
+When the user table is empty, the login page displays the initial setup flow. Create the first administrator account directly from that form.
 
 For an existing deployment, PostgreSQL is authoritative. Do not rerun migrations manually or restore old JSON backups over current state.
 
