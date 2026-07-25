@@ -239,6 +239,11 @@ This is the current authoritative local workspace state before moving work back 
 - `/health` returned:
   `{"ok":true,"setupRequired":false,"shuttingDown":false}`
 - The earlier `https://36b15f601c9fe3.lhr.life/` tunnel was stale and returned `no tunnel here`.
+- After the GitHub push, the local 443 launcher, 8082 standby launcher, localtunnel process, and protocol tail were stopped.
+- Two old snap-scoped raw capture processes from the earlier `/tmp/egt/repo` attempt remained protected by the old `/snap/codex/34/bin/codex` parent and rejected `SIGTERM`/`SIGKILL` with `EACCES` even as UID 0:
+  PID `27197`, port `8080`, command `/root/node24/node-v24.18.0-linux-x64/bin/node ws-capture-firefox-standalone.cjs`, env `PORT=8080`, `WS_CAPTURE_PATH=/tmp/egt/repo/output/firefox-ws-capture.jsonl`
+  PID `28119`, port `80`, command `/root/node24/node-v24.18.0-linux-x64/bin/node ws-capture-firefox-standalone.cjs`, env `PORT=80`, `WS_CAPTURE_PATH=/tmp/egt/repo/output/firefox-ws-capture.jsonl`
+- If local ports 80 or 8080 matter later, close the old snap Codex session with parent PID `22454` or reboot the local VM. These two capture processes are not the current `/home/xel/egt` launcher.
 
 ### Implemented local fixes to preserve
 
